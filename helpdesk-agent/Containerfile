@@ -1,0 +1,38 @@
+FROM registry.access.redhat.com/ubi9/python-312:latest
+
+WORKDIR /app
+
+# Create dirs as root before UBI drops to 1001.
+# /app/models is mounted as a PVC at runtime — keep HF cache outside it so
+# the baked-in model files are not shadowed by the volume mount.
+USER 0
+RUN mkdir -p /app/models /app/hf_cache && \
+    chown -R 1001:0 /app/models /app/hf_cache && \
+    chmod -R g+rwX /app/models /app/hf_cache
+USER 1001
+
+# Models stored on PVC at /app/models/hf — rsync'd once, persist across restarts.
+# TRANSFORMERS_OFFLINE=1 prevents network checks since OCP egress blocks huggingface.co
+ENV HF_HOME=/app/models/hf
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+# Persistent data directory (mount a PVC here)
+ENV DATA_DIR=/app/models
+
+# Disable HF network checks — models are on PVC.
+ENV TRANSFORMERS_OFFLINE=1
+ENV HF_DATASETS_OFFLINE=1
+
+# Limit PyTorch intra-op threads to 1 per worker.
+# Without this each worker spawns N_CPU threads, ballooning arena to 300MB+/worker.
+# With OMP_NUM_THREADS=1: arena drops to ~125MB/worker → 4 workers safe at 4Gi.
+ENV OMP_NUM_THREADS=1
+ENV MKL_NUM_THREADS=1
+
+EXPOSE 8080
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]

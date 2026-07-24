@@ -1,0 +1,1668 @@
+[
+  {
+    "text_a": "The request for slow Jira response times was closed by the support team due to a lack of response from the customer after multiple follow-up attempts. The customer was advised to reopen the request or create a new one if further assistance is needed.",
+    "text_b": "The issue was closed due to a lack of response from the reporter after multiple follow-up attempts. The support team resolved the request as no further assistance was indicated.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The reported Jira slowness and errors experienced between 6-8 UTC were identified as a duplicate of an existing issue.",
+    "text_b": "The reported Jira slowness occurring around 6-8 UTC was identified as a duplicate issue.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's permissions to edit on the DFBUGS project were restored. While troubleshooting steps like clearing browser cache were attempted, the issue began working again on its own.",
+    "text_b": "The requested permissions for the `kernel-ft-plumbers` JIRA account were successfully set in the Production environment. The issue was resolved after the necessary configurations were applied.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's syncing problem was identified as a known issue with the group synchronization feature that is actively being addressed. This request was closed, and the user was added to a separate, ongoing effort for updates on the resolution.",
+    "text_b": "The request was closed because the underlying issue of the pme bot removing roles is actively being investigated as part of a separate initiative, RH1-6900, with updates to be tracked in Jira.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed by the support team due to a lack of response from the user after multiple follow-up inquiries. They offered the option to reopen the request or create a new one if further assistance is needed.",
+    "text_b": "Support provided the requested transition IDs, which the Program Manager needed for their GitLab-Jira integration project. The user confirmed receipt and is now working with other teams to implement the integration, leading to the closure of the request.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's JIRA access issue was resolved by instructing them to log in with their username 'wang701' instead of their email address, as logging in with an email address is no longer supported. Using the username successfully restored access.",
+    "text_b": "Jaskarn Randhawa was successfully added to the \"Nokia Core\" Contributing Group. This action granted him access to the Nokia NPSSBPDEV Jira project tickets, which was confirmed by the user.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The 'Fix Version' field was confirmed to be a system field already enabled for all projects. The requester was advised to add a version and try again, indicating no further action was needed to enable the field.",
+    "text_b": "The \"External issue URL\" field was already present on the CRYPTO project screens for the requested issue types. Therefore, no action was needed to activate it.",
+    "label": "duplicate",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account was created for the user. This resolved their inability to log in to the platform.",
+    "text_b": "A Confluence account was successfully created for Matias Schimuneck (SSO user: rh-ee-mschimun). Matias confirmed he was able to log in using his SSO password and that everything was working correctly.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The requested Jira projects (VIRTSTRAT, XCMSTRAT, OCMUI, SDE, ARO, SDSTRAT, OCM, OHSS, SREP) were added to the IntelliTLDR summarization list. The IntelliTLDR plugin was subsequently disabled and re-enabled in the production environment.",
+    "text_b": "The new archival policy has been put on hold pending further team discussions, meaning its enforcement and any mass archival events are currently paused. Next steps and information on identifying projects for archival will be shared after these discussions are completed.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request to add UnifAI Redirect Domains to the Atlassian MCP Server OAuth 2.1 Allowlist was closed due to a lack of response from the requester. The implementation was pending an ESS review at the time of closure.",
+    "text_b": "The request was closed due to a lack of response from the reporter after multiple follow-up attempts from the support team.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Access to the Jira data mart was granted to David Meyer by adding him to two Rover groups. David Meyer confirmed he is now able to see both 'marts' schemas, fulfilling his request.",
+    "text_b": "Access to Jira data was granted by adding the user to both the RHAI_MARTS and MARTS schemas in the JIRA_DB database. Users are advised not to use the MARTS schema with AI tools due to privacy compliance restrictions.",
+    "label": "duplicate",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The \"Target Version\" field was already available in the MTV project, located on the release tab rather than the field tab where the user was initially looking.",
+    "text_b": "The user was unable to run the \"Clone Epic and children\" automation due to missing specific project-level administrator permissions. After the required project permissions were granted, the user was able to successfully execute the automation.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The \"Commitment\" field was successfully added to the Jira projects SPMM and MMENG as requested.",
+    "text_b": "The \"Errata Link\" field was successfully added to the RHOSSTRAT project as requested. The user confirmed that the implementation works as expected.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for team names to appear in the JQL prompt was marked as \"Won't Do.\" This was due to the search string not being unique enough, which prevented the team names from appearing in the limited list of suggested names.",
+    "text_b": "The Project Sidebar is now loading correctly in Firefox, with the previously reported issue no longer observed.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed due to inactivity after the user did not respond to multiple follow-up inquiries from the support team. The reported issue regarding the missing story in the backlog was not directly addressed within this request.",
+    "text_b": "The request was closed by the support team due to a lack of response from the requester after multiple follow-up attempts. It was noted that the requester could reopen the request or create a new one if further assistance was needed.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The archival policy was postponed as requested to allow the OpenStack team time for data backup. The requester confirmed the issue was on hold and approved the ticket's closure.",
+    "text_b": "The archived child issue, which was still appearing in the parent's list, was restored and then re-archived to successfully remove its link from the parent issue.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Access for the AWS product team was enabled by clarifying that issues in XCMSTRAT and OSDOCS projects must have their security level set to \"Red Hat Partner\" and the \"Contributing Groups\" field set to \"Amazon Confidential Group\". The \"Contributing Groups\" field has now been enabled to facilitate this.",
+    "text_b": "Access to the Data Foundation Jiras was denied because their security level is set to only allow visibility for Red Hat employees, preventing external partners from accessing them.",
+    "label": "duplicate",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Clark Everson adjusted the resolution states in the RFE Jira project, which had been incorrectly converted after a workflow transition. Nick Png confirmed the changes were successful and resolved the issue.",
+    "text_b": "A bug ticket (RH1-6927) was created to address the underlying problem of sprints ending in a half-broken state, and this service request was closed with future updates to be tracked in the new bug. A JQL query was also provided to help identify issues potentially affected by the previous sprint closure.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account with the username `rhn-support-roak` was created for Rishikesh Oak, allowing him to successfully log in and access the previously inaccessible spaces.",
+    "text_b": "A Confluence account was created for Hiroyuki Hasebe. He was able to log in and access the site successfully.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for admin permission to UXDOPS was closed by the support team due to a lack of response from the requester after multiple follow-up attempts.",
+    "text_b": "The support team closed the request due to inactivity after the user did not respond to follow-up inquiries. The original request for access was therefore not fulfilled.",
+    "label": "duplicate",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed due to a lack of response from the user after the support team followed up multiple times. The original issue of embedding a Google Sheet in Confluence was not addressed.",
+    "text_b": "The support request was closed by the support team due to a lack of response from the user, despite multiple follow-up attempts. The reported issue itself was not addressed or fixed within the scope of this particular request.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The RICE Standard Custom Fields were successfully added to the Red Hat AI Strategic (RHAISTRAT) project, enabling PMs to include RICE scores for their Features. The requester confirmed that the fields were appearing as requested and working correctly.",
+    "text_b": "The user was informed that the requested Confluence space was restricted to Red Hat employees and provided with a link to manage user access and permissions.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user was unable to run the \"Clone Epic and children\" automation due to missing specific project-level administrator permissions. After the required project permissions were granted, the user was able to successfully execute the automation.",
+    "text_b": "The user was unable to transition issues to \"Approve,\" \"Start Progress,\" or \"Start Review\" because they needed to be assigned the 'Approver role' and be included in the 'Approver field' on the issue itself.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The requested functionality to use a template when creating new Jira tickets from the User Story Map + button is not possible due to how EasyAgile's story map creates quick action items. A feature request was opened with the vendor for this enhancement, but users can also submit future requests directly through Easy Agile's help menu.",
+    "text_b": "The issue was resolved as it was no longer reproducible after a recent update.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for admin permission to UXDOPS was closed by the support team due to a lack of response from the requester after multiple follow-up attempts.",
+    "text_b": "The support team closed the request due to a lack of response from the Microsoft partner staff member after multiple follow-up attempts.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Lorna regained access to Jira after being advised to log in using the \"rh-ee-lgannon\" account. This action successfully resolved her login issue.",
+    "text_b": "The user's SAML Single Sign-On failed because their account was not found in the system. An administrator resolved this by creating the missing user account, which restored the user's access.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed because the requester did not respond to multiple follow-up inquiries from the support team. They were offered the option to reopen or create a new request if further assistance was needed.",
+    "text_b": "The request was closed due to a lack of response from the customer after multiple follow-up attempts by the support team. The customer was advised to re-open the request or create a new one if further assistance is needed.",
+    "label": "duplicate",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's SSO login to Confluence was failing because their account did not exist in Confluence. An administrator created the missing Confluence account for the user, resolving the login issue.",
+    "text_b": "An account was created for Masaki Katchi to access Red Hat Confluence. Masaki confirmed successful login to the Confluence page.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user was informed that the requested Confluence space was restricted to Red Hat employees and provided with a link to manage user access and permissions.",
+    "text_b": "The automation rule was not reviewed or promoted to production as the requester opted for an alternative, more fine-grained control system.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The SFDC integration for the CLAIRDEV project was enabled, allowing users to successfully link CLAIRDEV JIRA issues with Salesforce. This resolved the previous \"Rejected\" status encountered during the linking process.",
+    "text_b": "The inability to connect the Jira project with ServiceNow, despite the workflow running, was resolved with assistance from Raju Anumula. The project is now successfully connected.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account with the username `rhn-support-roak` was created for Rishikesh Oak, allowing him to successfully log in and access the previously inaccessible spaces.",
+    "text_b": "A Confluence account was successfully created for Matias Schimuneck (SSO user: rh-ee-mschimun). Matias confirmed he was able to log in using his SSO password and that everything was working correctly.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The issue of sending Slack messages with advanced formatting from Jira was resolved by identifying a limitation within Slack itself, which converts all incoming formatted text into plain text. This means that pre-formatted text sent from Jira will not retain its advanced formatting in Slack.",
+    "text_b": "The user's query about missing links was resolved by clarifying that the DVCS connector was configured only for GitHub, and GitLab access is separate from the current configuration. This explanation helped the user understand why their expected links were not appearing.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The \"Team Gig Bookmarks\" project was successfully created with the key GIGBKMRK. The user was provided with a link to the new project and instructions to add team members and assign roles.",
+    "text_b": "A project was successfully created for Pavel Najman, and he was provided with instructions on how to add team members and assign roles within the new project.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Access to the SRVKP Jira project was restored for all affected users. The team is currently investigating the underlying cause of the unauthorized project role changes that led to the access loss.",
+    "text_b": "Access to the PSGUILDS board was successfully granted, resolving the user's inability to view it. The user confirmed they could then access the board.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The reported issue was determined to be a test case. The ticket was therefore marked as obsolete.",
+    "text_b": "The support agent performed a bulk update to populate the 'Products' field on the 43 CLIOT issues as requested. The requester confirmed the update was completed, leading to the resolution of the request.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The support team advised the user to contact their project lead or admin to obtain the necessary \"Create Sprint\" permissions, or to provide approval for adding them to the project role.",
+    "text_b": "The access request for the RHEL project was marked as \"Won't Do\" because the user implemented a workaround and opted to cancel the request, as their manager lacked the necessary approval access.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The \"AssignedTeam\" field was made searchable, allowing users to type and filter for specific teams instead of browsing a long list. This enhancement addresses the user's need to quickly find and select teams.",
+    "text_b": "The user confirmed that the accessibility issue with drop-downs was resolved to their satisfaction. The support agent then closed the ticket, advising the user to post broader QA concerns to the Atlassian community.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for support in investigating a transition from Smartsheet reporting was closed after the requestor decided to explore Snowflake as a more suitable long-term solution. They indicated they would re-raise a ticket if specific questions arose.",
+    "text_b": "The request was closed because the reporter did not respond to follow-up inquiries from the support team. They were advised to reopen the request or create a new one if further assistance was needed.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's SSO login to Confluence was failing because their account did not exist in Confluence. An administrator created the missing Confluence account for the user, resolving the login issue.",
+    "text_b": "The user's SSO login to Jira with their rhn-support account was restored. This resolved the issue that prevented them from accessing Jira following the end of email login support.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The permission issues preventing the rhn-support- account from commenting on Jira tickets and viewing boards were resolved. The user confirmed they could subsequently comment and access the previously blocked boards.",
+    "text_b": "The permission issue preventing users from performing state transitions on Jira issues was rectified. This resolved the error message stating users lacked permission to transition the issues.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A spike was created in the backlog for further discussion on how to track documentation updates within story workflows. This issue is now resolved, and future updates will be followed through the new spike.",
+    "text_b": "The support team closed the request after the user did not respond to multiple follow-up inquiries. The team offered the option to reopen it or create a new request if further assistance is needed.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The support team closed the request due to a lack of response from the Microsoft partner staff member after multiple follow-up attempts.",
+    "text_b": "The request was closed due to inactivity after the support team did not receive a response from the requester to their follow-up messages.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's request for help accessing a Red Hat Jira ticket was closed after multiple follow-up attempts from the support agent went unanswered. The user can reopen the request or create a new one if further assistance is needed.",
+    "text_b": "The access request was closed after multiple automated follow-ups from the pme-bot service account, as the user did not respond to indicate if further assistance was needed.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request to connect pme-bot to ansible/aap-dev was identified as a duplicate ticket and subsequently closed.",
+    "text_b": "The request to connect the pme-bot to ansible/aap-dev was completed. This ticket was subsequently identified as a duplicate and closed.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed by the support team due to a lack of response from the user after multiple follow-up inquiries. They offered the option to reopen the request or create a new one if further assistance is needed.",
+    "text_b": "The request was closed due to a lack of response from the customer after multiple follow-up inquiries by the support team. The team advised the customer to reopen the request or create a new one if further assistance is needed.",
+    "label": "duplicate",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "An account was created for Charli to access Confluence. Charli was instructed to log in with SSO to confirm access.",
+    "text_b": "A Confluence account was created for the user 'rhn-support-sgadre', which resolved their inability to access the specified Confluence website.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user was informed they already possessed an existing Confluence account and was advised to log in using their SSO credentials. The user subsequently confirmed they had access.",
+    "text_b": "The user 'rh-ee-sekrishn' was initially unable to log in via SAML because their account could not be found on the system. The issue was resolved, and the user confirmed they can now successfully log in with their Redhat ID to access Confluence and Jira.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's request for help accessing a Red Hat Jira ticket was closed after multiple follow-up attempts from the support agent went unanswered. The user can reopen the request or create a new one if further assistance is needed.",
+    "text_b": "The user's login difficulty after single sign-on stopped working was addressed by advising them to try logging in with the 'rh-ee-mmisiura' username. The ticket was subsequently closed after automated follow-up messages did not elicit a response from the user.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed without action because the requester did not respond to multiple automated follow-up messages from the support team, prompting Raju Anumula to resolve it due to inactivity.",
+    "text_b": "The request for a popup for the \"management-review\" label was discussed with the leadership team, who decided to decline it due to concerns about adding complexity for an outlier case. Consequently, the feature request was closed without implementation.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for support in investigating a transition from Smartsheet reporting was closed after the requestor decided to explore Snowflake as a more suitable long-term solution. They indicated they would re-raise a ticket if specific questions arose.",
+    "text_b": "The request regarding the rich filter plugin blocking JBoss EAP processes was closed by the support team after multiple follow-ups, as no further assistance was required from the requester.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed after multiple follow-ups received no response from the requester. A new request must be created if the application still needs to be moved to production.",
+    "text_b": "Access was granted to the `RHAI_MARTS` schema within the `JIRA_DB` database in Snowflake. This enables the requesters to query the necessary Jira data for their proof-of-concept script.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for automatic documentation generation was closed due to a lack of response from the requester after multiple follow-ups from the support team's bot.",
+    "text_b": "The query regarding Jira Work Management and its mobile apps being enabled was answered. The request was subsequently closed due to a lack of response from the user following follow-up inquiries.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for login assistance was closed due to a lack of response from the user. After sending multiple follow-up messages without a reply, the support team deemed the issue inactive and closed it.",
+    "text_b": "The request was resolved due to a lack of response from the reporter after the support team sent multiple follow-up inquiries. The issue was closed when no further communication was received from the user.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for a list of Jira project details, including Project Name, Lead email, Category, and Priority scheme, was fulfilled by providing a Google Sheet with the relevant data. This work was linked to an existing work item (RH1-6507) and added to an upcoming sprint for further processing.",
+    "text_b": "The reported issue of possible stale data in Snowflake JIRA_DB was marked obsolete. This was due to the user confirming that the original report was a test.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's inquiry regarding upcoming JIRA login changes on July 1st was resolved by confirming the changes and advising users to update their login method from email address to username before the deadline if applicable.",
+    "text_b": "The user was not receiving email notifications for issues they assigned to themselves because Jira's default behavior is to suppress notifications for actions performed by the user. They were informed that this setting can be changed within their Jira profile.",
+    "label": "distinct",
+    "category": "Notifications",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The issue of Google Docs images not displaying in Firefox/Brave on Confluence was reproduced, and a new bug (RH1-6688) was created to escalate the problem for vendor investigation.",
+    "text_b": "The issue, caused by a testing rule that incorrectly linked hundreds of work items, was resolved by disabling the problematic rule. All incorrectly linked work items were subsequently removed from the affected issue.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The reported sorting issue was reproduced on a lower environment, leading to the creation of a new bug ticket in the backlog to address it. The original reporter was added to the new bug ticket to receive updates.",
+    "text_b": "A story (RH1-6475) was created in the backlog as a Request for Enhancement (RFE) to address the missing options for the \"Confidence\" field. The original request was then closed, with the user directed to watch the new story for updates.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The VROOM AutoAssignment Script was updated to support the new RHIVOS2 directory. The PME team subsequently closed the request, indicating there were no further action items required from their side.",
+    "text_b": "The support team closed the request after the user did not respond to multiple follow-up inquiries. The team offered the option to reopen it or create a new request if further assistance is needed.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "An account was created for the user in Confluence, and the user confirmed successful access to the platform.",
+    "text_b": "A Confluence account was created for the user with their existing `rh-ee-djulich` username. The user successfully logged in to Confluence and confirmed access.",
+    "label": "duplicate",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The \"Model Validation\" project was successfully created, and the user received instructions on how to add team members and assign roles within the new project.",
+    "text_b": "A project was successfully created for Pavel Najman, and he was provided with instructions on how to add team members and assign roles within the new project.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Lorna regained access to Jira after being advised to log in using the \"rh-ee-lgannon\" account. This action successfully resolved her login issue.",
+    "text_b": "Jaskarn Randhawa was successfully added to the \"Nokia Core\" Contributing Group. This action granted him access to the Nokia NPSSBPDEV Jira project tickets, which was confirmed by the user.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Confluence access was granted to Jackson Lee by Raju Anumula, who created an account for him. Jackson Lee confirmed the access was working.",
+    "text_b": "A Confluence account was created for Hiroyuki Hasebe. He was able to log in and access the site successfully.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The RICE Standard Custom Fields were successfully added to the Red Hat AI Strategic (RHAISTRAT) project, enabling PMs to include RICE scores for their Features. The requester confirmed that the fields were appearing as requested and working correctly.",
+    "text_b": "The 'AssignedTeam' field was successfully added and made visible for the EIGVTOOLS project. A follow-up request for the KVMUSRSPC project was addressed by explaining the field was already enabled but required adopting a standard scheme, with an upcoming update scheduled to resolve its visibility.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The reported performance issues and timeouts in Jira were identified as a duplicate of an existing problem. The issue was already being tracked under JIRACONFSD-1074.",
+    "text_b": "The reported performance issues and timeouts in Jira were identified as a duplicate of an existing issue, JIRACONFSD-1074.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's EazyBI project was migrated from the staging environment to the production environment. This action was initiated by support after the user submitted a separate request for the migration.",
+    "text_b": "The EasyBI source data import for the RHEL project and account was successfully configured, with data now syncing and confirmed to be working by the user.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The support team closed the request due to a lack of response from the user after multiple follow-up attempts. The user was advised to reopen the request or create a new one if further assistance is needed.",
+    "text_b": "The user reported an inability to log in to Jira. The request was closed after multiple automated follow-ups received no response from the user.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The Epic link was removed from the duplicate issue, resolving the user's concern about its incorrect appearance in the Epic view.",
+    "text_b": "The user's ability to reorder Epics in the Jira planner was restored by removing an existing sort-by-status filter. This change allowed the SCRUM leader to prioritize work as intended.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user encountered a `java.lang.NullPointerException` while the `recently-updated-dashboard` macro was formatting. The problem was resolved by advising the user to create a new page in any accessible Confluence space.",
+    "text_b": "The user confirmed that the accessibility issue with drop-downs was resolved to their satisfaction. The support agent then closed the ticket, advising the user to post broader QA concerns to the Atlassian community.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A new project for Hybrid Cloud Management was successfully created for the user. The user was directed to the project's configuration page to add team members and assign roles.",
+    "text_b": "The PX fields were enabled in the RHOSRFE project, and the requester confirmed their visibility.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The immediate performance degradation and page loading issues described by the user were resolved.",
+    "text_b": "A performance issue affecting Jira dashboard and search page loading was identified and subsequently fixed.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The connection of the pme-bot to aap-dev was completed as requested. The ticket was then identified as a duplicate and subsequently closed.",
+    "text_b": "The request to connect the pme-bot to ansible/aap-dev was completed. This ticket was subsequently identified as a duplicate and closed.",
+    "label": "duplicate",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account was created for the user 'rhn-support-sgadre', which resolved their inability to access the specified Confluence website.",
+    "text_b": "The user's Jira access was confirmed with their preferred username \"rh-ee-bbellaou\", and their old duplicate account was subsequently deleted.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "An account was created for the user to grant Confluence access. The user confirmed that they could successfully log in using SSO and access Confluence.",
+    "text_b": "A Confluence account was created for the user with their existing `rh-ee-djulich` username. The user successfully logged in to Confluence and confirmed access.",
+    "label": "duplicate",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for slow Jira response times was closed by the support team due to a lack of response from the customer after multiple follow-up attempts. The customer was advised to reopen the request or create a new one if further assistance is needed.",
+    "text_b": "The request was closed because the reporter did not respond to follow-up inquiries from the support team. They were advised to reopen the request or create a new one if further assistance was needed.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed by the support team due to a lack of response from Amanda Carter following multiple check-ins. She was advised to reopen the request or create a new one if further assistance is required.",
+    "text_b": "The request was closed due to a lack of response from the requester after two weeks of follow-up attempts by the support team. The issue regarding the PX Impact Score field could not be addressed without further input from the user.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user initially reported an error when trying to access dashboard configuration. However, they later confirmed that the issue had resolved itself and they were able to configure the dashboard successfully.",
+    "text_b": "The user's syncing problem was identified as a known issue with the group synchronization feature that is actively being addressed. This request was closed, and the user was added to a separate, ongoing effort for updates on the resolution.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The rate limit for the intellitldr-jira bot account was increased from 2 requests/second to 5 requests/second. This change significantly improved performance and resolved the rate limit exceptions experienced during busier periods.",
+    "text_b": "The application experiencing poor search performance was restored. A Root Cause Analysis (RCA) regarding the incident will be shared in a blog post.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "While a manual sync temporarily resolved a \"Status\" field mismatch between Jira and Starburst for one issue, the underlying cause is still being investigated with Starburst's assistance. A separate bug was created to track the ongoing efforts to fully resolve this synchronization problem.",
+    "text_b": "The support team addressed an underlying index-related issue that was causing a specific JQL query to return an incorrect result. The customer confirmed that the query now functions as expected.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "An account was created for Charli to access Confluence. Charli was instructed to log in with SSO to confirm access.",
+    "text_b": "An account was created for the user, and they were asked to log in and confirm access to Confluence.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user successfully updated the project leads after being provided with instructions to navigate to Project Settings > Users and Roles, then select Edit Defaults.",
+    "text_b": "The `rhel-primitives-jira-admin-access` and `rhel-primitives` Rover groups were synced into Jira. These groups are now available to be linked to the Administrators and Developers roles, respectively, within the RPRM project.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user was unable to log into Confluence due to a conflict between a new rehire account and an older external account. Raju Anumula resolved this issue, allowing the user to successfully log in.",
+    "text_b": "The user's Confluence account access was successfully granted, addressing their initial request. Brad Tweardy confirmed that the issue was resolved and requested the request be closed.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The support team closed the request due to inactivity after the user did not respond to follow-up inquiries. The original request for access was therefore not fulfilled.",
+    "text_b": "The request was closed due to inactivity after the support team did not receive a response from the requester to their follow-up messages.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The problem with gadgets not loading on dashboards was resolved by enabling the rich filter plugin. This action restored full functionality to the affected dashboards.",
+    "text_b": "A plugin was enabled to resolve the \"Gadget error\" that was preventing gadgets from displaying on the dashboard.",
+    "label": "duplicate",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The API rate limit for the Hyperproof integration was adjusted to a custom rate of 15 requests per minute with a maximum allowed request count of 20. This change improved the integration's performance, and the Hyperproof team was also encouraged to optimize their integration.",
+    "text_b": "The request to connect the pme-bot to ansible/aap-dev was completed. This ticket was subsequently identified as a duplicate and closed.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The resolution for displaying \"Blocked\" status on ticket cards involved configuring board settings to apply a card color based on the JQL query \"Blocked[Dropdown]\" = \"True\". This method visually separates blocked tickets with a color strip rather than direct text.",
+    "text_b": "The strange template appearing for the Due Date field was identified as its data format \"(d/MMM/yy)\". A bug was subsequently created in the RH1 backlog to address this issue.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The requested JIRA groups, including 'Commiter' and 'JBoss Employee', were added for the user. The ticket was subsequently closed due to a lack of response from the requestor after automated follow-up messages.",
+    "text_b": "The issue was closed due to inactivity after the support team followed up twice without a response from the user. The problem was not addressed with a specific technical solution or instruction.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Patrick Strick was granted access to the Jira data by being added to the marts Rover group. He confirmed he can now access the data via Snowflake using the provided link.",
+    "text_b": "The IntelliTLDR plugin in the Jira Stage environment was successfully updated to version 1.2.10 by Amol Dongare.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's syncing problem was identified as a known issue with the group synchronization feature that is actively being addressed. This request was closed, and the user was added to a separate, ongoing effort for updates on the resolution.",
+    "text_b": "The request was closed due to inactivity after the support team did not receive a response from the requester to their follow-up messages.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed due to a lack of response from the requester after the support team sent multiple follow-up inquiries to confirm if assistance was still needed.",
+    "text_b": "The request was closed due to a lack of response from the requester after multiple follow-up attempts by the support team. The support team resolved the request as no further assistance was indicated by the requester.",
+    "label": "duplicate",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The reported performance issues and timeouts in Jira were identified as a duplicate of an existing problem. The issue was already being tracked under JIRACONFSD-1074.",
+    "text_b": "The intermittent timeouts on issues.redhat.com were resolved by temporarily disabling the Rich Filters plugin. This action was taken as part of an ongoing Jira performance investigation, as the plugin was identified as a potential contributor to the issue.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for login assistance was closed due to a lack of response from the user. After sending multiple follow-up messages without a reply, the support team deemed the issue inactive and closed it.",
+    "text_b": "The user's login difficulty after single sign-on stopped working was addressed by advising them to try logging in with the 'rh-ee-mmisiura' username. The ticket was subsequently closed after automated follow-up messages did not elicit a response from the user.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request to archive/close the Jira space IFDUAT was closed due to a lack of response from the requester after multiple follow-up inquiries. The space was not explicitly archived or closed by the support team.",
+    "text_b": "The request was closed due to a lack of response from the requester after multiple follow-up attempts by the support team. The support team resolved the request as no further assistance was indicated by the requester.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request to delete the issues was closed due to inactivity. The support team sent multiple follow-up messages but received no response from the requester.",
+    "text_b": "The request was closed due to a lack of response from the requester after two weeks of follow-up attempts by the support team. The issue regarding the PX Impact Score field could not be addressed without further input from the user.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The issue was closed after the requestor did not respond to multiple follow-up inquiries from the support team, indicating no further assistance was needed.",
+    "text_b": "The support team closed the request after the user did not respond to multiple follow-up inquiries. The team offered the option to reopen it or create a new request if further assistance is needed.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "An eazyBi account was created for the user in the staging environment. The requestor was provided with the account link and advised to open a new ticket for production migration.",
+    "text_b": "The user's SAML Single Sign-On failed because their account was not found in the system. An administrator resolved this by creating the missing user account, which restored the user's access.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for access to RHEL issues was closed due to a lack of response from the requester after multiple follow-up inquiries from the support team.",
+    "text_b": "The support team closed the request due to a lack of response from the Microsoft partner staff member after multiple follow-up attempts.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Jira access was enabled for the account ID davem69. The user confirmed that everything was working correctly.",
+    "text_b": "An account was created for Masaki Katchi to access Red Hat Confluence. Masaki confirmed successful login to the Confluence page.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The new SLA date field was added to the 'Vulnerability' issue type as requested. Although it was noted that the field was not enabled for the 'OSIDB' project, the requester confirmed they had what they needed for now.",
+    "text_b": "The PX fields were enabled in the RHOSRFE project, and the requester confirmed their visibility.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Access to the ASEANTAM Jira project was successfully limited, allowing only users of that project to view its boards and issues. The user confirmed that the implemented restrictions met their requirements.",
+    "text_b": "Raju granted Shai Confluence access to the requested page. Shai confirmed that they now have access.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The projects HYPBLD and HCMFINOPS were successfully added to the Hybrid Cloud Management project category. The project category for both mentioned projects was updated as requested.",
+    "text_b": "The requested project, \"RHOS Connectivity Leadership,\" was successfully created. The user was provided with a direct link to the new project and advised to add team members and assign appropriate roles.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Amol Dongare installed the latest dev build of intellitldr on the Jira stage environment, which Timothy Rees confirmed was working as expected.",
+    "text_b": "The DVCS connector for `https://github.com/ansible/eda-server`, which had stopped working for `pme-bot`, was confirmed to be working as expected again.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "An account was created for Nick Ommen, granting him access to Confluence. Nick subsequently confirmed that he was able to access Confluence.",
+    "text_b": "A Confluence account was successfully created for Matias Schimuneck (SSO user: rh-ee-mschimun). Matias confirmed he was able to log in using his SSO password and that everything was working correctly.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user initially reported an error when trying to access dashboard configuration. However, they later confirmed that the issue had resolved itself and they were able to configure the dashboard successfully.",
+    "text_b": "The user was added to the necessary groups with permissions in Confluence. For access to individual spaces, they were advised to contact the respective space administrators.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The \"SFDC case counter\" custom field ultimately appeared and displayed accurate data in EazyBI reports for the user. This resolved the issue of blank custom fields, even though the support team had previously indicated they could not pursue the request further.",
+    "text_b": "The integration bot was fixed by configuring the `virtio-win/kvm-guest-drivers-windows` and `virtio-win/virtio-win-guest-tools-installer` GitHub repositories. The bot was confirmed to be working after successfully updating a Jira task with pull request details.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed by the support team due to a lack of response from Amanda Carter following multiple check-ins. She was advised to reopen the request or create a new one if further assistance is required.",
+    "text_b": "Access to non-masked SFDC case data in Snowflake was not granted because the SFDC support data has not yet been onboarded to Snowflake. Consequently, the request was cancelled.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "An account was created for the user, providing them with the requested access to Confluence.",
+    "text_b": "An account was created for the user, and they were asked to log in and confirm access to Confluence.",
+    "label": "duplicate",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A link was provided to the user, which enabled them to generate the necessary Slack webhook URL for their Jira automation. This resolved their issue with connecting Jira to a Slack channel.",
+    "text_b": "The request was closed due to a lack of response from the reporter after multiple follow-up attempts from the support team.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user was unable to access a Jira ticket due to its 'Red Hat Partner' security level. The resolution involved either adding the user as a contributor or including the 'Palo Alto Networks Confidential Group' in the ticket's contributor list, which subsequently granted access.",
+    "text_b": "An account was created for Masaki Katchi to access Red Hat Confluence. Masaki confirmed successful login to the Confluence page.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user was informed they already possessed an existing Confluence account and was advised to log in using their SSO credentials. The user subsequently confirmed they had access.",
+    "text_b": "The user was unable to log in to Confluence because their account was not present on the system. An administrator created the missing account, which resolved the login issue and allowed the user to access Confluence.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The resolution involved searching 7542 users in the Red Hat Bugzilla Authorized group to identify those belonging to Chris Wright\u2019s Global Engineering organization. This found 5778 users, representing approximately 76.6% of the group, with the detailed results attached.",
+    "text_b": "The request was closed due to a lack of response from the requester after the support team sent multiple follow-up inquiries to confirm if assistance was still needed.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The problem of Jira being slow to load dashboards and search pages was resolved by identifying it as a duplicate of an existing issue.",
+    "text_b": "The reported Jira slowness and errors experienced between 6-8 UTC were identified as a duplicate of an existing issue.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A solution addressing the issue where the description field was constantly clearing was implemented and moved to production. The request was subsequently closed due to a lack of response from the user.",
+    "text_b": "The issue preventing dashboards from displaying due to a gadget error was resolved by enabling the necessary plugin.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The new archival policy has been put on hold pending further team discussions, meaning its enforcement and any mass archival events are currently paused. Next steps and information on identifying projects for archival will be shared after these discussions are completed.",
+    "text_b": "A new Confluence space was created for the MPEX Integrity Engineering team. This central space will serve as a hub for information pertaining to both sub-teams.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The data scientist confirmed their request for access to Snowflake data for the `jira-aggregate-jiraconsumer` group was resolved, indicating the necessary access was granted.",
+    "text_b": "A webhook was created for the user's project as requested. The user confirmed that the new webhook was working successfully.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The task of aligning the published and JSM configured SLAs was moved to the RH1 project and added to its backlog for a future sprint.",
+    "text_b": "The issue was determined to be expected behavior for complex Rich Filters, with the vendor recommending simpler filters to avoid timeouts. Users should simplify their filters or refer to the knowledge base for optimizing performance.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The LIBVIRTAT project's permission scheme was updated to OJA-PRMS-001, which granted Administrators and Scrum Masters the requested \"Edit Sprints\" and \"Manage Sprints\" permissions. This scheme is appropriate for internal-only projects.",
+    "text_b": "The user was granted the required permission to access the partner RHEL project.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for Jira username to User ID mappings was closed due to a lack of response from the requester after multiple follow-ups from the support team. The support team offered to reopen the request or create a new one if further assistance was required.",
+    "text_b": "The request was closed by the support team due to a lack of response from Amanda Carter following multiple check-ins. She was advised to reopen the request or create a new one if further assistance is required.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "No specific report detailing impacted administrators or projects was generated for the June 1 archival sweep. This is because the new archival policies are general guidelines applicable to all active Jira users.",
+    "text_b": "The Workstream field values \"Community Engineering\" and \"Partner Engineering\" in the AAP project were successfully combined into \"Community and Partner Engineering\" on the production Jira instance, and the change was verified.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's Jira access was confirmed with their preferred username \"rh-ee-bbellaou\", and their old duplicate account was subsequently deleted.",
+    "text_b": "The user's Confluence account was created. They were instructed to log in using their existing Jira credentials, which they confirmed was successful.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The Size field, allowing for values XL, L, M, S, XS, was enabled for Epics in the INTEROP and LPINTEROP projects. This configuration allows the MPEX Interoperability team to estimate epics at a high level.",
+    "text_b": "The 'AssignedTeam' field was successfully added and made visible for the EIGVTOOLS project. A follow-up request for the KVMUSRSPC project was addressed by explaining the field was already enabled but required adopting a standard scheme, with an upcoming update scheduled to resolve its visibility.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account was created for the user, RH-EE-AKOUDELK, enabling them to successfully log in using their SSO credentials. The user confirmed successful access after the account creation.",
+    "text_b": "A Confluence account was created for the user. The user confirmed that the issue was resolved after the account creation.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A bug ticket (RH1-6927) was created to address the underlying problem of sprints ending in a half-broken state, and this service request was closed with future updates to be tracked in the new bug. A JQL query was also provided to help identify issues potentially affected by the previous sprint closure.",
+    "text_b": "A new Jira ticket was created to address the request for modifying the workflow setting, aiming to prevent issues from being closed when they still have open sub-tasks. This new ticket will track the progress of the proposed workflow change.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A new project for Hybrid Cloud Management was successfully created for the user. The user was directed to the project's configuration page to add team members and assign roles.",
+    "text_b": "The Hybrid Cloud Management Strategy project was successfully created. The requestor received a link to the new project along with instructions on how to add team members and assign roles.",
+    "label": "duplicate",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account was created for the user 'rhn-support-sgadre', which resolved their inability to access the specified Confluence website.",
+    "text_b": "An account was created for Nick Ommen, granting him access to Confluence. Nick subsequently confirmed that he was able to access Confluence.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed after multiple follow-ups received no response from the requester. A new request must be created if the application still needs to be moved to production.",
+    "text_b": "The \"External Issue URL\" field was enabled for the BIFROST Jira project. Raju Anumula confirmed the field was enabled per the request.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's permissions were updated to allow issue creation in the Jira staging environment. The user later confirmed that they were able to access the environment and create tickets as expected.",
+    "text_b": "The permission issues preventing the rhn-support- account from commenting on Jira tickets and viewing boards were resolved. The user confirmed they could subsequently comment and access the previously blocked boards.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account with the username `rhn-support-roak` was created for Rishikesh Oak, allowing him to successfully log in and access the previously inaccessible spaces.",
+    "text_b": "The user's Confluence account access was successfully granted, addressing their initial request. Brad Tweardy confirmed that the issue was resolved and requested the request be closed.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The dashboard loading issue was a temporary problem that resolved itself, and the user confirmed that no further assistance was needed. The request was cancelled by the user.",
+    "text_b": "The reported JIRA slowness was confirmed as a known, ongoing performance issue that an engineering team is proactively addressing. The user accepted this update and requested the closure of the issue.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The problem with gadgets not loading on dashboards was resolved by enabling the rich filter plugin. This action restored full functionality to the affected dashboards.",
+    "text_b": "The issue preventing dashboards from displaying due to a gadget error was resolved by enabling the necessary plugin.",
+    "label": "duplicate",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The reported performance issues and timeouts in Jira were found to be a duplicate of an existing problem report. This indicates that the issue was already being tracked and addressed under another ticket.",
+    "text_b": "The reported performance issues and timeouts in Jira were identified as a duplicate of an existing problem. The issue was already being tracked under JIRACONFSD-1074.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The issue was identified as a common browser caching-related login error. Workarounds were provided, including using a direct login link, attempting login in incognito mode, or clearing the browser's cache, and it was noted as a duplicate of a known issue.",
+    "text_b": "The gadgets on the Confluence page \"Release Status\" are now displaying correctly, resolving the issue where they were previously showing an error message or not appearing.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed due to a lack of response from the requester after the support team sent multiple follow-up inquiries to confirm if assistance was still needed.",
+    "text_b": "The request to archive/close the Jira space IFDUAT was closed due to a lack of response from the requester after multiple follow-up inquiries. The space was not explicitly archived or closed by the support team.",
+    "label": "duplicate",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The IntelliTLDR plugin in the Jira Stage environment was successfully updated to version 1.2.10 by Amol Dongare.",
+    "text_b": "The IntelliTLDR plugin in the Jira Stage environment was updated to version 1.2.9. The plugin was downloaded from the provided URL and successfully installed.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The support team closed the request after the user did not respond to multiple follow-up inquiries. The team offered the option to reopen it or create a new request if further assistance is needed.",
+    "text_b": "The issue where the ticket's workflow was stuck, preventing it from moving across statuses, has been resolved. Amol Dongare initiated the fix, which was subsequently confirmed by Alexey Tikhonov.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account was created for Manish Tomar using the username `rh-ee-mtomar`. The user was instructed to log in with their SSO password, and the request was subsequently closed.",
+    "text_b": "A Confluence account was created for Roberto L. Castro as requested. The user was then asked to log in and verify the new account.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The support agent advised the requester to contact the project lead, Vincent Demeester, to obtain the necessary permissions for creating Jira issues in the SRVKP project. The request was subsequently closed after no further response was received from the requester.",
+    "text_b": "The request was closed due to inactivity after the support team did not receive a response from the requester to their follow-up messages.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's SAML Single Sign-On failed because their account was not found in the system. An administrator resolved this by creating the missing user account, which restored the user's access.",
+    "text_b": "The user's Confluence account was created. They were advised to log in and verify their access.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The support team closed the request due to a lack of response from the user after multiple follow-up attempts. The user was advised to reopen the request or create a new one if further assistance is needed.",
+    "text_b": "The issue of being unable to save plan view changes was not directly resolved within this ticket. The user determined it was a broader team-wide problem and opted to submit a new ticket for it.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The issue regarding the Jira *Products* field disparity could not be resolved because audit logs for field changes were unavailable in the database or logs. As a result, the next step suggested was to create a community post on the Atlassian forums for further assistance.",
+    "text_b": "The issue regarding the Jira Products field disparity was marked as \"Won't Do\" because it is a duplicate of another existing ticket where the problem will be addressed.",
+    "label": "duplicate",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's Confluence account was created. They were instructed to log in using their existing Jira credentials, which they confirmed was successful.",
+    "text_b": "A Confluence account was created for Hiroyuki Hasebe. He was able to log in and access the site successfully.",
+    "label": "duplicate",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "An account was created for the user in Confluence, and the user confirmed successful access to the platform.",
+    "text_b": "An account was created for the user, providing them with the requested access to Confluence.",
+    "label": "duplicate",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account was created for the user. The user confirmed that the issue was resolved after the account creation.",
+    "text_b": "A Confluence account (`rh-ee-cbharani`) was created for the user, who successfully logged in using the new account.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The Jira slowness and submission issues were resolved by fixing a problematic node that was impacting performance. The user confirmed that the system was working better after the fix.",
+    "text_b": "Probes were modified to ensure pods with failing readiness checks are moved out of service. This change, scheduled for the upcoming weekend, is expected to resolve the intermittent Jira slowness and communication errors.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for support in investigating a transition from Smartsheet reporting was closed after the requestor decided to explore Snowflake as a more suitable long-term solution. They indicated they would re-raise a ticket if specific questions arose.",
+    "text_b": "The issue was closed due to a lack of response from the reporter after multiple follow-up attempts. The support team resolved the request as no further assistance was indicated.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "New clustered tables were created for the specified Jira views. The user was granted developer access to the jira-dbt repository to refresh these new clustered tables as needed.",
+    "text_b": "The user experienced slow Jira performance and timeouts, preventing access to boards. The issue was resolved by restoring Jira as part of an incident resolution.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for admin permission to UXDOPS was closed by the support team due to a lack of response from the requester after multiple follow-up attempts.",
+    "text_b": "The request was closed due to inactivity after the support team did not receive a response from the requester to their follow-up messages.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "An eazyBi account was created for the user in the staging environment. The requestor was provided with the account link and advised to open a new ticket for production migration.",
+    "text_b": "A Confluence account was created for the user to resolve their login issue.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Amol Dongare provided a detailed Jira Service Management demo to Cassie Mansbach, which addressed the request for defining surfaced and hidden fields between Bugs and Features.",
+    "text_b": "The \"Errata Link\" field was successfully added to the RHOSSTRAT project as requested. The user confirmed that the implementation works as expected.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Jira access was enabled for the account ID davem69. The user confirmed that everything was working correctly.",
+    "text_b": "A Confluence account (`rh-ee-cbharani`) was created for the user, who successfully logged in using the new account.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A follow-up Jira ticket was created to contact Smartsheet support regarding a rate limit error impacting the connector's functionality. This engagement aims to identify the affected account and request a rate limit exception.",
+    "text_b": "The request for the \"Security\" values mapping was resolved by confirming the associated work is being handled by Shea and team in GitLab.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user confirmed that their access to Jira and Confluence, which was lost when their user account was inadvertently dropped from the system, has been restored and no further assistance is required.",
+    "text_b": "The service account `_clteam-starburst-secure-ro-appuser` was granted access to the existing views for Jira data in Snowflake as requested. This action was confirmed as complete by the support team and acknowledged by the requester.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The task of aligning the published and JSM configured SLAs was moved to the RH1 project and added to its backlog for a future sprint.",
+    "text_b": "The slow performance of Jira between 6-8 UTC was identified as a duplicate of an existing reported issue. The problem is being tracked and addressed under that separate ticket.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The Hybrid Cloud Management Strategy project was successfully created. The requestor received a link to the new project along with instructions on how to add team members and assign roles.",
+    "text_b": "A project was successfully created for Pavel Najman, and he was provided with instructions on how to add team members and assign roles within the new project.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Access to the Data Foundation Jiras was denied because their security level is set to only allow visibility for Red Hat employees, preventing external partners from accessing them.",
+    "text_b": "The request was closed because the underlying issue of the pme bot removing roles is actively being investigated as part of a separate initiative, RH1-6900, with updates to be tracked in Jira.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's Jira STAGE access issue was presumed resolved by them, possibly by contacting IT, as no response was received to follow-up requests, leading the support team to close the request.",
+    "text_b": "The ticket was marked as resolved after the pme-bot service account followed up with the requester due to a lack of response. It was suggested by a team member that the request might be a duplicate.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account was created for the user. This resolved their inability to log in to the platform.",
+    "text_b": "A Confluence account was created for the user. The user confirmed that the issue was resolved after the account creation.",
+    "label": "duplicate",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Lorna regained access to Jira after being advised to log in using the \"rh-ee-lgannon\" account. This action successfully resolved her login issue.",
+    "text_b": "The user was unable to log into Confluence due to a conflict between a new rehire account and an older external account. Raju Anumula resolved this issue, allowing the user to successfully log in.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed due to a lack of response from the customer after multiple follow-up inquiries by the support team. The team advised the customer to reopen the request or create a new one if further assistance is needed.",
+    "text_b": "The request was closed due to a lack of response from the requestor after multiple follow-up attempts. The team offered to reopen the request or create a new one if further assistance was needed.",
+    "label": "duplicate",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The connection of the pme-bot to aap-dev was completed as requested. The ticket was then identified as a duplicate and subsequently closed.",
+    "text_b": "The request to connect pme-bot to ansible/aap-dev was identified as a duplicate ticket and subsequently closed.",
+    "label": "duplicate",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for admin permission to UXDOPS was closed by the support team due to a lack of response from the requester after multiple follow-up attempts.",
+    "text_b": "The request for access to RHEL issues was closed due to a lack of response from the requester after multiple follow-up inquiries from the support team.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was resolved by closure after the requester did not respond to multiple follow-up messages from the pme-bot service account. The original technical question about identifying Red Hat employee comments was not addressed.",
+    "text_b": "The request to archive/close the Jira space IFDUAT was closed due to a lack of response from the requester after multiple follow-up inquiries. The space was not explicitly archived or closed by the support team.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The Confluence space \"Labs Planning & Management\" (LPM) was created, and a direct link to the new space was provided to the requester.",
+    "text_b": "The requested obsolete tickets were closed. The user confirmed the action was completed and thanked the support team.",
+    "label": "distinct",
+    "category": "Other",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request to delete the issues was closed due to inactivity. The support team sent multiple follow-up messages but received no response from the requester.",
+    "text_b": "The support team addressed an underlying index-related issue that was causing a specific JQL query to return an incorrect result. The customer confirmed that the query now functions as expected.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Confluence account was created for the user 'rhn-support-sgadre', which resolved their inability to access the specified Confluence website.",
+    "text_b": "An account was created for the user to grant Confluence access. The user confirmed that they could successfully log in using SSO and access Confluence.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user was added to the necessary groups with permissions in Confluence. For access to individual spaces, they were advised to contact the respective space administrators.",
+    "text_b": "The user's request for assistance in creating a space on spaces.redhat.com was completed.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Automation rules triggering on label changes were failing due to an issue with the \"AssignedTeam\" field. The resolution involved updating this field, which allowed the automation rules to trigger correctly again.",
+    "text_b": "An automation rule was created in the GITOPS project to automatically add the \"Epics in GITOPS project\" label when the \"Target version\" field is set to 1.19.0. The requester confirmed that this solution works as needed.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The 'Incident' issue type was successfully added to the 'MY TAM' project as requested. The requester, Adi Razlan, subsequently confirmed closure of the request.",
+    "text_b": "The \"Commitment\" field was successfully added to the Jira projects SPMM and MMENG as requested.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The perceived stale data in Snowflake's JIRA_DB was due to the user querying the `rhsandbox` environment instead of the `prod` environment. Switching to the `prod` environment resolved the issue, displaying the correct data.",
+    "text_b": "The reported issue of possible stale data in Snowflake JIRA_DB was marked obsolete. This was due to the user confirming that the original report was a test.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The reported performance issues and timeouts in Jira were identified as a duplicate of an existing problem. The issue was already being tracked under JIRACONFSD-1074.",
+    "text_b": "The request regarding the rich filter plugin blocking JBoss EAP processes was closed by the support team after multiple follow-ups, as no further assistance was required from the requester.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user confirmed that the auto-assignment script was functioning as expected after clarifying issues related to deprecated Jira components. The script owner then closed the request based on this confirmation.",
+    "text_b": "The error message encountered when creating issues has been resolved according to the user. The support team closed the ticket after the user confirmed the issue was no longer present.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Milan Takac gained access to Jira after being informed that login requires a self-registration process on sso.redhat.com using their email address. This method was then successfully used to log in.",
+    "text_b": "Lorna regained access to Jira after being advised to log in using the \"rh-ee-lgannon\" account. This action successfully resolved her login issue.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The reported performance issues and timeouts in Jira were identified as a duplicate of an existing problem. The issue was already being tracked under JIRACONFSD-1074.",
+    "text_b": "The reported Jira slowness and errors experienced between 6-8 UTC were identified as a duplicate of an existing issue.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed due to inactivity after the user did not respond to multiple follow-up inquiries from the support team. The reported issue regarding the missing story in the backlog was not directly addressed within this request.",
+    "text_b": "The issue was resolved due to inactivity from the reporter, who did not respond to follow-up inquiries from the support team. The support team closed the request after multiple attempts to check if further assistance was needed.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user was granted access to the RHAI_MARTS and MARTS schemas in the JIRA_DB database, enabling them to access the requested Jira data for trend analysis. A restriction was noted, advising against using the MARTS schema with AI tools due to privacy compliance.",
+    "text_b": "The issue with the REST API JQL not matching web search results was resolved by adding the `read:issue-security-level:jira` and `read:security:jira` scopes to the API token. This allowed the API to access tickets protected by security levels.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The timeout errors and performance issues in Jira were caused by stuck threads on node-0. The affected node was restarted, which resolved the problem and restored normal application service.",
+    "text_b": "The issue was resolved by addressing the root cause of many threads getting stuck at the node level due to excessive REST calls against Jira. Performance has since returned to normal.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request to grant swillis admin permissions to the SSE and SOAR Jira projects was closed due to a lack of response from the requester after multiple follow-ups from the support team.",
+    "text_b": "The request for access to RHEL issues was closed due to a lack of response from the requester after multiple follow-up inquiries from the support team.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's Confluence account was created. They were advised to log in and verify their access.",
+    "text_b": "A Confluence account was created for the user with their existing `rh-ee-djulich` username. The user successfully logged in to Confluence and confirmed access.",
+    "label": "duplicate",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The issue concerning the `gitlab-cee-bot` not working was closed after the requester confirmed it could be resolved following a follow-up from the support team.",
+    "text_b": "The Atlassian CLI (acli) was initially reported as not allowed for use. The issue was resolved when the user confirmed it was working, with a note indicating that \"all is working with the token.\"",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The API rate limit for the Hyperproof integration was adjusted to a custom rate of 15 requests per minute with a maximum allowed request count of 20. This change improved the integration's performance, and the Hyperproof team was also encouraged to optimize their integration.",
+    "text_b": "The DVCS connector for `https://github.com/ansible/eda-server`, which had stopped working for `pme-bot`, was confirmed to be working as expected again.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user was provided with contact information for the project administrators of the requested Jira, allowing them to directly request access.",
+    "text_b": "The \"loki-aro\" Rover group was mapped to Jira. Its members are expected to sync fully over the weekend or when they log into Jira.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A webhook was created for the user's project as requested. The user confirmed that the new webhook was working successfully.",
+    "text_b": "The `ppt-bot` was added to the exception list, which enabled the team's webhook automation from GitHub. The requesting user confirmed that the functionality was working as expected.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The IntelliTLDR plugin in the Jira Stage environment was updated to version 1.2.9. The plugin was downloaded from the provided URL and successfully installed.",
+    "text_b": "The support team closed the request after multiple attempts to contact the requester went unanswered. The requester did not respond to follow-up inquiries, leading to the resolution.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The associate updated their full name in sso.redhat.com, which then synchronized the correct name, \"Berto D\u2019Attoma,\" to Jira, resolving the display issue.",
+    "text_b": "The user was advised that they can self-migrate the EazyBI report definition once a prerequisite fix to the 'Delivery Team' dimension is completed. Clark also offered a demo and assistance for the migration process.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Confluence access was granted to Jackson Lee by Raju Anumula, who created an account for him. Jackson Lee confirmed the access was working.",
+    "text_b": "A Confluence account (`rh-ee-cbharani`) was created for the user, who successfully logged in using the new account.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The slowness experienced with the Jira RSPEED project was resolved by restarting the Jira instance. The support team confirmed the fix and closed the issue after the customer was prompted to verify the resolution.",
+    "text_b": "The user initially reported that the JIRA rendering issue appeared to be resolved, though with slow page loads. However, the problem later re-emerged.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's Jira account access issue, which prevented them from viewing support cases, was resolved by the support agent. The agent confirmed the fix, and the user verified they could log in.",
+    "text_b": "The user's SAML login failure was resolved by creating an account for them. The user then confirmed they were able to successfully log in to the customer portal.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for team access to Confluence was closed because the requester decided to submit separate access requests for individual team members as needed.",
+    "text_b": "The user reported an inability to access RHEL bugs, providing an example link. The ticket was resolved because the user did not respond to multiple follow-up inquiries from the support team.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The RICE Standard Custom Fields were successfully added to the Red Hat AI Strategic (RHAISTRAT) project, enabling PMs to include RICE scores for their Features. The requester confirmed that the fields were appearing as requested and working correctly.",
+    "text_b": "The requested fields, including Color Status, T-shirt size, and Work Type, were added to the specified issue types in the IFD Ask Search Agent Jira project. The requester confirmed that the changes were successfully implemented.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The Watson Automation and Portfoliobot service accounts were added to an exception list, setting their custom rate limit to 5 requests per second.",
+    "text_b": "The problem of Jira being slow to load dashboards and search pages was resolved by identifying it as a duplicate of an existing issue.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user reported an inability to access RHEL bugs, providing an example link. The ticket was resolved because the user did not respond to multiple follow-up inquiries from the support team.",
+    "text_b": "The user was provided with their Atlassian account ID and advised to use it for manual linking to OpenShift Github. It was also suggested that waiting until Monday might resolve the issue due to potential service renewal or database synchronization.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "An account was created for Charli to access Confluence. Charli was instructed to log in with SSO to confirm access.",
+    "text_b": "An account was created for Masaki Katchi to access Red Hat Confluence. Masaki confirmed successful login to the Confluence page.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user experienced slow Jira performance and timeouts, preventing access to boards. The issue was resolved by restoring Jira as part of an incident resolution.",
+    "text_b": "The intermittent timeouts on issues.redhat.com were resolved by temporarily disabling the Rich Filters plugin. This action was taken as part of an ongoing Jira performance investigation, as the plugin was identified as a potential contributor to the issue.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The timeout errors and performance issues in Jira were caused by stuck threads on node-0. The affected node was restarted, which resolved the problem and restored normal application service.",
+    "text_b": "The reported performance issues and timeouts in Jira were found to be a duplicate of an existing problem report. This indicates that the issue was already being tracked and addressed under another ticket.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for automatic documentation generation was closed due to a lack of response from the requester after multiple follow-ups from the support team's bot.",
+    "text_b": "The request was closed due to a lack of response from the reporter after multiple follow-up attempts from the support team.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The previously closed RFE, which did not meet customer requirements, was successfully reopened by an administrator. The customer was then asked to verify the change before the support request was closed.",
+    "text_b": "The issue was closed after the requestor did not respond to multiple follow-up inquiries from the support team, indicating no further assistance was needed.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The reported performance issues and timeouts in Jira were found to be a duplicate of an existing problem report. This indicates that the issue was already being tracked and addressed under another ticket.",
+    "text_b": "The slow performance of Jira between 6-8 UTC was identified as a duplicate of an existing reported issue. The problem is being tracked and addressed under that separate ticket.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The requested \"Go Live\" field was created in Jira to decouple deployment from release. The support team closed the ticket after multiple attempts to get a response from the requester.",
+    "text_b": "The request was closed due to a lack of response from the customer after multiple follow-up attempts by the support team. The customer was advised to re-open the request or create a new one if further assistance is needed.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The requested feature description template was configured on the Jira stage server, reviewed, and subsequently deployed to the production INFERSTRAT project.",
+    "text_b": "The requested projects (PFS, CONNCERT, ISV, CWFHEALTH, KFLUXUI, CLOUDWF) were enabled in production Jira for Summary, Search, and Similarity.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The issue allowing the 'Next Planned Release Date' to be set in the past when errata was 'ASAP' was addressed through a separate, related effort.",
+    "text_b": "The request to automate parent status changes when child issue statuses change was closed as \"Won't Do.\" This decision was made because the user plans to re-evaluate the need after migrating to Jira Cloud.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The `kernel-ft-plumbers-qe` bot account was added to the required groups, granting it the necessary permissions in the Production environment.",
+    "text_b": "Ricardo Alvaro was granted permission to create and manage sprints on the Jira board after being added to the appropriate user group, which provided access to all projects listed in the board's filter.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Lorna regained access to Jira after being advised to log in using the \"rh-ee-lgannon\" account. This action successfully resolved her login issue.",
+    "text_b": "An account was created for the user to grant Confluence access. The user confirmed that they could successfully log in using SSO and access Confluence.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request to connect pme-bot to ansible/aap-dev was identified as a duplicate. The ticket was subsequently closed after no further response was received from the requester.",
+    "text_b": "The request to connect pme-bot to ansible/aap-dev was identified as a duplicate ticket and subsequently closed.",
+    "label": "duplicate",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The IntelliTLDR plugin in the Jira Production environment was upgraded to version 1.2.9.",
+    "text_b": "The `ppt-bot` was added to the exception list, which enabled the team's webhook automation from GitHub. The requesting user confirmed that the functionality was working as expected.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "Rizwan's Atlassian account was deactivated by their organization, and the support team could not reactivate it from their end. He was advised to contact his IT support or Atlassian Admins to reactivate the account.",
+    "text_b": "The request for login assistance was closed due to a lack of response from the user. After sending multiple follow-up messages without a reply, the support team deemed the issue inactive and closed it.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The issue was identified as a common browser caching-related login error. Workarounds were provided, including using a direct login link, attempting login in incognito mode, or clearing the browser's cache, and it was noted as a duplicate of a known issue.",
+    "text_b": "The reported UI error popup in Safari was identified as a known issue. This case was closed as a duplicate of an existing ticket where the problem is actively being addressed.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A spike was created to investigate options for displaying auto-generated action prompts from OpenShift automation comments. This investigative task will explore both short-term and long-term solutions for the requirement.",
+    "text_b": "The user was unable to access specific Red Hat Confluence and Jira URLs. The support agent resolved the issue by asking the user to log in again and verify access, which confirmed the problem was fixed.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The issue of API throttling (HTTP 429 errors) in Jira Automation rules within the CPLYTM project was addressed by providing assistance on how to best handle such occurrences. The user confirmed receipt of the information and clarified the process for reporting future instances of the error.",
+    "text_b": "The reported Jira slowness and errors experienced between 6-8 UTC were identified as a duplicate of an existing issue.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed by the support team due to a lack of response from the user after multiple follow-up inquiries. They offered the option to reopen the request or create a new one if further assistance is needed.",
+    "text_b": "The request was closed due to a lack of response from the requestor after multiple follow-up attempts. The team offered to reopen the request or create a new one if further assistance was needed.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The \"Errata Link\" field was successfully added to the RHOSSTRAT project as requested. The user confirmed that the implementation works as expected.",
+    "text_b": "The \"External issue URL\" field was enabled in the CKI project as requested. Michael Krausch-Hofmann verified that the field is now available.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The issue regarding the blank default Description field template was addressed by creating a new Jira ticket for further updates. This original support ticket was then closed, with all subsequent progress and resolution efforts being tracked on the newly created ticket.",
+    "text_b": "The issue was resolved as it was no longer reproducible after a recent update.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for wiki space access was resolved due to inactivity from the requester after multiple follow-ups failed to elicit a response.",
+    "text_b": "The user reported an inability to access RHEL bugs, providing an example link. The ticket was resolved because the user did not respond to multiple follow-up inquiries from the support team.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The contributor field is available under the main 'Field' tab. The project's screen scheme does not include a dedicated 'Contributor' tab.",
+    "text_b": "The dashboard issue was resolved when the user confirmed that it was functioning correctly again. This confirmation led to the closure of the support request.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for admin permission to UXDOPS was closed by the support team due to a lack of response from the requester after multiple follow-up attempts.",
+    "text_b": "The request to grant swillis admin permissions to the SSE and SOAR Jira projects was closed due to a lack of response from the requester after multiple follow-ups from the support team.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed due to a lack of response from the customer after multiple follow-up inquiries by the support team. The team advised the customer to reopen the request or create a new one if further assistance is needed.",
+    "text_b": "This request was closed because the original requestor did not respond to follow-up messages from the support team. No technical resolution or guidance for linking to comments within a Jira issue was provided in the ticket.",
+    "label": "duplicate",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The slowness experienced with the Jira RSPEED project was resolved by restarting the Jira instance. The support team confirmed the fix and closed the issue after the customer was prompted to verify the resolution.",
+    "text_b": "The user clarified that the performance issues were not related to the API throttling as initially suspected. Based on this, the user requested the ticket be closed, despite noting that general Jira performance was still not optimal.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The specified Rich filter associated with inactive user Matthias Meidinger was removed as part of the clean-up process. The data was successfully deleted per the request.",
+    "text_b": "A new Confluence space for the CEE Business Intelligence team's documentation, including for the Associate KPI Dashboard, was created. The link to this new space is `https://<YOUR_DOMAIN>.atlassian.net/wiki/display/CEEBI/CEE+Business+Intelligence`.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's Confluence account was created. They were advised to log in and verify their access.",
+    "text_b": "A Confluence account was created for Hiroyuki Hasebe. He was able to log in and access the site successfully.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request to add UnifAI Redirect Domains to the Atlassian MCP Server OAuth 2.1 Allowlist was closed due to a lack of response from the requester. The implementation was pending an ESS review at the time of closure.",
+    "text_b": "The user was granted access to Snowflake's RHAI_MARTS schema by being added to the RHAI_MARTS Rover group, enabling access to NON-PII Jira data for automating reports.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The data scientist confirmed their request for access to Snowflake data for the `jira-aggregate-jiraconsumer` group was resolved, indicating the necessary access was granted.",
+    "text_b": "Access was granted to the `RHAI_MARTS` schema within the `JIRA_DB` database in Snowflake. This enables the requesters to query the necessary Jira data for their proof-of-concept script.",
+    "label": "duplicate",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The requested PagerDuty workflow for `ansible-saas-aws (AASP-001)` in the `AAP` Jira project was successfully implemented. This new workflow was tested and confirmed to be working as expected, creating a PD incident when a Jira Task is created with matching JQL.",
+    "text_b": "A new Jira ticket was created to address the request for modifying the workflow setting, aiming to prevent issues from being closed when they still have open sub-tasks. This new ticket will track the progress of the proposed workflow change.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's syncing problem was identified as a known issue with the group synchronization feature that is actively being addressed. This request was closed, and the user was added to a separate, ongoing effort for updates on the resolution.",
+    "text_b": "The access request was canceled after being identified as a duplicate of another existing issue.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's JIRA access issue was resolved by instructing them to log in with their username 'wang701' instead of their email address, as logging in with an email address is no longer supported. Using the username successfully restored access.",
+    "text_b": "The user's SAML Single Sign-On failed because their account was not found in the system. An administrator resolved this by creating the missing user account, which restored the user's access.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The Portfolio Solution Field was added to the RHOAIRFE project as requested. This was confirmed as \"Done\" and the request was subsequently closed after the support team followed up multiple times without receiving a response from the requester.",
+    "text_b": "The new SLA date field was added to the 'Vulnerability' issue type as requested. Although it was noted that the field was not enabled for the 'OSIDB' project, the requester confirmed they had what they needed for now.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The requested archived issue was successfully unarchived. The suggestion for improving the Jira workflow was acknowledged and will be reviewed by the team.",
+    "text_b": "Oleksandr Morochenets updated the user's job title to the requested Principal Project Manager - Technical or Principal Technical Project Manager. He completed this by accessing the managed account through the admin panel.",
+    "label": "distinct",
+    "category": "Data",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The Functional Safety (FuSa) team no longer required the requested Jira API rate limit exemption or dedicated node, as internal investigation (VROOM-27538) determined it was not necessary. Consequently, the request was closed without implementing the exemption.",
+    "text_b": "The problem of Jira being slow to load dashboards and search pages was resolved by identifying it as a duplicate of an existing issue.",
+    "label": "distinct",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The requesting user informed the Jira team that the query regarding the \"All Partner Confidential Groups\" was addressed on their end. Consequently, the Jira team closed the request without providing the maintenance rules or adding the new engineer.",
+    "text_b": "Access to the requested issue could not be granted because it is restricted to Red Hat employees, and the user's account is external. A public tracker at access.redhat.com/solutions/6984296 was provided as an alternative for external information.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The requested color status fields were successfully added to the epic issue type for the AskCL Board. This resolved the user's need to have these fields available.",
+    "text_b": "The requested projects (PFS, CONNCERT, ISV, CWFHEALTH, KFLUXUI, CLOUDWF) were enabled in production Jira for Summary, Search, and Similarity.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The support agent requested a dashboard link and an error screenshot for investigation. The request was subsequently closed due to a lack of response from the user.",
+    "text_b": "The Sprint field was added to Jira cards for issue creation or its visibility was enabled for the project as requested. The ticket was later closed due to a lack of response from the requester.",
+    "label": "distinct",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The IntelliTLDR plugin in the Jira Stage environment was updated to version 1.2.0. Additionally, the RHEL, RFE, OCPBUGS, AAP, and AAPRFE projects were enabled for similarity.",
+    "text_b": "The requester, after being advised on using the CSV importer, addressed the need to import 50+ actions by manually creating them individually in Jira.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user's inability to clone Epics was resolved after they re-attempted the action, realizing they may have been incorrectly using the \"Clone epic and children\" option instead of the direct \"Clone\" function. The process was confirmed to be working correctly afterward.",
+    "text_b": "The support request was closed by the reporter, who stated no further action was required from the support team. This occurred while a discussion was ongoing about a workflow block caused by a required \"Severity\" field that ProdSec typically does not populate, preferring an \"Impact Rating\" instead.",
+    "label": "distinct",
+    "category": "Workflow",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The user was unable to log into Confluence due to a conflict between a new rehire account and an older external account. Raju Anumula resolved this issue, allowing the user to successfully log in.",
+    "text_b": "Raju Anumula fixed an unspecified issue that was preventing the user from logging into spaces.redhat.com, after which the user was able to log in successfully.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request for access to RHEL issues was closed due to a lack of response from the requester after multiple follow-up inquiries from the support team.",
+    "text_b": "The request was closed due to inactivity after the support team did not receive a response from the requester to their follow-up messages.",
+    "label": "distinct",
+    "category": "Permissions",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The Size field, allowing for values XL, L, M, S, XS, was enabled for Epics in the INTEROP and LPINTEROP projects. This configuration allows the MPEX Interoperability team to estimate epics at a high level.",
+    "text_b": "The \"Team Gig Bookmarks\" project was successfully created with the key GIGBKMRK. The user was provided with a link to the new project and instructions to add team members and assign roles.",
+    "label": "distinct",
+    "category": "Configuration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed by the support team due to a lack of response from the requester after multiple follow-ups. The requester was invited to reopen the request or create a new one if further assistance was required.",
+    "text_b": "The user's request to unsubscribe from the \"Instant notification - New advisory - Content - Red Hat Enterprise Linux\" mailer was closed due to a lack of response after follow-up attempts. The issue was not resolved by performing the unsubscribe action.",
+    "label": "distinct",
+    "category": "Notifications",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The reported issue of incredibly slow Jira loading times was identified as a duplicate of an existing problem documented under JIRACONFSD-269.",
+    "text_b": "The problem of Jira being slow to load dashboards and search pages was resolved by identifying it as a duplicate of an existing issue.",
+    "label": "duplicate",
+    "category": "Performance",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The request was closed due to a lack of response from the reporter after multiple follow-up attempts from the support team.",
+    "text_b": "The request was closed due to a lack of response from the requestor after multiple follow-up attempts. The team offered to reopen the request or create a new one if further assistance was needed.",
+    "label": "distinct",
+    "category": "Integration",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "The support team closed the request due to a lack of response from the user after multiple follow-up attempts. The user was advised to reopen the request or create a new one if further assistance is needed.",
+    "text_b": "The request was closed by the support team due to a lack of response from the requester after multiple follow-up attempts. It was noted that the requester could reopen the request or create a new one if further assistance was needed.",
+    "label": "duplicate",
+    "category": "UI/UX",
+    "source": "gemini_judge"
+  },
+  {
+    "text_a": "A Red Hat Confluence account was created for the user. The request is now being resolved, and the user can reopen the ticket if further login assistance is needed.",
+    "text_b": "Access was granted to the RH Jira data stored in Snowflake/Dataverse for the requester. The requester was provided with general Dataverse documentation, though Jira-specific documentation is not currently available.",
+    "label": "distinct",
+    "category": "Access",
+    "source": "gemini_judge"
+  }
+]

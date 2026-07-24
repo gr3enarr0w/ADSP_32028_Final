@@ -1,0 +1,52 @@
+# Environment & Secrets
+.env
+.env.*.local
+.env.local
+*.key
+credentials.json
+.credentials/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs & Data
+*.log
+data/
+*.db
+*.sqlite
+
+# Temporary
+*.tmp
+*.bak
+.temp/
+
+# Testing
+htmlcov/
+coverage/
+
+# MCP & Claude
+.claude/
+
+# Qdrant/Vector DB
+qdrant_storage/
+.qdrant/

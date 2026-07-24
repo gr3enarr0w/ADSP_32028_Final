@@ -1,0 +1,109 @@
+# Environment & Secrets
+.env
+.env.*.local
+.env.local
+*.key
+service_account.json
+credentials.json
+~/.aws
+~/.gcp
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+jsm_data.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+=
+.temp/
+.tmp/
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+thumbs.db
+
+# Git
+.git/
+
+# Sensitive/Generated
+holdout_set.json
+validation_set.json
+all_projects_jql_results.json
+*.pem
+*.pfx
+config.local.py
+
+# Large files
+*.pkl
+*.pickle
+*.npy
+*.npz
+models/
+hf_models/
+analysis/
+
+# Testing
+.pytest_cache/
+htmlcov/
+coverage/
+
+# MCP & Claude
+.claude/
+.spec-workflow/
+.opencode/
+.mcp.json.bak
+
+# Credentials
+.credentials/

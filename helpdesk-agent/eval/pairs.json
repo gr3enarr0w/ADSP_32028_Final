@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "query": "How do I migrate my Jira project from Data Center to Cloud?",
+    "document": "To migrate a Jira project from Data Center to Cloud, install the Jira Cloud Migration Assistant from the Atlassian Marketplace. Run the pre-migration assessment to identify blocking issues. Resolve all errors, then start the migration. Monitor progress in the migration dashboard and verify data after completion.",
+    "relevance": 5,
+    "category": "Migration"
+  },
+  {
+    "id": 2,
+    "query": "My users can't log in after the Cloud migration",
+    "document": "After migrating to Atlassian Cloud, user authentication switches from Data Center's local directory to Cloud identity. Users need to accept the invitation email from Atlassian and set up their Cloud account. If users were provisioned via SCIM, ensure the identity provider sync completed successfully. Check the admin console under Directory for any failed user migrations.",
+    "relevance": 5,
+    "category": "Access"
+  },
+  {
+    "id": 3,
+    "query": "Permission scheme not working after migration",
+    "document": "Permission schemes in Jira Data Center use project roles and group memberships to control access. In Cloud, permissions are managed through the admin console with organization-level controls. Custom permission schemes are migrated automatically but may require manual review to align with Cloud role structures.",
+    "relevance": 4,
+    "category": "Permissions"
+  },
+  {
+    "id": 4,
+    "query": "Custom fields are missing after migration to Cloud",
+    "document": "Custom fields defined in Jira Data Center are migrated to Cloud with their configurations preserved. However, some custom field types from third-party apps may not have Cloud equivalents. Review the migration assessment report for any unsupported field types and plan replacements before migrating.",
+    "relevance": 5,
+    "category": "Data"
+  },
+  {
+    "id": 5,
+    "query": "How to set up SSO with SAML for Jira Cloud",
+    "document": "To configure SAML single sign-on for Jira Cloud, navigate to the organization admin console. Select Security, then Identity providers. Add your SAML identity provider by entering the SSO URL, entity ID, and uploading the signing certificate. Test the connection and enable enforcement once verified.",
+    "relevance": 5,
+    "category": "Configuration"
+  },
+  {
+    "id": 6,
+    "query": "Jira workflow post-functions broken after migration",
+    "document": "Jira workflows are migrated from Data Center to Cloud using the Cloud Migration Assistant. Simple workflows transfer without issues. Complex workflows with post-functions, validators, and conditions that rely on server-side scripting may need manual adjustment after migration because ScriptRunner and other scripting apps work differently on Cloud.",
+    "relevance": 5,
+    "category": "Workflow"
+  },
+  {
+    "id": 7,
+    "query": "Which marketplace apps are compatible with Cloud?",
+    "document": "Before migrating to Atlassian Cloud, audit all installed Data Center apps and plugins for Cloud compatibility. Use the Atlassian Marketplace to check whether a Cloud version exists. For apps without Cloud equivalents, identify alternative apps or plan to replicate the functionality with built-in Cloud features.",
+    "relevance": 5,
+    "category": "Integration"
+  },
+  {
+    "id": 8,
+    "query": "Users getting too many email notifications after migration",
+    "document": "Notification schemes in Jira Data Center let administrators control who receives email notifications for issue events. In Jira Cloud, notification schemes still exist but users also have personal notification preferences that can override scheme settings. Admins should communicate this change to users after migration.",
+    "relevance": 4,
+    "category": "Notifications"
+  },
+  {
+    "id": 9,
+    "query": "How to back up Jira before migration",
+    "document": "Before migrating from Jira Data Center to Cloud, create a full backup of your instance. Export the database, attachments directory, and application home directory. Store the backup in a secure location separate from the production server. Verify the backup by restoring it to a staging environment.",
+    "relevance": 5,
+    "category": "Data"
+  },
+  {
+    "id": 10,
+    "query": "Automate user provisioning with SCIM in Cloud",
+    "document": "User provisioning for Jira Cloud can be automated through SCIM with supported identity providers such as Okta, Azure AD, or OneLogin. Configure SCIM in the Atlassian organization admin console under Directory and User provisioning. Users and groups are synchronized automatically once SCIM is enabled.",
+    "relevance": 5,
+    "category": "Configuration"
+  },
+  {
+    "id": 11,
+    "query": "REST API authentication changed after Cloud migration",
+    "document": "Jira Data Center uses REST API v2 with basic or OAuth 1.0a authentication. Jira Cloud uses REST API v2 and v3 with OAuth 2.0 (3LO or 2LO) or API tokens. Cloud API endpoints use a different base URL format and some endpoints have different behavior or are unavailable. Review the Cloud API docs for breaking changes.",
+    "relevance": 5,
+    "category": "Integration"
+  },
+  {
+    "id": 12,
+    "query": "Confluence space permissions not carried over",
+    "document": "Confluence Cloud permissions are set at the space level. Space admins control who can view, edit, or administer each space. Global permissions are managed separately in the admin console. When migrating from DC, space permissions are transferred but group membership changes may affect effective access.",
+    "relevance": 4,
+    "category": "Permissions"
+  },
+  {
+    "id": 13,
+    "query": "How long will the migration take for 500 projects?",
+    "document": "Plan your migration timeline by assessing the size of your instance, the number of projects and spaces, and app compatibility. Schedule a maintenance window for the cutover. Run a test migration first to estimate duration and identify issues before the production run.",
+    "relevance": 4,
+    "category": "Migration"
+  },
+  {
+    "id": 14,
+    "query": "Jira automation rules stopped working after Cloud move",
+    "document": "Automation rules created with Jira Automation for Server or Data Center need to be recreated in Jira Cloud. The Cloud automation engine uses a different rule syntax. Export your existing rules for reference and rebuild them using the Cloud automation UI.",
+    "relevance": 5,
+    "category": "Workflow"
+  },
+  {
+    "id": 15,
+    "query": "Confluence macros from plugins not rendering on Cloud",
+    "document": "Confluence macros from Data Center plugins may not work in Cloud. Review each macro used in your spaces against the Cloud macro catalog. Built-in macros generally migrate without issues, but macros from third-party apps often need a Cloud-compatible replacement or manual content adjustment.",
+    "relevance": 5,
+    "category": "Integration"
+  },
+  {
+    "id": 16,
+    "query": "How to validate data integrity after migration",
+    "document": "After migration, validate your data by comparing issue counts, attachment integrity, and workflow states between DC and Cloud. Run automated checks and spot-check key projects manually. Verify that custom fields, comments, and issue links transferred correctly.",
+    "relevance": 5,
+    "category": "Data"
+  },
+  {
+    "id": 17,
+    "query": "JSM SLA configurations missing in Cloud",
+    "document": "Migrating Jira Service Management from DC to Cloud transfers service desks, queues, SLAs, and customer portal configurations. Some automation rules and custom SLA metrics may need adjustment. Review SLA goals and calendar hours in the Cloud JSM admin after migration.",
+    "relevance": 4,
+    "category": "Configuration"
+  },
+  {
+    "id": 18,
+    "query": "Board swimlanes look different after migration",
+    "document": "Jira boards in Data Center are migrated to Cloud with their filter and column configurations intact. However, board-level swimlane settings and quick filters may need reconfiguration. Check each board after migration to confirm the layout matches expectations.",
+    "relevance": 5,
+    "category": "UI/UX"
+  },
+  {
+    "id": 19,
+    "query": "What Cloud subscription tier do we need for 2000 users?",
+    "document": "Atlassian Cloud offers Free, Standard, Premium, and Enterprise pricing tiers. Each tier has different user limits, storage quotas, and support levels. Premium and Enterprise include advanced features like IP allowlisting, audit logging, sandbox environments, and priority support.",
+    "relevance": 3,
+    "category": "Other"
+  },
+  {
+    "id": 20,
+    "query": "Attachments over the size limit failed to migrate",
+    "document": "Jira attachments are migrated alongside their parent issues. Large attachments over the Cloud file size limit may fail to transfer. Check attachment size limits before migration and archive oversized files. The migration log will list any attachments that were skipped.",
+    "relevance": 5,
+    "category": "Data"
+  }
+]

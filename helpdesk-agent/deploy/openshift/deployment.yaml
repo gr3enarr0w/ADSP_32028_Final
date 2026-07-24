@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-helpdesk-agent
+  namespace: jira-messaging--runtime-ext
+  labels:
+    app: ai-helpdesk-agent
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: ai-helpdesk-agent
+  template:
+    metadata:
+      labels:
+        app: ai-helpdesk-agent
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/agile-tech-sol/ai-helpdesk-agent:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "2000m"
+              memory: "2Gi"
+            limits:
+              cpu: "4000m"
+              memory: "8Gi"
+          # startupProbe blocks liveness/readiness until app finishes loading models.
+          # Peak observed memory during startup: ~940MiB; steady state: ~750MiB.
+          # App startup takes 3-5 minutes. failureThreshold*periodSeconds=1800s max.
+          startupProbe:
+            httpGet:
+              path: /api/health
+              port: 8080
+            failureThreshold: 180
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 8080
+            periodSeconds: 30
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /api/ready
+              port: 8080
+            periodSeconds: 10
+            failureThreshold: 30
+          envFrom:
+            - configMapRef:
+                name: ai-helpdesk-agent-config
+            - secretRef:
+                name: ai-helpdesk-agent-secrets
+          env:
+            - name: GOOGLE_SERVICE_ACCOUNT_JSON
+              value: /app/secrets/service_account.json
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
+          volumeMounts:
+            - name: sa-json
+              mountPath: /app/secrets
+              readOnly: true
+            - name: models
+              mountPath: /app/models
+      imagePullSecrets:
+        - name: ghcr-pull-secret
+      terminationGracePeriodSeconds: 60
+      volumes:
+        - name: sa-json
+          secret:
+            secretName: ai-helpdesk-agent-sa-json
+        - name: models
+          persistentVolumeClaim:
+            claimName: ai-helpdesk-agent-data

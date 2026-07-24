@@ -1,0 +1,67 @@
+BCM Data Center Resilience Questionnaire — Help Desk AI Agent
+=============================================================
+
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Column                                                   | Value                                                                             |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Business Continuity Plan Name                            | Help Desk AI Agent                                                                |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Department                                               | Product Engineering                                                               |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Business Continuity Recovery Tier                        | B2 Business Critical                                                              |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Business Continuity Plan Owner / Author                  | Clark Everson                                                                     |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Production - Data Center(s) / Cloud Used                 | IAD2                                                                              |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Production - Storage / Capacity Used                     | IAD2: 5 GiB                                                                       |
+| (List Per Data center. Separate by Comma)                |                                                                                   |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Non-Production (Dev/Test/Staging) -                      | N/A                                                                               |
+| Data Center(s) / Cloud Used                              |                                                                                   |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Non-Production - Storage / Capacity Used                 | N/A                                                                               |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Impact of Outage                                         | AI Helpdesk Agent is unavailable; Jira Service Management Tier-1 AI responses    |
+| (If any selected site goes down tomorrow,                | stop; affected support queues route to human agents only.                         |
+| what breaks?)                                            |                                                                                   |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Is the Database / State backed up somewhere else?        | Yes                                                                               |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Are the Configurations / Cluster Manifests               | Yes                                                                               |
+| (GitOps/YAMLs) backed up somewhere else?                 |                                                                                   |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Are the Build Artifacts (Container Images /              | Yes                                                                               |
+| Binaries) backed up somewhere else?                      |                                                                                   |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Backup Storage Location(s)                               | GitHub (manifests, CI/CD pipelines, container images via GHCR);                  |
+|                                                          | Neon automatic daily backups (PostgreSQL state, hosted on AWS us-east-1)          |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Can this workload run somewhere else?                    | Partial                                                                           |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Current Recovery Strategy Type & Target                  | No Formal Strategy                                                                |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Has this recovery strategy been tested/simulated         | No, documented but never tested                                                   |
+| in the last 12 months?                                   |                                                                                   |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| How long can you safely operate on the primary           | Business decision required — propose 8 hours for B2 tier                         |
+| Data Center in a degraded state before you are           |                                                                                   |
+| forced to pull the trigger and switch to the alternate?  |                                                                                   |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| If primary site goes down, how long can you sustain      | N/A — no formal failover environment exists; service would be unavailable until   |
+| operations on the failover environment?                  | redeployment (~2–4 hours to a new OCP namespace via CI/CD)                        |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| If Data Center is suddenly unavailable what is your      | All code, manifests, and CI/CD pipelines are in GitHub and unaffected by a DC    |
+| plan to continue committing and/or recovering            | outage. Recovery steps: (1) provision new OCP namespace in alternate cluster,    |
+| development code?                                        | (2) trigger GitHub Actions redeploy, (3) re-inject Bitwarden SM secrets,         |
+|                                                          | (4) update OCP routes/DNS. Estimated redeployment time: ~2–4 hours.              |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Comments - Any Other Information that you would          | System is currently deployed to STAGE only; production activation requires        |
+| like to share?                                           | AppSec review and IT change management record. Neon PostgreSQL is an external    |
+|                                                          | SaaS on AWS us-east-1 — recovery must account for DB connectivity from any       |
+|                                                          | alternate cluster. ArgoCD sync currently broken (GitHub App auth failure).        |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Documentation/Playbooks/                                 |                                                                                   |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Code Repos                                               | https://github.com/agile-tech-sol/ai-helpdesk-agent                              |
++----------------------------------------------------------+-----------------------------------------------------------------------------------+

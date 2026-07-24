@@ -1,0 +1,187 @@
+# ── Pipeline Configuration ──────────────────────────────────────────
+# Defines which plugins run, in what order, and their behavioral settings.
+#
+# Secrets (OAuth credentials, API tokens) stay in .env — this file
+# holds behavioral/tuning config only.
+#
+# Every value can be overridden by an env var using the naming convention:
+#   PIPELINE_<SECTION>_<KEY>   (uppercased, dots → underscores)
+# e.g.  PIPELINE_SCHEDULE_REFRESH_MINUTES=10
+# ────────────────────────────────────────────────────────────────────
+
+schedule:
+  refresh_minutes: 5            # fallback interval between scheduled runs
+  run_on_startup: true          # trigger a full cycle when the app boots
+
+# ── Plugin Definitions ──────────────────────────────────────────────
+# Plugins execute in the order listed below.
+# Set  enabled: false  to skip a plugin entirely.
+
+plugins:
+
+  # ── 1. Ingest ────────────────────────────────────────────────────
+  ingest:
+    enabled: true
+    project_keys:
+      - <PROJECT_KEY>
+    default_affect_version: ""          # JSM_AFFECT_VERSION override
+    link_follow_projects: []            # discover extra projects via ticket links
+    cloud_cutover_date: "2026-03-16"
+    scrub_pii: true                     # run PII scrubber after ingest
+    slack:
+      channels: []                      # populated from SLACK_CHANNELS env
+      check_resolved_signals: true
+
+  # ── 2. Analysis / Classification ─────────────────────────────────
+  analysis:
+    enabled: true
+    reclassify_newly_resolved: true     # delete + re-classify when resolution appears
+    model: ""                           # GEMINI_MODEL_CLASSIFICATION — empty = use default
+    ensemble_min_samples: 10            # categories with >= N training samples use the ensemble;
+                                        # categories with < N samples fall back to Gemini
+
+  # ── 3. Resolution Summary ────────────────────────────────────────
+  resolution_summary:
+    enabled: true
+    max_tickets_per_cycle: 50
+
+  # ── 4. FAQ Pipeline ──────────────────────────────────────────────
+  faq:
+    enabled: true
+    # Source documents for FAQ context
+    source_doc_ids:
+      - "1Nj4CCLHvARHNnOwZLW5bWGw8uBCmYruMvboXMn2Td4I"
+      - "1tpf_XJB1MiqkwFSKI02fa_KWkXFsarN6zVfj1-jl2g8"
+    output_doc_id: "1ny6lz3h_JCAdVoHU-Pb2czYq6Gbw0WOQwy9tK8kXhEo"
+    slides_id: "1oyg-2MNzRUcmd_ibtmiEqNYBfJtwBY57tQxfGTugnSQ"
+    confluence_spaces:
+      - HUB
+      - OMEGA
+    source_sheet_ids:
+      - "1an47jZKTBqgZ6luWVu_V6k8xuQkFRlJ4a_9H7O6TQ10"
+    gap_analysis:
+      enabled: true
+      run_interval_hours: 168           # TTL gate: 7-day cadence (long TTL — FAQs are stable content)
+      new_tickets_threshold: 50         # event gate: run early if >= N new resolved tickets since last run
+      min_tickets_per_theme: 3          # require N resolved tickets before generating
+      max_new_articles: 10              # cap per gap-analysis cycle
+      slack_enrichment: true            # enrich FAQs from ✅ Slack threads
+    dedup:
+      jaccard_threshold: 0.80
+      cosine_threshold: 0.95            # calibrated threshold from Vertex AI gemini-embedding-001 with
+                                        # Gemini-as-judge labels (ANTSE-554). F1=0.588, Recall=0.455,
+                                        # Precision=0.833 on 288 labeled pairs.
+    embedding:
+      model: "sentence-transformers/all-MiniLM-L6-v2"
+      batch_size: 256
+
+  # ── 5. KB Index ──────────────────────────────────────────────────
+  kb_index:
+    enabled: true
+    refresh_days: 7
+    confluence_spaces:
+      - HUB
+      - OMEGA
+
+  # ── 6. Auto-Responder / Drafter ──────────────────────────────────
+  responder:
+    enabled: true
+    auto_draft_all: true                # draft for ALL open tickets (vs assignee-only)
+    auto_respond_assignees:
+      - "5f7dd332837bb8006863d4d3"      # ceverson
+    age_gate_hours: 4                   # wait N hours before drafting
+    confidence_threshold: 0.6           # minimum classifier confidence for auto-draft
+    draft_self_check: true              # run self-check before posting
+    noise_patterns: []                  # skip tickets matching these patterns
+    templates_enabled: true             # use template-fill when classification + template match
+    template_confidence_threshold: 0.75   # min confidence for template-fill (above auto-draft bar)
+    confluence_template_page_id: "417531892"  # HUB — AnTS-E AI Helpdesk Agent Templates
+    fewshot_k: 5                        # ANN few-shot example count
+    fewshot_similarity_floor: 0.5       # minimum similarity for few-shot examples
+    csat_weight: 0.5                   # alpha for Strategy A linear CSAT weighting
+    fewshot_csat_strategy: a           # auto / baseline / a / b / c (CV winner: Strategy A)
+    capture_feedback: true
+    harvest_response_examples: true
+    sentiment_escalation_threshold: high  # escalate access tickets at this intensity (low/medium/high)
+    sentiment_gate_threshold: 0.70        # 0.70 → 17.8% suppression on 9,953-ticket corpus (ANTSE-333 validated)
+    # Fusion defaults are bootstrap values; tune_fusion() is the source of truth.
+    # Do not treat these as strict constants if CV-selected params differ.
+    rrf_k: 10                             # fallback RRF rank constant
+    retrieval_alpha: 0.55                 # fallback BM25 weight in weighted fusion
+    retrieval_tune_folds: 5                # k-fold splits for tune_fusion()
+    retrieval_tune_seed: 42                # reproducible CV splits
+    retrieval_eval_min_queries: 200        # production tuning minimum (use 25 in tests)
+    retrieval_eval_max_queries: 300        # cap auto-labeled eval set size
+    retrieval_eval_path: data/retrieval_eval_queries.json
+    retrieval_eval_prefer_file: true       # load JSON when count >= min_queries
+    retrieval_allow_undersized_tuning: false  # block apply=True tuning when eval set is below minimum
+    mrr_monitor_enabled: true              # weekly MRR snapshot (ANTSE-450); cadence: every 7 days
+    mrr_drop_alert_threshold: 0.05        # P3 OpsGenie alert when primary fusion MRR drops > this
+    # Skip Slack resolved-signal checks during the responder sweep (mirrors ingest.slack.check_resolved_signals)
+    check_resolved_signals: true
+
+  # ── 5. Export / Doc Refresh ──────────────────────────────────────
+  export:
+    enabled: true
+    refresh_doc_indexes: true
+    doc_refresh_interval_hours: 24
+    doc_source_domains:
+      - "support.atlassian.com"
+      - "developer.atlassian.com"
+    doc_cache_days: 7
+    atlassian_doc_urls:
+      - "https://support.atlassian.com/jira-software-cloud/resources/"
+      - "https://support.atlassian.com/confluence-cloud/resources/"
+      - "https://support.atlassian.com/jira-service-management-cloud/resources/"
+      - "https://developer.atlassian.com/cloud/jira/platform/"
+      - "https://developer.atlassian.com/cloud/jira/service-desk/"
+      - "https://developer.atlassian.com/cloud/confluence/"
+      - "https://developer.atlassian.com/cloud/admin/"
+    atlassian_docs_refresh_days: 7
+    github_doc_repos:
+      - "atlassian/atlassian-mcp-server"
+    confluence_kb_space: "HUB"
+    # Stage:  120947227 — AI-Generated FAQ Articles (Clean), HUB space, stage-<YOUR_DOMAIN>.atlassian.net
+    # Prod:   118685697 — AI-Generated FAQ Articles, HUB space, <YOUR_DOMAIN>.atlassian.net
+    confluence_parent_page_id: "120848404"  # overridden per environment via CONFLUENCE_PARENT_PAGE_ID env var
+    # Controls whether gap analysis runs during the export phase
+    gap_analysis:
+      enabled: true
+
+  # ── 6. Feedback / Sentiment ──────────────────────────────────────
+  feedback:
+    enabled: true
+    sentiment_model: cardiffnlp/twitter-roberta-base-sentiment-latest
+    sentiment_intensity_threshold: 0.6  # score >= this → intensity 'high'
+    sentiment_finetuned: true           # enabled after ANTSE-326 validation — agreement 98.5%, eval_loss 0.0046
+
+  # ── 7. Alerting — anomaly detection + topic clustering ───────────
+  alerting:
+    enabled: true
+    anomaly_sigma: 2.0                  # control-chart threshold (±Nσ)
+    anomaly_alerts_enabled: true        # ANTSE-315 volume anomaly OpsGenie alerts
+    if_contamination: 0.05              # Isolation Forest contamination rate
+    if_fpr_threshold: 0.05              # activate IF when control-chart FPR exceeds this
+    if_window_days: 7                   # days of anomaly_scores to measure FPR from
+    cluster_window_days: 3              # ANTSE-317 EDA recommendation
+    trend_window_days: 30               # 30-day trend analysis window
+    trend_alerts_enabled: true          # enable trend-based cluster alerts
+    cluster_k: 10                       # K-means cluster count (ensemble fallback)
+    cluster_velocity_threshold: 0.3     # 30% growth triggers growing flag
+    cluster_alerts_enabled: true        # ANTSE-319 rising cluster OpsGenie alerts
+    opsgenie_enabled: true              # master switch for OpsGenie (API key in .env)
+    opsgenie_priority: P3
+    opsgenie_source: ai-helpdesk-alerting
+    hdbscan_min_cluster_size: 3         # HDBSCAN min cluster size
+    clustering_approach: auto           # auto picks benchmark winner; or hdbscan / kmeans / ensemble
+
+# ── Model Routing ──────────────────────────────────────────────────
+# Which Gemini model to use for each task category.
+# Empty string = fall back to the base GEMINI_MODEL from .env.
+
+models:
+  base: "gemini-2.5-pro-preview"
+  classification: ""                    # defaults to base
+  generation: ""                        # defaults to base
+  analysis: ""                          # defaults to base
+  flash: "gemini-2.5-flash-lite"        # used for self-check / fast tasks

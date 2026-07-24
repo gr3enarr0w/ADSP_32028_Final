@@ -1,0 +1,102 @@
+[
+  {
+    "key": "JIRACONFSD-7560",
+    "category": "Access",
+    "summary": "Request access to ocp-operator-sdk GitHub repository"
+  },
+  {
+    "key": "JIRACONFSD-7561",
+    "category": "Access",
+    "summary": "Add me to the PRODUCT-SUPPORT Jira project with Reporter role"
+  },
+  {
+    "key": "JIRACONFSD-7562",
+    "category": "Access",
+    "summary": "Grant edit permissions on Product Documentation Confluence space"
+  },
+  {
+    "key": "JIRACONFSD-7563",
+    "category": "Access",
+    "summary": "Need access to redhat-lab-cluster-1 on OpenShift"
+  },
+  {
+    "key": "JIRACONFSD-7564",
+    "category": "Configuration",
+    "summary": "JQL filter not working for OCP vulnerabilities"
+  },
+  {
+    "key": "JIRACONFSD-7565",
+    "category": "Configuration",
+    "summary": "Add new component \"Konflux Connector\" to RHEL project"
+  },
+  {
+    "key": "JIRACONFSD-7566",
+    "category": "Configuration",
+    "summary": "Workflow validator failing on Rover issue transition"
+  },
+  {
+    "key": "JIRACONFSD-7567",
+    "category": "Configuration",
+    "summary": "Confluence macro not displaying GitLab issues"
+  },
+  {
+    "key": "JIRACONFSD-7568",
+    "category": "Permissions",
+    "summary": "Request access to GitLab repository for Konflux project"
+  },
+  {
+    "key": "JIRACONFSD-7569",
+    "category": "Permissions",
+    "summary": "Update Confluence space permissions for RHEL Engineering"
+  },
+  {
+    "key": "JIRACONFSD-7570",
+    "category": "Permissions",
+    "summary": "Request permission to create new Jira projects"
+  },
+  {
+    "key": "JIRACONFSD-7571",
+    "category": "Integration",
+    "summary": "GitHub PR merge automation not updating Jira tickets"
+  },
+  {
+    "key": "JIRACONFSD-7572",
+    "category": "Integration",
+    "summary": "Konflux build updates failing to post to Jira via API"
+  },
+  {
+    "key": "JIRACONFSD-7573",
+    "category": "Integration",
+    "summary": "Jira Issue/Filter Macro failing on Confluence pages"
+  },
+  {
+    "key": "JIRACONFSD-7574",
+    "category": "Performance",
+    "summary": "Jira board for Konflux project loads very slowly"
+  },
+  {
+    "key": "JIRACONFSD-7575",
+    "category": "Performance",
+    "summary": "Confluence page rendering slow in OCP documentation space"
+  },
+  {
+    "key": "JIRACONFSD-7576",
+    "category": "Performance",
+    "summary": "GitLab CI/CD pipeline view very slow to load for Rover project"
+  },
+  {
+    "key": "JIRACONFSD-7577",
+    "category": "Workflow",
+    "summary": "Automation not creating Confluence page on Task creation"
+  },
+  {
+    "key": "JIRACONFSD-7578",
+    "category": "Workflow",
+    "summary": "Workflow transition blocked by GitHub PR link validation"
+  },
+  {
+    "key": "JIRACONFSD-7579",
+    "category": "Workflow",
+    "summary": "GitLab MR status not updating Jira issue workflow"
+  }
+]

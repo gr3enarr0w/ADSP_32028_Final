@@ -1,0 +1,2117 @@
+{
+  "version": 1,
+  "built_at": "2026-06-05T17:13:19.747994+00:00",
+  "count": 300,
+  "query_type_counts": {
+    "keyword": 185,
+    "semantic": 115
+  },
+  "source_type_counts": {
+    "tickets": 228,
+    "kb_articles": 60,
+    "faq_sources": 4,
+    "atlassian_docs": 8
+  },
+  "queries": [
+    {
+      "query": "OAuth service account",
+      "source_type": "tickets",
+      "doc_id": "ANTSE-4",
+      "query_type": "keyword",
+      "label_source": "seed"
+    },
+    {
+      "query": "can't log in",
+      "source_type": "tickets",
+      "doc_id": "ANTSE-5",
+      "query_type": "keyword",
+      "label_source": "seed"
+    },
+    {
+      "query": "Need to add new DISTRO in VDO project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8502",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I don't have access to Jira",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8569",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Add \"Size\" field and \"Acceptance Criteria\" field to DXDATA Project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8423",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Reset 2FA for [EMAIL] bot account",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8562",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I can't access the AAP space in confluence",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8567",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "RHAIIT Factory",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8460",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I don't have access to the following page",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8561",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Have no privilege to access https://<YOUR_DOMAIN>.atlassian.net",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8547",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Need a new org-admin token for bugzilla-data/components",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8555",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Global automation: \"In progress Automation\" fails continuously",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8384",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "No access to Confluence spaces",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8543",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Background tab with JIRA keeps opening new tabs for login",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8243",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Unable to log in to `sdn-team-bot` account on JIRA after migration of JIRA to the cloud",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8212",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "connecting gitlab PRs to jira tickets",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8289",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Please help Preeti Wagh ([EMAIL]) with access to Confluence",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8518",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Please Grant swillis admin permission to the SSE, SOAR Jira projects",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8248",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Permissions Access",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8290",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Productizing Interested Parties (Forge Application)",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7958",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I need access to the following wiki space - https://<YOUR_DOMAIN>.atlassian.net/wiki/spaces/RHAI/pages/297601576/RFE+Process",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8312",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "[Report Permissions issue]  2026-05-12 - External entity added to Atomic Quality Engineering",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8287",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I need access to the following wiki space - https://<YOUR_DOMAIN>.atlassian.net/wiki/spaces/RHAI/pages/297601436/Red+Hat+AI+Cross+Org+Workflow",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8313",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I need help with SLA and date function",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8209",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Delete Multi-Project Automation Rules",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8237",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Support dynamic webhooks in Jira (via OAuth 2.0 app)",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8334",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Request for project in support of JSM and Confluence for IPM",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8050",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "\"Contributing Groups\u201d field can't be accessed by partners (reopen)",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8239",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Help Requesting New Confluence Space",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8437",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Access to RHAI space",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8428",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Please update PLATENG Issue Type scheme",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8558",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Add \"Fixed in Build\" and \"Whiteboard\" field in the \"HUM\" project in http://stage-<YOUR_DOMAIN>.atlassian.net/",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8542",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Restriction of Outcome Issue Type",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8350",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Access Requests to Project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8424",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Bulk Move API Request",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8338",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "EBS support Test Automation",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8556",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "[RHEL 10.2][Lenovo][Mario][T14 G7][PTL] The Red Hat 10.2 Installation Hangs Up",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8537",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "New Jira Group (for Interested Parties)",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8553",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Add KAWAKAMI, YUKI [EMAIL] to Nissan Confidential Group",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8525",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Add Color Status Field to DXDATA Project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8419",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Red Hat Flaws Project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8544",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "can't log in",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8538",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Request colour status fields to epic issue type for AskCL Board",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8439",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Request for OJA-WFS-066  Workkflow for AI Closed Loop jira board",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8438",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Add T-Shirt size field to epics in projects: CPCORE & CPKB",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8534",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Request usability change to OCPBUGS project bug template",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8530",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "assisted-installer-jira-unfurler causing a lot of channel noise",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8139",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Access Request",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8465",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I can't access confluence pages. Example https://<YOUR_DOMAIN>.atlassian.net/wiki/spaces/DDISDP/pages/152735363/Salesforce+sfsales",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8462",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Access to confluence",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8443",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Need access to JIRA for a customer engineer",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8418",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Core Platforms AssignedTeam Change Request - CPAT50",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8498",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "login issues for quay.io with my existing jira username \"rh-ee-niksingh\"",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8464",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "CSB jenkins doc not accessible",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8373",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Setting default QA contact in Jira",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8370",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Adding \"Clone Epic and Children\" automation rule (rule ID 1021) for the Openstack Onboarding (OSPOB) project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8353",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Need Jira Forms",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8108",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Jira Cloud for Sheets Add On not getting data",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7859",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I need access to https://<YOUR_DOMAIN>.atlassian.net/wiki/spaces/KG/pages/143604428/Beaker",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8528",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Cannot set the security level for CORS-4494",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8527",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Unable to access my team's JIRA instance",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8386",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "APAC Technology Lab",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8519",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Requesting the Acceptance Criteria field be added to all work types in ASK jira",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8472",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Requesting OJA-ITS-007 work type scheme",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8471",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Intern lacking access to our Jira project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8461",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Change UIEDATA project to OJA-WFS-066 workflow",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8425",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "When following links while not logged-in, leads to a dead-end page without ability to login",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8515",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Archive PDM",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8512",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Custom Fields for UIEDATA project in Jira",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8426",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Please make Color Status field visible for these spaces",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8434",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Create a bot account for Insights release automation",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8497",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Log in to Jira to see this work item",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8516",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "No Permission to Change My Project Workflows",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8404",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Requesting for Jira Service account",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8505",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I don't have access to https://<YOUR_DOMAIN>.atlassian.net/wiki/spaces/RCMDOC/overview?homepageId=296845314",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8517",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Never accessed Confluence, no permission to access",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8513",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I have linked a SFDC case to a Jira and the Status is 'FAILED'",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8246",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Unable to add SFDC case to Jira",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8293",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "need access to wiki spaces",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8508",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "ResetContactsToDefault field is not set in RHEL automatically when component is changed",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8348",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Assignee/AssignedTeam automation failing in RHEL project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8495",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Add \"Tracker\" Jira type",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8501",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "need help cleaning up issue duplications that resulted from using automation to make changes",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8306",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Mandatory Severity field in RHEL project for Bug status transition from New to Planning when Regression is Yes",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8357",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "XE Agentic AI",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8492",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Need activation of disabled account",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8223",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Creating Auto-Tasks at Hierarchy Level 1 (Nesting under Stories/Bugs)",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8219",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I added Beena Thomas to the BAT Space, but she is still getting access error",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8164",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Require New Priority List Values",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8344",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I am unable to access confluence space - Dataverse Sources",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8188",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Jira API Access Request - Partner Engineering Research Portal",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7609",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Help with cleaning up old data - for sprint board reports",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7894",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Need SLA Date field available for eazyBI reporting",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7655",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "No user found for Shubham Chilhate",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8487",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Jira and confluence access for [EMAIL]",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8474",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Request to implement a multi\u2011project Jira automation rule for enforcing \u201cTarget End Date on a Weekend\u201d behavior across multiple teams.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7205",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Sprint board not populating",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8093",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "we are looking to update a number of fields in Jira and add some functionality",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8166",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Please create and sync multiple (new) rover groups to jira groups",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8305",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Field \"reviewer\" (custom field \"10671\") not visible in our project AIE (https://<YOUR_DOMAIN>.atlassian.net/jira/software/c/projects/AIE/boards/10647/backlog)",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7936",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I need access to snowflake to use JIRA MCP server",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8457",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Posting comments as part of Rovo AI chat",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8314",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Setting a parent epic/link for a bug",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8315",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "no login button when accessing an issue url directly",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8398",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Add \"Request\" type Jira to SPOG Jira Space",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8339",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Agentlab",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8503",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Adding the field \"Doc Contact\" to all issue types",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8500",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Confluence access",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8295",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I want to join confluence, I am in booking master team",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8277",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "New service account",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8270",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Need to add \u201cFedora 44\u201d in \u201cOperating System_Lab\u201d field for VDO project in Jira",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8502",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I can\u2019t access to Jira, please advice",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8569",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "UIE is requiring that all projects within their space have \u201cSize\u201d[",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8423",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "The person who requested the bot account is no longer in the company. I think we lost access to the authenticator that was set up for 2FA.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8562",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "For some reason, I can't access the AAP space in confluence.\u00a0 Everyone else on my team shows up in the \"Share\" text input when my manager types their name. He tried to add me using the Share modal on",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8567",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "This is to track all work and effort towards  Red Hat AI IT Factory",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8460",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hi, I need to have permissions to the following page",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8561",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I have no privilege to access",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8547",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "We have automation that requires verification of RH employees Jira accounts, via their emails. Thus we need the org token to make these queries.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8555",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hej, I just came back to work after parental leave.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8543",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "An inactive web browser tab left open with, say",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8243",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I want to connect my PRs in gitlab to Jira tickets.. is that supported with gitlab cee bot in the new Jira cloud or what the recomended way to do so.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8289",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Currently we have many issues. We have created security automation that targets Jira. Yet we do not have control over our own Jira projects, and have been needing to make external requests to do simple things. Currently ",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8248",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I am the owner of the ToolX Sprint Board and I\u2019ve lost access to my board. I\u2019m not sure what happened but I cannot complete or start a sprint. Please grant access!!",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8290",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "We have been working for 4-6 months to design and develop a reimagining of Customer Intelligence, by where in we leverage Jira Cloud native tools/technology to design and implement a way for \u2018customer\u2019 interested/wants t",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7958",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "ssueFunction in dateCompare(",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8209",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "There are apparently two multi-project automation rules that I thought had been turned off & deleted last year but are apparently still active:",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8237",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "We have created an OAuth 2.0 app (\"Release Automation Pipelines\") in the Atlassian Developer Console to",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8334",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hi! The RHIVOS program within Core Platforms needs a new staging Confluence specifically for the pipeline to test gitlab MRs publishing our Dev Guide docs to Confluence. I saw your option to request a new space, but I do",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8437",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I am a new developer in the AAIET / Agent Dev team. I need to access",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8428",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hi there, we want to start using Epics in the PLATENG project. Please update to the OJA-ITS-024 issue type scheme. Thanks!",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8558",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "To Create Story for EBS related Test Automation and work on that.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8556",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "We would like to request a new Jira group (interested Parties Users) with Rover Group syncing to (",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8553",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hi, I can\u2019t access Jira.  When trying to access a ticket (for instance",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8538",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "IX mandates that all Jira projects use the OJA-WFS-066 Jira workflow scheme. Can we change AI close loop board to above scheme.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8438",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Please add the T-Shirt size field to work type",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8534",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "When creating a new bug in the OCPBUGS project, the template for the Description part of the bug has a series of sections, each followed by a \u201ccode snippet\u201d element. This is bad for several reasons:",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8530",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Slack thread for reference",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8139",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I have a new contractor who needs access to our space. Wilbur Yeargin -",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8465",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I can't access confluence pages. Example",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8462",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hi, I am not able to access Confluence",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8443",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I am not able to login to",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8464",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hello, in the past I had access to CSB jenkins info pages and with info about changes. Now I cannot access these pages:",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8373",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hello Jira Admin Team,",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8370",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I need to clone Initiatives with their full child hierarchy (Epics \u2192 Stories/Tasks \u2192 Sub-tasks) for onboarding workflows \u2014 similar to how GETDO already uses this for intern onboarding (",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8353",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I installed the Jira Cloud for Google Sheets AddOn in order to get information from Jira.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7859",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I need access to:",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8528",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I am trying to set security level on",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8527",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I am unable to access my team's JIRA instance, I can access the Jira in general. Screenshot is attached for reference, and error code is as below:",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8386",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Project management of the APAC Technology Lab, a presales and postsales bare metal lab hosted in the Equinix KL1 data center, Malaysia",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8519",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hello, I\u2019m requesting the Jira Work Type scheme of",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8471",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Our intern started on May 18th.  On that day I added him to",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8461",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Our department has new guidelines for using Jira and wants all of our projects to use",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8425",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Sometimes, when I follow links to Jira issues (eg.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8515",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "In order to progress with the",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8512",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Our department has new guidelines for using Jira and wants all of our projects to use custom fields.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8426",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "For the following Jira Spaces, please make the Color Status field visible for Epics and above:",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8434",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I need a bot account that is going to be used to automatically close released Jira cards for Insights services.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8497",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hello Dear Team,",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8516",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "This request is for a service account in Jira for a project I\u2019ve build and need a service account so that project can be ran using the service account and not my personal account.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8505",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I believe I should have access to what other engineers have access to and don\u2019t understand why I don\u2019t? Could you look into why I don\u2019t have access to something that most other people in the company do have access to ple",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8517",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I was guided to open a ticket to have access to Confluence.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8513",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "my team created a wiki page:",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8508",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Setting this field forces bot to set fields like Developer, Assignee, QE etc., but this field is hidden (only available via mass change when adding the field manually). It also isn\u2019t set automatically when the component ",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8348",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "The auto-assignment of the assignee and AssignedTeam failed for",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8495",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "need someone else to see my project",
+      "source_type": "kb_articles",
+      "doc_id": "KB-4",
+      "query_type": "keyword",
+      "label_source": "seed"
+    },
+    {
+      "query": "14 March 2025",
+      "source_type": "kb_articles",
+      "doc_id": "190191855",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "2025-07-15 Meeting notes",
+      "source_type": "kb_articles",
+      "doc_id": "190191857",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "22 April 2025",
+      "source_type": "kb_articles",
+      "doc_id": "190191859",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "31 January 2025",
+      "source_type": "kb_articles",
+      "doc_id": "190191862",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Accessibility in Atlassian Cloud",
+      "source_type": "kb_articles",
+      "doc_id": "402885841",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Accessing Atlassian Cloud (Jira or Confluence)",
+      "source_type": "kb_articles",
+      "doc_id": "303586406",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "ACI",
+      "source_type": "kb_articles",
+      "doc_id": "190194776",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Adopting an Approved Issue Security Scheme",
+      "source_type": "kb_articles",
+      "doc_id": "190190249",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Adopting an Approved Notification Scheme",
+      "source_type": "kb_articles",
+      "doc_id": "190190306",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Adopting an Approved Permission Scheme",
+      "source_type": "kb_articles",
+      "doc_id": "190190356",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Adopting an Approved Priority Scheme",
+      "source_type": "kb_articles",
+      "doc_id": "190189998",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Adopting Approved Work Types (Issue Types)",
+      "source_type": "kb_articles",
+      "doc_id": "190190124",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Adopting Base and Product Development Base Fields",
+      "source_type": "kb_articles",
+      "doc_id": "190189907",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Adopting the Statuses and Workflows",
+      "source_type": "kb_articles",
+      "doc_id": "190190466",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Agile and Tooling Knowledge Hub: Atlassian Cloud",
+      "source_type": "kb_articles",
+      "doc_id": "190185474",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "AI-Ready Confluence Page Template",
+      "source_type": "kb_articles",
+      "doc_id": "414876562",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "AI-Ready page starter (copy me)",
+      "source_type": "kb_articles",
+      "doc_id": "414910059",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Ansible",
+      "source_type": "kb_articles",
+      "doc_id": "190194779",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Application Services",
+      "source_type": "kb_articles",
+      "doc_id": "190194782",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Archiving and deleting Confluence content",
+      "source_type": "kb_articles",
+      "doc_id": "190187852",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Article approval process",
+      "source_type": "kb_articles",
+      "doc_id": "190191815",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Atlassian AI (Rovo) Usage Guide",
+      "source_type": "kb_articles",
+      "doc_id": "118260242",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Atlassian apps",
+      "source_type": "kb_articles",
+      "doc_id": "402675148",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Atlassian apps evaluated (not adopted)",
+      "source_type": "kb_articles",
+      "doc_id": "402675312",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Atlassian Cloud Connectors, Apps & CLIs",
+      "source_type": "kb_articles",
+      "doc_id": "408469299",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Atlassian Cloud Updates for June 2026",
+      "source_type": "kb_articles",
+      "doc_id": "405439943",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Atlassian Cloud Updates for May 2026",
+      "source_type": "kb_articles",
+      "doc_id": "402950627",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Atlassian Learning",
+      "source_type": "kb_articles",
+      "doc_id": "190188195",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Audit",
+      "source_type": "kb_articles",
+      "doc_id": "414911736",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Automation Rules",
+      "source_type": "kb_articles",
+      "doc_id": "402950561",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Behavioral",
+      "source_type": "kb_articles",
+      "doc_id": "190191058",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Bundled Release Updates",
+      "source_type": "kb_articles",
+      "doc_id": "402854771",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Business Application and Integration Governance: Policy for Atlassian Cloud",
+      "source_type": "kb_articles",
+      "doc_id": "401867359",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Capacity Concepts",
+      "source_type": "kb_articles",
+      "doc_id": "190188315",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Capacity Planning",
+      "source_type": "kb_articles",
+      "doc_id": "190188219",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Capacity Planning In Jira",
+      "source_type": "kb_articles",
+      "doc_id": "190188334",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Cloud Training and Resources",
+      "source_type": "kb_articles",
+      "doc_id": "118260180",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Common tools that interact with the Jira REST API",
+      "source_type": "kb_articles",
+      "doc_id": "190187633",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Communications and Updates",
+      "source_type": "kb_articles",
+      "doc_id": "402607561",
+      "query_type": "keyword",
+      "label_source": "kb_title"
+    },
+    {
+      "query": "Follow up from January meeting Created rover group hub-governance-board and added governance board members to it. Gave this group Developer access so they can create tickets, close tickets, etc.&nbsp; Agenda OKR 1 Small ",
+      "source_type": "kb_articles",
+      "doc_id": "190191855",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Date Attendees &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Goals 3d quarter&nbsp; Discussion items Item Who Notes Duplicate content in the metrics section &nbsp; Jay Greguske had authored content in the&nbsp; area o",
+      "source_type": "kb_articles",
+      "doc_id": "190191857",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Agenda Update on OKR: PLMORG-191 1bfff825-a9c1-3079-8939-b30e0388cfc4 System Jira Quick update on focus groups Miro board link: https://miro.com/app/board/uXjVIB_z5DU=/ Could we try again to recruit new members for the B",
+      "source_type": "kb_articles",
+      "doc_id": "190191859",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Follow up from last meeting Link to PLM OKR for the Hub. System Jira 1bfff825-a9c1-3079-8939-b30e0388cfc4 PLMORG-188 Created Jira project for Hub: ATKHUB .&nbsp;Let's list some uses for this project. New content requests",
+      "source_type": "kb_articles",
+      "doc_id": "190191862",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Purpose: Explain Atlassian accessibility standards, how Jira Cloud differs from Data Center profile settings, where to report issues, and known Red Hat escalations. Audience: Jira and Confluence users, project admins, an",
+      "source_type": "kb_articles",
+      "doc_id": "402885841",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Purpose: How to log in to Red Hat production Jira and Confluence Cloud, troubleshoot common login errors, access stage environments, and find bot/service account guidance. Audience: Red Hat employees and others with Red ",
+      "source_type": "kb_articles",
+      "doc_id": "303586406",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Crucial Prioritization Techniques - Video / Slideck Jira Self-Service Portal Quarterly Planning &nbsp; Agile Practices &nbsp; Related General Guidance Red Hat Jira User Guide Jira Automation",
+      "source_type": "kb_articles",
+      "doc_id": "190194776",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Background grey dashed What is an Issue Security Scheme? Issue Security Schemes allow you to control who can and cannot view issues. They consist of a number of security levels which can have users/groups assigned to the",
+      "source_type": "kb_articles",
+      "doc_id": "190190249",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Background grey dashed What is a Notification Scheme? Notification Schemes &nbsp; control who gets email notifications during certain issue events in your project. Red Hat Jira will have 4 notification schemes that are d",
+      "source_type": "kb_articles",
+      "doc_id": "190190306",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Purpose: Pre-adoption checks, permission matrix, Groups guidance, and PME workflow for applying an approved OJA-PRMS permission scheme to a Jira project. Audience: Jira Project Admins, Project Leads, and PME. Last review",
+      "source_type": "kb_articles",
+      "doc_id": "190190356",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Background Priority Schemes determine what priority values are available in issues in your project. Priority values represent the urgency with which the issue must be resolved. When creating/editing an issue, you can spe",
+      "source_type": "kb_articles",
+      "doc_id": "190189998",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Background Work Type (Issue Type) Schemes determine what work types (issue types) are available in your project. When creating or moving an issue, you can specify the type of issue it should be. Red Hat Jira will have a ",
+      "source_type": "kb_articles",
+      "doc_id": "190190124",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Background Fields track data attributes in each issue, and screens are organized sets of issues that display during different phases of an issue (creation, editing, and viewing). Red Hat Jira will have two work type (iss",
+      "source_type": "kb_articles",
+      "doc_id": "190189907",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Background Statuses indicate where in a workflow an issue lies. Workflows model the path that issues take through a process from creation to completion. Red Hat Jira will have numerous workflow schemes available. The lis",
+      "source_type": "kb_articles",
+      "doc_id": "190190466",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Search the Agile and Tooling Knowledge Hub. Quick links Support and Help https://<YOUR_DOMAIN>.atlassian.net/servicedesk/customer/portal/67 #forum-atlassian-cloud or #forum-ants-tools (Slack support channels) Welcome!&nbsp; The",
+      "source_type": "kb_articles",
+      "doc_id": "190185474",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Purpose: Standard for new and updated HUB pages so content works well for search, MCP/API clients, and AI assistants. Audience: HUB authors, space admins, and Governance Board reviewers. Last reviewed: &mdash; Stacey Ham",
+      "source_type": "kb_articles",
+      "doc_id": "414876562",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Template page &mdash; do not edit in place. Use \u22ef &rarr; Copy , rename the copy, then replace all [placeholders] on your new page. Purpose: [One sentence: what this page helps someone do or decide.] Audience: [Who should",
+      "source_type": "kb_articles",
+      "doc_id": "414910059",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "For more information on Ansible, visit . Also see the Slack channel&nbsp; #ansible-jira-support , &nbsp; which includes bookmarks as well as a searchable Q&amp;A. Links related to the Ansible Agile journey: Agile transfo",
+      "source_type": "kb_articles",
+      "doc_id": "190194779",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "See this document for information on the following: Application Services Agile Transformation Strategy Agility Plan Dashboard Unified backlog KR sizing dashboard Jira project list (column A)",
+      "source_type": "kb_articles",
+      "doc_id": "190194782",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "Purpose: When to archive vs delete Confluence pages and spaces in Cloud, who can do it, and where to find official procedures. Audience: Confluence space admins and page authors in Red Hat Atlassian Cloud. Last reviewed:",
+      "source_type": "kb_articles",
+      "doc_id": "190187852",
+      "query_type": "semantic",
+      "label_source": "kb_body_lead"
+    },
+    {
+      "query": "oauth 2lo",
+      "source_type": "faq_sources",
+      "doc_id": "FAQ-1",
+      "query_type": "keyword",
+      "label_source": "seed"
+    },
+    {
+      "query": "2LO authentication",
+      "source_type": "faq_sources",
+      "doc_id": "FAQ-1",
+      "query_type": "keyword",
+      "label_source": "seed"
+    },
+    {
+      "query": "JIRACONFSD servicedeskapi",
+      "source_type": "faq_sources",
+      "doc_id": "FAQ-2",
+      "query_type": "keyword",
+      "label_source": "seed"
+    },
+    {
+      "query": "password reset",
+      "source_type": "faq_sources",
+      "doc_id": "FAQ-3",
+      "query_type": "keyword",
+      "label_source": "seed"
+    },
+    {
+      "query": "JIRA workflow scheme",
+      "source_type": "atlassian_docs",
+      "doc_id": "https://support.atlassian.com/jira-cloud/docs/manage-workflows/",
+      "query_type": "keyword",
+      "label_source": "seed"
+    },
+    {
+      "query": "rest api authentication",
+      "source_type": "atlassian_docs",
+      "doc_id": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/authentication/",
+      "query_type": "keyword",
+      "label_source": "seed"
+    },
+    {
+      "query": "Configure Sla Policies",
+      "source_type": "atlassian_docs",
+      "doc_id": "https://support.atlassian.com/jira-service-management-cloud/docs/configure-sla-policies/",
+      "query_type": "keyword",
+      "label_source": "doc_title"
+    },
+    {
+      "query": "Manage Request Types",
+      "source_type": "atlassian_docs",
+      "doc_id": "https://support.atlassian.com/jira-service-management-cloud/docs/manage-request-types/",
+      "query_type": "keyword",
+      "label_source": "doc_title"
+    },
+    {
+      "query": "Set Up Queues",
+      "source_type": "atlassian_docs",
+      "doc_id": "https://support.atlassian.com/jira-service-management-cloud/docs/set-up-queues/",
+      "query_type": "keyword",
+      "label_source": "doc_title"
+    },
+    {
+      "query": "Configure Sla Policies jira service management cloud",
+      "source_type": "atlassian_docs",
+      "doc_id": "https://support.atlassian.com/jira-service-management-cloud/docs/configure-sla-policies/",
+      "query_type": "semantic",
+      "label_source": "doc_title_product"
+    },
+    {
+      "query": "Manage Request Types jira service management cloud",
+      "source_type": "atlassian_docs",
+      "doc_id": "https://support.atlassian.com/jira-service-management-cloud/docs/manage-request-types/",
+      "query_type": "semantic",
+      "label_source": "doc_title_product"
+    },
+    {
+      "query": "Set Up Queues jira service management cloud",
+      "source_type": "atlassian_docs",
+      "doc_id": "https://support.atlassian.com/jira-service-management-cloud/docs/set-up-queues/",
+      "query_type": "semantic",
+      "label_source": "doc_title_product"
+    },
+    {
+      "query": "I used automation (claude code + Jira api or acli) for a few modifications to the issues listed below and those changes somehow resulted in duplications that I need to clean up. Essentially I wanted to re-organize a proj",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8306",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "For the RHEL Jira project, make the Severity field mandatory for status transition of Bugs (issue Bug only) from New to Planning if the Regression field is Yes.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8357",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "A Space serving as one stop shop to capture agentic AI efforts happening across XE.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8492",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hi Jira Admin Team,",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8219",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "User get an access error when trying to reach the BAT Space",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8164",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I am unable to access confluence space - Dataverse Sources, i checked with my PM, and i have the required access, but still unable to access",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8188",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "My team is working on a research portal that is driven off of data contained in Jira issues in this project:",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7609",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hi, [MENTION] and I are helping the team with sprint planning using velocity as a data point to consider when committing to work. We notice in the sprint board reports, like the velocity chart",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7894",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I reached out to",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7655",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Please help getting",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8487",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Rule name (suggested):",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-7205",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "We want to update some fields in Jira and look to use some of the existing fields in a better way to enhance how we report and track critical situations",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8166",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Hi, our organisation is going through a reorg and we want to have multiple new teams/pod rosters synced from rover groups to Jira groups.  Could you please help by creating the following Jira groups to match the rover gr",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8305",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "I created an automation triggered by bug creation to generate triage assessment. See example here",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8314",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "When creating a bug ticket, I can\u2019t assign it a parent epic. There is no field available on the screen while it\u2019s a valid field for a bug.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8315",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "The attached is what I get when accessing a url when not authenticated.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8398",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Apologize, I missed that the \u201cRequest\u201c Jira type is missing. Can you please add it ? I see only \u201cFeature Request\u201c, but that is not possible to fold in under an Epic.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8339",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "We are working on Agent-Lab, which is an AI agent product that helps Support, QE and Development Engineers to be able to quickly create test environments / test clusters for our products in our divergent compute provider",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8503",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Add user: [EMAIL] to Confluence and allow access to Delivery Acceleration space",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8269",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Unable to change the sprint on stories in Sales Planning Technology Board/Project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8266",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I\u2019m the tech PO for this project and I\u2019m Unable to change the sprint on stories in Sales Planning Technology Board/Project. I did have the access previously.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8266",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Get an error every time I login.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8255",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "The error is \u201cSomething went wrong on our end\u201d  The latest error gave me the error hash \u201c",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8255",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "unable to access confluence content like SupportShell space",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8214",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "We need the Team field restored for RHOAIENG, RHAIENG, AIPCC, and INFERENG",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8213",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "We need the Team field restored for RHOAIENG, RHAIENG, AIPCC, and INFERENG, It is a custom field, and most of our teams use it as part of their filters for their team boards. We tried doing the work ourselves but could n",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8213",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Access to an issue/project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8177",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I\u2019m trying to access",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8177",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Can't access OCPBUGS ticket https://<YOUR_DOMAIN>.atlassian.net/browse/OCPBUGS-84801",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8152",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "My associate Greg Kurz (",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8152",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Permission issues",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8132",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "As I try to view",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8132",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Cannot access my organization's space",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8119",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "My account with email",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8119",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Access to Product Security space as a space admin",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8116",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I am supposed to be a space admin for the the Product Security space however when I got to directory to add people, it only lists some rhps-testing site which has no one in it.  I need the space admin for Product Securit",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8116",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Issue Type Scheme Change",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8075",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "multiple jira accounts are causing confusion and inability for partner engineers to access jiras in some cases",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8057",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "From Ewan Milne\u2019s email on our partner engineer Nilesh Javali\u2019s situation, and others exist as well.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8057",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Please grant our bot account redhat-ymir-agent access to RHEL embargoed issues",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8025",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "We\u2019ve just got a request for our account to work with embargoed CVEs so we need it to access them.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8025",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Access to support shell space",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8391",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Digital Customer Success & Product Experience",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8499",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Confluence space to organize my portfolio and create reporting / transparency to upper management.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8499",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Mandatory Regression field in RHEL project for Bug creation",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8356",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "For the RHEL Jira project, make the Regression field mandatory when creating new Bugs (only Bug issues).",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8356",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Change Ownership of Confluence Space",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8452",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "We need to change the ownership of",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8452",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "RHEL-Virt-Test-AI-Efficiency",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8490",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "We would like to restore the documents for the Quality Efficiency teams and maintain the new ones from the recent audit we are conducting together in a single shared space. That\u2019s the reason for raising this request.",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8490",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Allow SFDC integration to MG project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8496",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Enable GitLab DVCS Integration",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8358",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Thank you for the help with DVCS and GitHub in ticket",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8358",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Change Priority Scheme form copr team",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8323",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Hello, we (copr team) want to change our Priority scheme to OJA-PRIS-004 in Jira project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8323",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Jira intake request form for AIPCC",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8268",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Request for CKI bot account",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8341",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Request the addition of a color status field for CPSEARCH Jira project",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8412",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "IX leadership is asking all workstreams to maintain a color status field on all Epics to indicate status at a glance. Update the color (Red, Yellow, Green), and comment what changed, anytime the overall health of the Epi",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8412",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Need automation permissions on STAGE",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8381",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "Hello! I need to test Jira Automation on",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8381",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    },
+    {
+      "query": "Actor doesn't exist error for \"sync from external issue url\" automation rule",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8455",
+      "query_type": "keyword",
+      "label_source": "ticket_summary"
+    },
+    {
+      "query": "I can see that one of the Watson automation rules,",
+      "source_type": "tickets",
+      "doc_id": "JIRACONFSD-8455",
+      "query_type": "semantic",
+      "label_source": "ticket_description"
+    }
+  ]
+}

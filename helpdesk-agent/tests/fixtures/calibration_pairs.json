@@ -1,0 +1,185 @@
+{
+  "_doc": "30-pair calibration set for ANTSE-295: difflib→cosine migration. Each pair has a draft and actual response. Run tests/test_feedback_scorer.py::TestCalibrationSet to compute both scores.",
+  "pairs": [
+    {
+      "id": 1,
+      "label": "identical",
+      "draft": "Your account has been unlocked. Please try logging in again.",
+      "actual": "Your account has been unlocked. Please try logging in again."
+    },
+    {
+      "id": 2,
+      "label": "near_identical_punctuation",
+      "draft": "Your account has been unlocked. Please try logging in again.",
+      "actual": "Your account has been unlocked. Please try logging in again!"
+    },
+    {
+      "id": 3,
+      "label": "minor_rewording",
+      "draft": "Your account has been unlocked. Please try logging in again.",
+      "actual": "I've unlocked your account. Go ahead and try logging in now."
+    },
+    {
+      "id": 4,
+      "label": "same_meaning_different_words",
+      "draft": "Please reset your password using the self-service portal at https://password.example.com.",
+      "actual": "You can change your password yourself by visiting the password reset page at https://password.example.com."
+    },
+    {
+      "id": 5,
+      "label": "added_context",
+      "draft": "The VPN issue has been resolved. Please reconnect.",
+      "actual": "The VPN issue has been resolved on our end — it was a certificate expiry. Please reconnect and let us know if it works."
+    },
+    {
+      "id": 6,
+      "label": "trimmed_response",
+      "draft": "Hi there! I've checked your request and the software has been installed on your machine. You should see it in your Start menu. If you have any other questions, feel free to reach out. Best regards, IT Support.",
+      "actual": "The software has been installed. Check your Start menu."
+    },
+    {
+      "id": 7,
+      "label": "completely_different_topic",
+      "draft": "Your account has been unlocked. Please try logging in again.",
+      "actual": "The printer on the 3rd floor has been restocked with paper."
+    },
+    {
+      "id": 8,
+      "label": "opposite_meaning",
+      "draft": "Your request has been approved and the changes are live.",
+      "actual": "Unfortunately, your request has been denied due to policy restrictions."
+    },
+    {
+      "id": 9,
+      "label": "admin_steps_similar",
+      "draft": "Navigate to Admin Console > Users > Find the user > Click Reset Password > Confirm.",
+      "actual": "Go to the Admin Console, search for the user under Users, and hit Reset Password."
+    },
+    {
+      "id": 10,
+      "label": "admin_steps_different_procedure",
+      "draft": "Navigate to Admin Console > Users > Find the user > Click Reset Password > Confirm.",
+      "actual": "Run the PowerShell command: Set-ADAccountPassword -Identity username -Reset"
+    },
+    {
+      "id": 11,
+      "label": "needs_info_to_resolution",
+      "draft": "Could you provide your employee ID and the specific application you're trying to access?",
+      "actual": "I've granted you access to the Salesforce application. You should be able to log in now."
+    },
+    {
+      "id": 12,
+      "label": "formal_to_casual",
+      "draft": "We have processed your request for additional storage. Your quota has been increased to 50GB.",
+      "actual": "Done! Bumped your storage to 50GB."
+    },
+    {
+      "id": 13,
+      "label": "casual_to_formal",
+      "draft": "Done! Your access is sorted.",
+      "actual": "Dear User, your access request has been processed and the permissions have been applied to your account."
+    },
+    {
+      "id": 14,
+      "label": "self_service_link_same",
+      "draft": "You can resolve this yourself by following the guide at https://docs.example.com/vpn-setup.",
+      "actual": "Please follow the VPN setup guide here: https://docs.example.com/vpn-setup"
+    },
+    {
+      "id": 15,
+      "label": "self_service_different_link",
+      "draft": "You can resolve this yourself by following the guide at https://docs.example.com/vpn-setup.",
+      "actual": "Try the instructions at https://docs.example.com/network-troubleshooting instead."
+    },
+    {
+      "id": 16,
+      "label": "multilingual_equivalent",
+      "draft": "Your ticket has been resolved. Please confirm if the issue persists.",
+      "actual": "The ticket is resolved. Let us know if you still have problems."
+    },
+    {
+      "id": 17,
+      "label": "empty_actual",
+      "draft": "Your account has been unlocked. Please try logging in again.",
+      "actual": ""
+    },
+    {
+      "id": 18,
+      "label": "boilerplate_greeting_added",
+      "draft": "The software license has been assigned to your account.",
+      "actual": "Hi John, thanks for reaching out! The software license has been assigned to your account. Let me know if you need anything else. Best, Sarah"
+    },
+    {
+      "id": 19,
+      "label": "heavily_rewritten_same_resolution",
+      "draft": "I've added you to the security group for the shared drive. You should now be able to access the files in the Marketing folder.",
+      "actual": "Access granted. The Marketing shared drive should now appear when you open File Explorer. If it doesn't show up within 15 minutes, try logging out and back in."
+    },
+    {
+      "id": 20,
+      "label": "escalation_instead_of_resolution",
+      "draft": "The issue has been resolved by restarting the service.",
+      "actual": "I'm escalating this to the infrastructure team as the root cause requires server-side changes."
+    },
+    {
+      "id": 21,
+      "label": "same_action_more_detail",
+      "draft": "Password has been reset. New temporary password sent to your email.",
+      "actual": "I've reset your password. A temporary password has been sent to your registered email address (j***@company.com). Please change it within 24 hours through the portal."
+    },
+    {
+      "id": 22,
+      "label": "typo_correction_only",
+      "draft": "Your acces has been grated to the Salesforce aplication.",
+      "actual": "Your access has been granted to the Salesforce application."
+    },
+    {
+      "id": 23,
+      "label": "completely_unrelated",
+      "draft": "The quarterly budget review has been scheduled for next Monday.",
+      "actual": "Please install the latest Chrome update to fix the rendering issue."
+    },
+    {
+      "id": 24,
+      "label": "acknowledgment_only",
+      "draft": "I've investigated the issue and found that your email forwarding rule was misconfigured. I've corrected it to forward to your personal email as requested.",
+      "actual": "Thanks, noted."
+    },
+    {
+      "id": 25,
+      "label": "same_template_different_values",
+      "draft": "User john.doe has been added to the group DL-Marketing with role Member.",
+      "actual": "User jane.smith has been added to the group DL-Engineering with role Admin."
+    },
+    {
+      "id": 26,
+      "label": "question_answer_mismatch",
+      "draft": "What version of Windows are you running?",
+      "actual": "I've updated your Windows to the latest version."
+    },
+    {
+      "id": 27,
+      "label": "partial_overlap",
+      "draft": "I've completed the following: 1) Reset your password 2) Unlocked your account 3) Added you to the VPN group.",
+      "actual": "Password has been reset and account unlocked. For VPN access, you'll need to submit a separate request."
+    },
+    {
+      "id": 28,
+      "label": "same_resolution_different_format",
+      "draft": "Steps taken:\n- Disabled old MFA device\n- Enrolled new phone as MFA device\n- Verified login works\n\nYou're all set.",
+      "actual": "I've swapped your MFA device from the old phone to your new one. Tested and login is working fine now."
+    },
+    {
+      "id": 29,
+      "label": "negation_flip",
+      "draft": "This change does not require manager approval.",
+      "actual": "This change requires manager approval before we can proceed."
+    },
+    {
+      "id": 30,
+      "label": "short_vs_detailed",
+      "draft": "Done.",
+      "actual": "I've completed the configuration changes to your email account including setting up the auto-reply, updating your signature, and configuring the forwarding rules to your team distribution list."
+    }
+  ]
+}
