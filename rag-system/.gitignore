@@ -1,52 +1,18 @@
-# Environment & Secrets
+# build artifacts (regenerate with `bash scripts/build_index.sh`)
+data/processed/*.parquet
+data/index/
+eval/results/
+ui/sample_trace.json
+
+# secrets / env
 .env
-.env.*.local
-.env.local
-*.key
-credentials.json
-.credentials/
 
-# Python
+# python
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-venv/
-env/
-ENV/
-build/
-dist/
-*.egg-info/
+*.pyc
 .pytest_cache/
-.mypy_cache/
+.ipynb_checkpoints/
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Logs & Data
-*.log
-data/
-*.db
-*.sqlite
-
-# Temporary
-*.tmp
-*.bak
-.temp/
-
-# Testing
-htmlcov/
-coverage/
-
-# MCP & Claude
-.claude/
-
-# Qdrant/Vector DB
-qdrant_storage/
-.qdrant/
+# keep the sample raw data and the .example env
+!data/raw/SAMPLE_amazon_household_cleaning.csv
+!.env.example

@@ -1,0 +1,36 @@
+[
+  {
+    "user_priority": "budget + eco",
+    "retrieved": [
+      {"title": "Steel-Safe Eco Stainless Steel Cleaner & Polish, 16 oz", "price": 12.49,
+       "rating": 4.6, "price_per_oz": 0.78, "brand": "GreenGleam",
+       "ingredients": "Water, Caprylyl/Capryl Glucoside (plant-based surfactant), Citric Acid",
+       "doc_id": "74d9f6149b125affab1f3b8d14798b0b", "url": "https://www.amazon.com/dp/B0SAMPLE000"},
+      {"title": "NatureNest Stainless Steel Cleaner, 8 oz travel", "price": 6.49, "rating": 4.4,
+       "price_per_oz": 0.81, "brand": "NatureNest", "ingredients": "Water, Coco-glucoside, Citric acid",
+       "doc_id": "b5bc95c5d69c5de186be4a4ef1a98ed1", "url": "https://www.amazon.com/dp/B0SAMPLE018"}
+    ],
+    "output": {
+      "speech": "My top pick is the GreenGleam Steel-Safe Eco cleaner — plant-based, 4.6 stars, about $12.49 for 16 ounces. I compared it with a smaller NatureNest travel size. Details and sources are on your screen. Want the most affordable or the highest rated?",
+      "citations": [
+        {"doc_id": "74d9f6149b125affab1f3b8d14798b0b", "title": "Steel-Safe Eco Stainless Steel Cleaner & Polish, 16 oz", "url": "https://www.amazon.com/dp/B0SAMPLE000", "source": "private"},
+        {"doc_id": "b5bc95c5d69c5de186be4a4ef1a98ed1", "title": "NatureNest Stainless Steel Cleaner, 8 oz travel", "url": "https://www.amazon.com/dp/B0SAMPLE018", "source": "private"}
+      ],
+      "comparison_table": [
+        {"title": "Steel-Safe Eco Stainless Steel Cleaner & Polish", "price": 12.49, "rating": 4.6, "price_per_oz": 0.78, "ingredients": "plant-based surfactants, citric acid", "doc_id": "74d9f6149b125affab1f3b8d14798b0b"},
+        {"title": "NatureNest Stainless Steel Cleaner (travel)", "price": 6.49, "rating": 4.4, "price_per_oz": 0.81, "ingredients": "coco-glucoside, citric acid", "doc_id": "b5bc95c5d69c5de186be4a4ef1a98ed1"}
+      ]
+    },
+    "critic": {"grounded": true, "unsafe": false, "reasons": [], "action": "accept"}
+  },
+  {
+    "user_priority": "empty result",
+    "retrieved": [],
+    "output": {
+      "speech": "I couldn't find a match for that in our catalog. The closest I have are plant-based multi-surface sprays — want me to pull those up instead?",
+      "citations": [],
+      "comparison_table": []
+    },
+    "critic": {"grounded": true, "unsafe": false, "reasons": [], "action": "accept"}
+  }
+]

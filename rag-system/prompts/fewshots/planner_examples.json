@@ -1,0 +1,36 @@
+[
+  {
+    "router": {
+      "task": "product_recommendation",
+      "constraints": {"price_max": 15, "material": "stainless steel", "eco_preference": true,
+                      "brand": null, "min_rating": null, "wants_live": false},
+      "keywords": ["eco-friendly", "stainless steel", "cleaner"]
+    },
+    "plan": {
+      "sources": ["rag.search"],
+      "call_web_search": false,
+      "filters": {"price_max": 15, "material": "stainless steel"},
+      "query": "eco-friendly plant-based stainless steel cleaner",
+      "comparison_criteria": ["price", "rating", "price_per_oz", "ingredients"],
+      "k": 3,
+      "reconcile_on": []
+    }
+  },
+  {
+    "router": {
+      "task": "availability_check",
+      "constraints": {"price_max": null, "material": "multi-surface", "eco_preference": false,
+                      "brand": null, "min_rating": null, "wants_live": true},
+      "keywords": ["cheapest", "all purpose", "cleaner"]
+    },
+    "plan": {
+      "sources": ["rag.search", "web.search"],
+      "call_web_search": true,
+      "filters": {"material": "multi-surface"},
+      "query": "cheap all purpose multi-surface cleaner",
+      "comparison_criteria": ["price", "price_per_oz", "rating"],
+      "k": 5,
+      "reconcile_on": ["sku", "brand", "title"]
+    }
+  }
+]

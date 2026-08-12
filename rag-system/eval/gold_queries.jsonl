@@ -1,0 +1,10 @@
+{"id": "q01", "query": "eco-friendly stainless steel cleaner under $15", "filters": {"price_max": 15, "material": "stainless steel"}, "relevant_skus": ["SKU-GREE-000", "SKU-PURE-001", "SKU-GREE-003", "SKU-EVER-012", "SKU-NATU-018"], "notes": "Primary demo query. ShineMaster (002, $16.75) and MegaShine (013, not eco) are distractors."}
+{"id": "q02", "query": "streak-free glass and window cleaner", "filters": {"material": "glass"}, "relevant_skus": ["SKU-SPAR-004", "SKU-CLEA-015", "SKU-GREE-021"], "notes": "Glass/cooktop cleaners."}
+{"id": "q03", "query": "plant-based dish soap gentle on hands", "filters": {}, "relevant_skus": ["SKU-GENT-007"], "notes": "Bubble Rush (008) is a distractor: dish soap but contains SLS/dyes, not plant-based."}
+{"id": "q04", "query": "heavy duty degreaser for baked-on oven grease", "filters": {}, "relevant_skus": ["SKU-POWE-006", "SKU-TOUG-017"], "notes": "Industrial degreasers."}
+{"id": "q05", "query": "natural wood floor and furniture cleaner that is pet safe", "filters": {}, "relevant_skus": ["SKU-WOOD-011"], "notes": "HydroClean (019) floor solution is a near-miss but not wood-specific."}
+{"id": "q06", "query": "eco toilet bowl cleaner without bleach", "filters": {}, "relevant_skus": ["SKU-AQUA-023"], "notes": "ScrubPro (010) uses bleach - distractor."}
+{"id": "q07", "query": "cheap all-purpose cleaner under five dollars", "filters": {"price_max": 5}, "relevant_skus": ["SKU-SPRA-022"], "notes": "Tests strict price filtering; only SprayJoy ($3.99) qualifies."}
+{"id": "q08", "query": "reusable stainless steel cleaning wipes", "filters": {}, "relevant_skus": ["SKU-GREE-003", "SKU-EVER-012"], "notes": "Wipes specifically, not sprays."}
+{"id": "q09", "query": "laundry detergent pods free of dyes and brighteners", "filters": {}, "relevant_skus": ["SKU-MEAD-014"], "notes": "Single relevant item."}
+{"id": "q10", "query": "bathroom tile cleaner that removes soap scum", "filters": {"material": "tile"}, "relevant_skus": ["SKU-FRES-009", "SKU-SCRU-010"], "notes": "Both tile cleaners relevant regardless of eco status."}

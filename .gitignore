@@ -1,0 +1,12 @@
+# Local Claude Code session state — not part of the project.
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/

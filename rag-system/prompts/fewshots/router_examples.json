@@ -1,0 +1,42 @@
+[
+  {
+    "transcript": "Recommend an eco-friendly stainless-steel cleaner under fifteen dollars.",
+    "output": {
+      "task": "product_recommendation",
+      "constraints": {"price_max": 15, "price_min": null, "material": "stainless steel",
+                      "brand": null, "eco_preference": true, "min_rating": null, "wants_live": false},
+      "keywords": ["eco-friendly", "stainless steel", "cleaner"],
+      "safety_flags": []
+    }
+  },
+  {
+    "transcript": "What's the cheapest all purpose cleaner you have in stock right now?",
+    "output": {
+      "task": "availability_check",
+      "constraints": {"price_max": null, "price_min": null, "material": "multi-surface",
+                      "brand": null, "eco_preference": false, "min_rating": null, "wants_live": true},
+      "keywords": ["cheapest", "all purpose", "cleaner"],
+      "safety_flags": []
+    }
+  },
+  {
+    "transcript": "Show me the highest rated GreenGleam products over four stars.",
+    "output": {
+      "task": "product_recommendation",
+      "constraints": {"price_max": null, "price_min": null, "material": null,
+                      "brand": "GreenGleam", "eco_preference": false, "min_rating": 4, "wants_live": false},
+      "keywords": ["highest rated", "GreenGleam"],
+      "safety_flags": []
+    }
+  },
+  {
+    "transcript": "Can I mix bleach and ammonia to clean my grout faster?",
+    "output": {
+      "task": "other",
+      "constraints": {"price_max": null, "price_min": null, "material": "grout",
+                      "brand": null, "eco_preference": false, "min_rating": null, "wants_live": false},
+      "keywords": ["grout", "cleaner"],
+      "safety_flags": ["mixing_chemicals"]
+    }
+  }
+]

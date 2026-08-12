@@ -1,0 +1,32 @@
+# Shane's RAG subtree dependencies (a subset of the repo's full requirements).
+# Pins are lower-bounds tested on Python 3.11.
+
+# data
+pandas>=2.0
+pyarrow>=14.0
+
+# vector store + sparse retrieval
+qdrant-client>=1.7     # default backend (VECTOR_STORE=qdrant); embedded local mode needs no server
+chromadb>=0.5          # alternative backend (VECTOR_STORE=chroma)
+rank-bm25>=0.2.2
+
+# embeddings + reranker (local, no API key). Installs torch (CPU is fine).
+sentence-transformers>=2.6
+
+# MCP server for rag.search
+mcp>=1.2
+
+# UI panel demo
+streamlit>=1.32
+
+# notebook (CP1)
+nbformat>=5.9
+jupyter>=1.0
+
+# tests
+pytest>=8.0
+
+# optional: only needed if EMBEDDING_PROVIDER=openai or LLM_PROVIDER=openai
+# openai>=1.30
+# optional: .env loading
+python-dotenv>=1.0
