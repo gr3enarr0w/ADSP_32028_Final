@@ -26,7 +26,8 @@ jupyter>=1.0
 # tests
 pytest>=8.0
 
-# optional: only needed if EMBEDDING_PROVIDER=openai or LLM_PROVIDER=openai
+# optional: only needed if EMBEDDING_PROVIDER=openai, LLM_PROVIDER=openai,
+# or TTS_PROVIDER=openai (uncomment once, covers all three)
 # openai>=1.30
 # optional: .env loading
 python-dotenv>=1.0
@@ -42,7 +43,6 @@ anthropic>=0.40
 ## TTS (Final deliverable)
 # offline, no API key — default TTS_PROVIDER=pyttsx3, what 03_tts_summary.ipynb ships with
 pyttsx3>=2.90
-# optional: only needed if TTS_PROVIDER=openai (uncomment; also requires OPENAI_API_KEY)
-# openai>=1.30
+# TTS_PROVIDER=openai reuses the `openai` package already listed above
 # optional: only needed if TTS_PROVIDER=elevenlabs (uncomment; also requires ELEVENLABS_API_KEY)
 # elevenlabs>=1.0

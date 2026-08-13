@@ -25,33 +25,24 @@ the Streamlit UI (rest of the team).
 ### 1. `web.search` (`web_search.py`)
 
 A thin async wrapper around the multi-provider research orchestrator already
-vendored into this directory (`orchestrator.py` + `providers/`). It:
+vendored into this directory (`orchestrator.py` + `providers/`). Schema,
+known `price`/`availability` limitation, and the caching/rate-limiting
+details are documented once, in [`README_mcp_web.md`](README_mcp_web.md) —
+not repeated here. What's specific to *how it's wired*, not *what it
+returns*:
 
 - Calls `orchestrator.search(query, mode="auto", max_results=k)`, which
   auto-classifies the query and routes it to **one** best-fit provider
   (Exa/Brave/Tavily/Gemini/Linkup/Newsdata) — not a fan-out across all of
   them. See `orchestrator.py`'s `MODE_PRIMARY`/`MODE_FALLBACK` tables.
-- Reshapes the result into the contract the Planner/Retriever spec expects:
-  `{query, count, results:[{title, url, snippet, price, availability}]}`.
 - Loads `web-search-mcp/.env` itself (`load_dotenv()` at import time) since
   neither `orchestrator.py` nor the providers do — without this, provider API
   keys set via `.env` are silently never read.
-- **`price`/`availability` are always `None`.** The providers are general web
-  search, not product scrapers — a price visible in a result's `snippet` text
-  is *not* parsed into the `price` field. This is a documented limitation,
-  not a bug. Future work: parse from `snippet`, or run an Apify extract
-  (`providers/apify_provider.py`) on the returned `url`s.
 - If no provider has a configured key, `orchestrator.py`'s `_init_provider`
   catches the resulting exception, logs a warning, and returns `[]` —
   `web_search()` then returns `{count: 0, results: []}` rather than raising.
-  This graceful-degradation path is intentional and tested.
-- Added a simple in-memory TTL cache (`WEB_SEARCH_CACHE_TTL`, default 120s,
-  keyed on normalized `(query, k)`) and a minimum-interval rate limit
-  (`WEB_SEARCH_MIN_INTERVAL`, default 1.0s) directly in `web_search.py`,
-  per the assignment spec's "rate-limit and cache (TTL 60–300s)"
-  requirement for `web.search`. See `README_mcp_web.md`'s "Caching &
-  rate-limiting" section for details. Verified offline with a monkeypatched
-  fake `orchestrator.search` in `web_search.py`'s `__main__` self-test block.
+  This graceful-degradation path is intentional and tested, and the same
+  pattern the TTL cache/rate-limit and `rag.tts.speak()` both follow.
 
 ### 2. Combined MCP server (`combined_mcp_server.py`)
 
