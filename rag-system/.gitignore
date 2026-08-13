@@ -16,3 +16,8 @@ __pycache__/
 # keep the sample raw data and the .example env
 !data/raw/SAMPLE_amazon_household_cleaning.csv
 !.env.example
+
+# TTS-generated summaries (Final deliverable, 03_tts_summary.ipynb) — the
+# existing audio/query*.wav ASR samples are unaffected and stay tracked.
+audio/summary_*.wav
+audio/summary_*.mp3

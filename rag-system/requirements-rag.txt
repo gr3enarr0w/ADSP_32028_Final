@@ -30,3 +30,19 @@ pytest>=8.0
 # openai>=1.30
 # optional: .env loading
 python-dotenv>=1.0
+
+## LangGraph orchestration (Final deliverable)
+# Router -> Planner -> Retriever -> Answerer/Critic graph (src/rag/graph.py,
+# src/rag/nodes.py) + the Anthropic SDK it dispatches to (src/rag/llm.py).
+# anthropic was missing here despite "anthropic" being LLM_PROVIDER's
+# default in config.py — a real pre-existing gap, fixed alongside this.
+langgraph>=0.2
+anthropic>=0.40
+
+## TTS (Final deliverable)
+# offline, no API key — default TTS_PROVIDER=pyttsx3, what 03_tts_summary.ipynb ships with
+pyttsx3>=2.90
+# optional: only needed if TTS_PROVIDER=openai (uncomment; also requires OPENAI_API_KEY)
+# openai>=1.30
+# optional: only needed if TTS_PROVIDER=elevenlabs (uncomment; also requires ELEVENLABS_API_KEY)
+# elevenlabs>=1.0

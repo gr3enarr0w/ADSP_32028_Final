@@ -72,7 +72,7 @@ class Config:
 
     # ---- LLM (used by Answerer/Critic + prompt disclosure; teammates' nodes) ----
     llm_provider: str = field(default_factory=lambda: _env("LLM_PROVIDER", "anthropic"))
-    llm_model: str = field(default_factory=lambda: _env("LLM_MODEL", "claude-3-5-sonnet-latest"))
+    llm_model: str = field(default_factory=lambda: _env("LLM_MODEL", "claude-sonnet-5"))
 
     # ---- vector store ----
     vector_store: str = field(default_factory=lambda: _env("VECTOR_STORE", "qdrant"))  # qdrant|chroma
@@ -92,6 +92,14 @@ class Config:
     use_reranker: bool = field(default_factory=lambda: _env_bool("USE_RERANKER", True))
     reranker_model: str = field(default_factory=lambda: _env(
         "RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2"))
+
+    # ---- text-to-speech (Answerer's spoken summary; Final deliverable) ----
+    # provider: "pyttsx3" (offline, no key, default so notebooks run with zero
+    # setup), "openai" (needs OPENAI_API_KEY), or "elevenlabs" (needs
+    # ELEVENLABS_API_KEY). See src/rag/tts.py for the dispatch + fallback logic.
+    tts_provider: str = field(default_factory=lambda: _env("TTS_PROVIDER", "pyttsx3"))
+    tts_voice: str = field(default_factory=lambda: _env("TTS_VOICE", ""))
+    tts_model: str = field(default_factory=lambda: _env("TTS_MODEL", "tts-1"))
 
     def embedding_signature(self) -> str:
         """Identifies the embedding space so we never mix vectors from two models."""

@@ -16,7 +16,7 @@ It satisfies the grading requirement:
 | `router_intent.md` | **Router** | Alison | Extract task + constraints (budget/material/brand) + safety flags → JSON |
 | `planner.md` | **Planner** | Victoria | Choose sources (private vs live), filters, comparison criteria → JSON plan |
 | `retriever_tool_instructions.md` | **Retriever** | Shane/Clark | How the agent calls `rag.search` & `web.search`; reconciliation rules |
-| `answerer_critic.md` | **Answerer** + **Critic** | Victoria | Compose ≤15s cited spoken answer; verify grounding & safety |
+| `answerer_critic.md` | **Answerer** + **Critic** | Victoria | Compose ≤15s cited spoken answer; verify grounding & safety, spoken via `tts.speak()` |
 | `fewshots/router_examples.json` | Router | Alison | Few-shot intent-parsing examples |
 | `fewshots/planner_examples.json` | Planner | Victoria | Few-shot planning examples |
 | `fewshots/answerer_examples.json` | Answerer | Victoria | Few-shot cited-answer examples |
@@ -29,9 +29,14 @@ It satisfies the grading requirement:
 ## Conventions
 
 * **Model-agnostic.** Prompts assume a tool-calling chat model. Default is
-  Claude (`LLM_MODEL=claude-3-5-sonnet-latest`); swap via `.env` with no prompt
+  Claude (`LLM_MODEL=claude-sonnet-5`); swap via `.env` with no prompt
   changes. Placeholders use `{{double_braces}}`.
 * **Grounding is mandatory.** Every product claim must trace to a `doc_id`
   (private) or a `url` (live). The Critic rejects ungrounded answers.
 * **Loading.** Nodes load these files at startup (e.g.
   `Path("prompts/router_intent.md").read_text()`), so disclosure == what runs.
+  This is now demonstrated concretely, not just stated as intent: every node
+  in `src/rag/nodes.py` reads its prompt file(s) fresh from disk on each call
+  (no hardcoded prompt text), and `notebooks/04_orchestration.ipynb` proves it
+  by loading and printing every prompt + few-shot file before wiring the
+  LangGraph graph together.
