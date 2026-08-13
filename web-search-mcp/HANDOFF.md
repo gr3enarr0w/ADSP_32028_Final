@@ -45,6 +45,13 @@ vendored into this directory (`orchestrator.py` + `providers/`). It:
   catches the resulting exception, logs a warning, and returns `[]` —
   `web_search()` then returns `{count: 0, results: []}` rather than raising.
   This graceful-degradation path is intentional and tested.
+- Added a simple in-memory TTL cache (`WEB_SEARCH_CACHE_TTL`, default 120s,
+  keyed on normalized `(query, k)`) and a minimum-interval rate limit
+  (`WEB_SEARCH_MIN_INTERVAL`, default 1.0s) directly in `web_search.py`,
+  per the assignment spec's "rate-limit and cache (TTL 60–300s)"
+  requirement for `web.search`. See `README_mcp_web.md`'s "Caching &
+  rate-limiting" section for details. Verified offline with a monkeypatched
+  fake `orchestrator.search` in `web_search.py`'s `__main__` self-test block.
 
 ### 2. Combined MCP server (`combined_mcp_server.py`)
 

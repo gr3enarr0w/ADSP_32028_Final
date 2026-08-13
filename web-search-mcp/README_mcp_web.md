@@ -100,6 +100,29 @@ product `url`s to pull structured price/availability data.
   don't fabricate results if it returns nothing — report the empty result
   so the Answerer can offer alternatives.
 
+## Caching & rate-limiting
+
+`web_search()` keeps a simple in-process, in-memory TTL cache and a
+minimum-interval rate limit in front of `orchestrator.search()` — this is
+separate from `usage_tracker.py`'s monthly-quota bookkeeping (calls vs.
+limit per provider), which is a different concern.
+
+- **Cache**: keyed on the normalized `(query, k)` pair (query lowercased and
+  stripped). Default TTL is **120s**, configurable via the `WEB_SEARCH_CACHE_TTL`
+  env var (spec range: 60–300s). A cache hit returns the stored result
+  immediately, without calling `orchestrator.search()` again, and logs a
+  line to stderr. Pass `use_cache=False` to `web_search()` to bypass the
+  cache for a single call.
+- **Rate limit**: a minimum-interval throttle between provider calls.
+  Default interval is **1.0s**, configurable via the `WEB_SEARCH_MIN_INTERVAL`
+  env var. If a call comes in sooner than that after the previous provider
+  call, `web_search()` awaits (`asyncio.sleep`) the remaining time before
+  proceeding — no request is dropped, just delayed.
+
+Both live in module-level state in `web_search.py` (no Redis, no disk
+persistence) — in-process memory only, matching how `usage_tracker.py` keeps
+its own persistence simple.
+
 ## Logging
 
 Each call logs timestamped request/response plus source URLs to **stderr**
