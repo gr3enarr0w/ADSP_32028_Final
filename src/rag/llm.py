@@ -10,7 +10,7 @@ providers raise NotImplementedError with a clear message rather than
 pretending to work.
 
 Graceful degradation (matches the pattern already used by
-web-search-mcp/web_search.py's provider dispatch and rag-system/src/rag/tts.py's
+web-search-mcp/web_search.py's provider dispatch and src/rag/tts.py's
 provider fallback): if ANTHROPIC_API_KEY is not set, or the provider isn't
 "anthropic", or the `anthropic` package/network call fails, we never raise —
 we fall back to a MockLLM and log which path was taken to stderr, so the

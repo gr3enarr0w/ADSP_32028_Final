@@ -125,7 +125,7 @@ def speak(text: str, out_path: Optional[str | Path] = None,
         text: the spoken text to synthesize (typically the Answerer's
             `speech` field from `prompts/answerer_critic.md`'s payload).
         out_path: destination file path. Defaults to
-            `rag-system/audio/summary_<content-hash>.wav` (deterministic, no
+            `audio/summary_<content-hash>.wav` (deterministic, no
             timestamp, so repeat calls with the same text overwrite in place).
         provider: `"pyttsx3"` | `"openai"` | `"elevenlabs"`. Falls back to the
             `TTS_PROVIDER` env var, then `Config.tts_provider`.

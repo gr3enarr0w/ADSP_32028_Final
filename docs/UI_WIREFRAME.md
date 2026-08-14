@@ -148,7 +148,7 @@ enforces that before this table is ever shown.
 `rag.tts.speak(text: str, out_path=None, provider=None, voice=None) -> Path`
 (`src/rag/tts.py`) does fragment-based synthesis of the Answerer's `speech`
 field to a finished `.wav`, defaulting to the offline `pyttsx3` provider —
-see `rag-system/scripts/build_tts_notebook.py`'s notebook cells for the
+see `scripts/build_tts_notebook.py`'s notebook cells for the
 full walkthrough (budget check via `fits_budget()`, synth via `speak()`,
 inline playback via `IPython.display.Audio(filename=str(out_path))`). In
 Streamlit the equivalent is: call `speak(answer["speech"])` once the Critic
@@ -188,7 +188,7 @@ wireframe is planned layout, not implementation:
 
 - **Mic capture (region 1):** no recorder/uploader widget wired up yet.
   Needs a Streamlit audio-input component (or JS recorder) that saves a
-  file and calls `rag-system/notebooks/02_whisper_asr.ipynb`'s `transcribe()`
+  file and calls `notebooks/02_whisper_asr.ipynb`'s `transcribe()`
   logic (needs porting from notebook into a callable `src/rag/asr.py` module
   — it currently only exists as notebook cells).
 - **Live transcript (region 2):** depends on the ASR wiring above; also

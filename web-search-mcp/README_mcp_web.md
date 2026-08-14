@@ -1,7 +1,7 @@
 # `web.search` — MCP tool (Clark)
 
 Half of the two-tool MCP server. `combined_mcp_server.py` merges this with
-Shane's `rag.search` (imported unchanged from `rag-system/src/rag`) into one
+Shane's `rag.search` (imported unchanged from `src/rag`) into one
 `FastMCP` server. This directory also ships the **standalone** research-tool
 server (`server.py`) so the underlying `web_search()` wrapper can run and be
 tested on its own.
@@ -20,7 +20,7 @@ python combined_mcp_server.py   # serves BOTH rag.search + web.search over stdio
 npx @modelcontextprotocol/inspector python combined_mcp_server.py
 ```
 
-Requires the RAG index to already be built (`bash ../rag-system/scripts/build_index.sh`)
+Requires the RAG index to already be built (`bash ../scripts/build_index.sh`)
 since `rag.search` is served from the same process.
 
 `web_search.py` also remains runnable directly for manual testing of just

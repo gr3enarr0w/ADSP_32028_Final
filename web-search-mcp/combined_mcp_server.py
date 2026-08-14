@@ -5,8 +5,8 @@ Serves BOTH tools from the project spec over a single stdio MCP connection:
 
   - `rag.search` (Shane) — private Amazon-2020 Household-Cleaning catalog
     hybrid retrieval. The tool body (`rag.rag_search`) is imported *unchanged*
-    from rag-system/src/rag/rag_search.py, per the note in
-    rag-system/mcp/rag_mcp_server.py.
+    from src/rag/rag_search.py, per the note in
+    mcp/rag_mcp_server.py.
   - `web.search` (Clark) — live web search, thin wrapper over
     orchestrator.search() defined locally in web_search.py.
 
@@ -16,7 +16,7 @@ typed signatures and docstrings below.
 
 Run:
     # from web-search-mcp/ — no PYTHONPATH needed, this file adds
-    # ../rag-system/src to sys.path itself (mirrors rag_mcp_server.py).
+    # ../src to sys.path itself (mirrors rag_mcp_server.py).
     python combined_mcp_server.py            # stdio
 Inspect with the MCP Inspector:
     npx @modelcontextprotocol/inspector python combined_mcp_server.py
@@ -31,42 +31,43 @@ from pathlib import Path
 from typing import Optional
 
 # make `import rag` work whether run from repo root or from web-search-mcp/.
-# web-search-mcp/ and rag-system/ are sibling directories, so climb one level
-# up from this file and back down into rag-system/src (mirrors the relative
-# path used by rag-system/mcp/rag_mcp_server.py for its own directory).
+# web-search-mcp/ and src/ are sibling directories directly under the repo
+# root, so climb one level up from this file and back down into src/ (mirrors
+# the relative path used by mcp/rag_mcp_server.py for its own directory).
 sys.path.insert(
     0,
-    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "rag-system", "src")),
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")),
 )
 
 # rag.config calls load_dotenv() with no arguments, which only walks *upward*
 # from the current working directory looking for a .env file. Since
-# web-search-mcp/ and rag-system/ are siblings (not ancestor/descendant),
-# running this file with CWD=web-search-mcp/ (the documented way to run it)
-# means that upward search never finds rag-system/.env. Load it explicitly
-# here, by path relative to this file, BEFORE importing anything from rag.*
-# so get_config() below sees the right env vars regardless of CWD. This is a
-# safe no-op if rag-system/.env doesn't exist yet (e.g. fresh checkout before
+# web-search-mcp/ and the repo root are siblings-of-a-sibling (not
+# ancestor/descendant from web-search-mcp/'s perspective), running this file
+# with CWD=web-search-mcp/ (the documented way to run it) means that upward
+# search never finds the repo root's .env. Load it explicitly here, by path
+# relative to this file, BEFORE importing anything from rag.* so get_config()
+# below sees the right env vars regardless of CWD. This is a safe no-op if
+# the repo root's .env doesn't exist yet (e.g. fresh checkout before
 # .env.example has been copied over).
 from dotenv import load_dotenv  # noqa: E402
 
-_RAG_SYSTEM_ROOT = Path(__file__).resolve().parent.parent / "rag-system"
-load_dotenv(_RAG_SYSTEM_ROOT / ".env")
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+load_dotenv(_REPO_ROOT / ".env")
 
-# rag-system/.env's data paths (INDEX_DIR, PROCESSED_DIR, RAW_CSV) are written
-# as relative paths, meant to be resolved against rag-system/ as CWD (that's
-# how scripts/build_index.sh and rag_mcp_server.py are documented to run).
-# vectorstore.py resolves them against the *process's actual* CWD, though, so
-# when this server runs from web-search-mcp/ (its own documented Run command),
-# a relative INDEX_DIR=data/index silently points at web-search-mcp/data/index
-# instead — confirmed by reproducing "Collection household_cleaning not found"
-# with CWD=web-search-mcp/. Rewrite the three data-path env vars to be
-# absolute (relative to rag-system/, not CWD) before rag.config reads them,
-# without touching config.py/vectorstore.py.
+# The repo root .env's data paths (INDEX_DIR, PROCESSED_DIR, RAW_CSV) are
+# written as relative paths, meant to be resolved against the repo root as
+# CWD (that's how scripts/build_index.sh and rag_mcp_server.py are documented
+# to run). vectorstore.py resolves them against the *process's actual* CWD,
+# though, so when this server runs from web-search-mcp/ (its own documented
+# Run command), a relative INDEX_DIR=data/index silently points at
+# web-search-mcp/data/index instead — confirmed by reproducing "Collection
+# household_cleaning not found" with CWD=web-search-mcp/. Rewrite the three
+# data-path env vars to be absolute (relative to the repo root, not CWD)
+# before rag.config reads them, without touching config.py/vectorstore.py.
 for _env_key in ("INDEX_DIR", "PROCESSED_DIR", "RAW_CSV"):
     _val = os.environ.get(_env_key)
     if _val and not os.path.isabs(_val):
-        os.environ[_env_key] = str((_RAG_SYSTEM_ROOT / _val).resolve())
+        os.environ[_env_key] = str((_REPO_ROOT / _val).resolve())
 
 from mcp.server.fastmcp import FastMCP  # noqa: E402
 
@@ -156,7 +157,7 @@ async def web_search(query: str, k: int = 5) -> dict:
         file=sys.stderr, flush=True,
     )
     # source-URL logging, required specifically for web.search per
-    # rag-system/mcp/README_mcp_rag.md's Logging section.
+    # mcp/README_mcp_rag.md's Logging section.
     print(
         f"{_ts()} [web.search] sources={urls}",
         file=sys.stderr, flush=True,

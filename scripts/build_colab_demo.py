@@ -3,7 +3,7 @@
 Run from anywhere:
     python build_colab_demo.py /path/to/repo/notebooks/colab_end_to_end_demo.ipynb
 
-Mirrors the convention already used by rag-system/scripts/build_notebook.py
+Mirrors the convention already used by scripts/build_notebook.py
 (Shane's CP1 ingestion notebook): the notebook is a build artifact generated
 deterministically from this script, not hand-edited.
 """
@@ -33,7 +33,7 @@ cells.append(new_markdown_cell(
     "and call both tools through the real MCP tool-discovery/tool-call path\n"
     "7. Reconcile private + live results (price/availability discrepancy flagging)\n"
     "\n"
-    "**Scope note:** this covers `rag-system/` (Shane) and `web-search-mcp/` "
+    "**Scope note:** this covers the RAG pipeline `src/` (Shane) and `web-search-mcp/` "
     "(Clark) — the Router/Planner/Answerer-Critic LangGraph nodes, ASR/TTS, and "
     "the Streamlit UI are the rest of the team's parts and aren't reproduced here.\n"
     "\n"
@@ -73,10 +73,10 @@ cells.append(new_markdown_cell(
     "this run — we use the offline, deterministic **hash embedder** (§3) so the "
     "notebook doesn't depend on downloading an embedding model — but they're "
     "installed anyway for fidelity with the documented setup in "
-    "`rag-system/README_shane.md`."
+    "`README_shane.md`."
 ))
 cells.append(new_code_cell(
-    "!pip install -q -r rag-system/requirements-rag.txt\n"
+    "!pip install -q -r requirements-rag.txt\n"
     "!pip install -q -r web-search-mcp/requirements.txt"
 ))
 
@@ -130,8 +130,8 @@ cells.append(new_code_cell(
 cells.append(new_markdown_cell(
     "## 3. Configure the RAG pipeline\n"
     "\n"
-    "`rag-system/src/rag/config.py` reads everything from environment variables "
-    "(model-agnostic by design — see `rag-system/.env.example`). We set these "
+    "`src/rag/config.py` reads everything from environment variables "
+    "(model-agnostic by design — see `.env.example`). We set these "
     "directly with `os.environ` rather than writing a `.env` file: `config.py`'s "
     "data-path defaults already resolve to absolute paths anchored on its own "
     "file location (not on the notebook's CWD), which sidesteps a relative-path "
@@ -158,17 +158,17 @@ cells.append(new_markdown_cell(
     "local-mode) index — the same script documented in `README_shane.md`."
 ))
 cells.append(new_code_cell(
-    "!bash rag-system/scripts/build_index.sh"
+    "!bash scripts/build_index.sh"
 ))
 
 # ---------------------------------------------------------------------------
 cells.append(new_markdown_cell(
     "## 5. Sanity check: run the offline test suite\n"
     "16 tests covering ingestion, retrieval/filters, the MCP tool body, and the "
-    "reconciliation logic (`rag-system/tests/`) — all offline, no network calls."
+    "reconciliation logic (`tests/`) — all offline, no network calls."
 ))
 cells.append(new_code_cell(
-    "!cd rag-system && PYTHONPATH=src python -m pytest tests/ -q"
+    "!PYTHONPATH=src python -m pytest tests/ -q"
 ))
 
 # ---------------------------------------------------------------------------
@@ -180,7 +180,7 @@ cells.append(new_markdown_cell(
 ))
 cells.append(new_code_cell(
     "import sys\n"
-    "sys.path.insert(0, os.path.join(REPO_ROOT, \"rag-system\", \"src\"))\n"
+    "sys.path.insert(0, os.path.join(REPO_ROOT, \"src\"))\n"
     "\n"
     "from rag.rag_search import rag_search\n"
     "import pandas as pd\n"
@@ -199,7 +199,7 @@ cells.append(new_markdown_cell(
     "## 7. The combined two-tool MCP server\n"
     "\n"
     "`web-search-mcp/combined_mcp_server.py` registers **both** `rag.search` "
-    "(Shane — imported unchanged from `rag-system/src/rag/rag_search.py`) and "
+    "(Shane — imported unchanged from `src/rag/rag_search.py`) and "
     "`web.search` (Clark — thin wrapper over a multi-provider research "
     "orchestrator) on one `FastMCP` server instance. Below we import the "
     "module in-process and drive it through FastMCP's own tool-manager, "
@@ -256,7 +256,7 @@ cells.append(new_code_cell(
 cells.append(new_markdown_cell(
     "## 8. Reconciliation — merging private + live results\n"
     "\n"
-    "Per `rag-system/prompts/retriever_tool_instructions.md`: match private "
+    "Per `prompts/retriever_tool_instructions.md`: match private "
     "(`rag.search`) ↔ live (`web.search`) items by `sku`, then `brand`, then "
     "fuzzy `title`; the private fact always stays the grounded baseline, and "
     "price differences over 10% (or a live-only availability signal) are "
@@ -303,7 +303,7 @@ cells.append(new_markdown_cell(
     "\n"
     "- **`rag.search`** (Shane): hybrid vector+BM25 retrieval over the private "
     "Amazon-2020 Household-Cleaning slice, with metadata filters and `doc_id` "
-    "citations. Schema: `rag-system/mcp/README_mcp_rag.md`.\n"
+    "citations. Schema: `mcp/README_mcp_rag.md`.\n"
     "- **`web.search`** (Clark): live multi-provider web search, `url` "
     "citations, degrades gracefully with no API key. Schema: "
     "`web-search-mcp/README_mcp_web.md`.\n"
@@ -312,7 +312,7 @@ cells.append(new_markdown_cell(
     "logging. `web-search-mcp/combined_mcp_server.py`.\n"
     "- **Reconciliation** (Clark): private fact always wins as the grounded "
     "baseline; conflicts are flagged, never silently overwritten. "
-    "`rag-system/src/rag/reconcile.py`.\n"
+    "`src/rag/reconcile.py`.\n"
     "\n"
     "Not covered by this notebook (rest of the team's parts): Router/Planner/"
     "Answerer-Critic LangGraph orchestration, ASR/TTS, and the Streamlit UI."

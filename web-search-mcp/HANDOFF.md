@@ -14,7 +14,7 @@ what broke during testing.
 | Combined two-tool MCP server | `combined_mcp_server.py` |
 | `web.search` schema doc | `README_mcp_web.md` |
 | Timestamped + source-URL logging | inside `combined_mcp_server.py` |
-| Private/live reconciliation | `../rag-system/src/rag/reconcile.py` |
+| Private/live reconciliation | `../src/rag/reconcile.py` |
 | End-to-end Colab demo | `../notebooks/colab_end_to_end_demo.ipynb` |
 
 Not Clark's: the Router/Planner/Answerer-Critic LangGraph nodes, ASR/TTS, and
@@ -49,26 +49,31 @@ returns*:
 Registers **both** tools on one `FastMCP("combined-tools")` instance:
 
 - `rag.search` — imports `rag_search` **unchanged** from
-  `rag-system/src/rag/rag_search.py` (Shane's code, not touched).
+  `src/rag/rag_search.py` (Shane's code, not touched).
 - `web.search` — imports `web_search` from this directory's `web_search.py`.
 
 Two path-resolution problems were found and fixed here (both are Clark-side
-fixes; neither touches `rag-system/src/rag/config.py`, which is correct in
-isolation):
+fixes; neither touches `src/rag/config.py`, which is correct in isolation).
+**Historical context:** at the time these bugs were found, the repo layout
+had `rag-system/` nested as a sibling of `web-search-mcp/` (it has since been
+flattened, so `src/`, `prompts/`, etc. now live directly at the repo root
+alongside `web-search-mcp/`), which is what made the path resolution tricky
+in the first place:
 
 1. **`.env` discovery across sibling directories.** `rag.config`'s
    `load_dotenv()` walks *upward* from CWD. Since `web-search-mcp/` and
-   `rag-system/` are siblings, running the combined server from
-   `web-search-mcp/` (its documented run command) never finds
+   `rag-system/` were siblings back then, running the combined server from
+   `web-search-mcp/` (its documented run command) never found
    `rag-system/.env`. Fixed by loading it explicitly via a path computed from
-   `Path(__file__).resolve()`.
-2. **Relative data paths.** `rag-system/.env`'s `INDEX_DIR=data/index` etc.
-   are relative, meant to be resolved with CWD=`rag-system/`. When the
-   combined server runs from `web-search-mcp/`, those resolve to the wrong
-   directory (`web-search-mcp/data/index`, which doesn't exist) →
-   `Collection household_cleaning not found`. Fixed by rewriting the three
-   data-path env vars to absolute paths (anchored on `rag-system/`, not CWD)
-   before `rag.config` reads them.
+   `Path(__file__).resolve()`. That fix still holds today with the flattened
+   layout — it locates the repo-root `.env` regardless of CWD.
+2. **Relative data paths.** The root `.env`'s `INDEX_DIR=data/index` etc.
+   are relative, meant to be resolved with CWD=repo root (formerly
+   `rag-system/`). When the combined server runs from `web-search-mcp/`,
+   those resolve to the wrong directory (`web-search-mcp/data/index`, which
+   doesn't exist) → `Collection household_cleaning not found`. Fixed by
+   rewriting the three data-path env vars to absolute paths (anchored on the
+   repo root, not CWD) before `rag.config` reads them.
 
 Logging: both tools log a timestamped (`_ts()` helper, UTC ISO-8601) line per
 call to **stderr** (stdout is reserved for the stdio JSON-RPC channel).
@@ -76,9 +81,9 @@ call to **stderr** (stdout is reserved for the stdio JSON-RPC channel).
 URL — the "MCP logging" grading criterion calls this out specifically for the
 live-search tool.
 
-### 3. Reconciliation (`../rag-system/src/rag/reconcile.py`)
+### 3. Reconciliation (`../src/rag/reconcile.py`)
 
-Implements `rag-system/prompts/retriever_tool_instructions.md`'s
+Implements `../prompts/retriever_tool_instructions.md`'s
 reconciliation contract: match private (`rag.search`) ↔ live (`web.search`)
 items by `sku`, then `brand`, then fuzzy `title`; private fact always wins as
 the grounded baseline; discrepancies (>10% price difference, or a live-only
@@ -99,7 +104,7 @@ correctly.
 ### 4. Colab demo (`../notebooks/colab_end_to_end_demo.ipynb`)
 
 Generated deterministically from `../scripts/build_colab_demo.py` (same
-convention as Shane's `rag-system/scripts/build_notebook.py`). Clones the
+convention as Shane's `scripts/build_notebook.py`). Clones the
 repo, installs both subprojects' dependencies, configures the RAG pipeline
 via `os.environ` (hash embedder — offline, deterministic, no model download),
 builds the index, runs the 16-test offline suite, then exercises `rag.search`,
@@ -149,7 +154,6 @@ before assuming the key was revoked.
 
 ```bash
 # 1. Build the index (from repo root)
-cd rag-system
 cp .env.example .env   # optionally edit EMBEDDING_PROVIDER=hash for a fast/offline run
 bash scripts/build_index.sh
 
@@ -157,7 +161,7 @@ bash scripts/build_index.sh
 PYTHONPATH=src python -m pytest tests/ -q
 
 # 3. Serve both tools
-cd ../web-search-mcp
+cd web-search-mcp
 cp .env.example .env   # add provider API keys for web.search
 pip install -r requirements.txt
 python combined_mcp_server.py   # stdio MCP server, both tools

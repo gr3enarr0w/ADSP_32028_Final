@@ -1,11 +1,30 @@
 # Local Claude Code session state — not part of the project.
 .claude/
+.DS_Store
 
-# Python
+# build artifacts (regenerate with `bash scripts/build_index.sh`)
+data/processed/*.parquet
+data/index/
+eval/results/
+ui/sample_trace.json
+
+# secrets / env
+.env
+
+# python
 __pycache__/
 *.pyc
 .pytest_cache/
 .ipynb_checkpoints/
+
+# keep the sample raw data and the .example env
+!data/raw/SAMPLE_amazon_household_cleaning.csv
+!.env.example
+
+# TTS-generated summaries (Final deliverable, 03_tts_summary.ipynb) — the
+# existing audio/query*.wav ASR samples are unaffected and stay tracked.
+audio/summary_*.wav
+audio/summary_*.mp3
 
 # Virtual environments
 .venv/

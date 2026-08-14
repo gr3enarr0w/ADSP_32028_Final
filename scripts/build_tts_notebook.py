@@ -238,7 +238,7 @@ cells.append(new_markdown_cell(
     "* **Signature:** `speak(text: str, out_path: str | Path | None = None, "
     "provider: str | None = None, voice: str | None = None) -> Path`.\n"
     "* **Output location:** defaults to "
-    "`rag-system/audio/summary_<content-hash>.wav` (deterministic, no "
+    "`audio/summary_<content-hash>.wav` (deterministic, no "
     "timestamp — repeat calls with the same text overwrite in place). "
     "`audio/query*.wav` (the ASR notebook's samples) are untouched and stay "
     "git-tracked; `audio/summary_*` is gitignored.\n"

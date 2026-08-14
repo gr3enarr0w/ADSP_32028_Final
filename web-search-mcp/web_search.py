@@ -15,7 +15,7 @@ orchestrator.search(...)`). Wrapping it in `asyncio.run()` here would break
 if the combined server's event loop is already running, so we stay async and
 let the caller `await` us.
 
-Return contract (matches rag-system/prompts/retriever_tool_instructions.md):
+Return contract (matches prompts/retriever_tool_instructions.md):
     {
       "query": str,
       "count": int,

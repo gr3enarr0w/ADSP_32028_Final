@@ -7,7 +7,7 @@ Every node loads its own prompt file(s) fresh from disk on every call — never
 hardcoded prompt text in this module — so Prompt Disclosure (`prompts/`)
 genuinely equals what runs. `PROMPTS_DIR` is resolved the same way
 `rag.config.REPO_ROOT` is: `Path(__file__).resolve().parents[2]` from
-`src/rag/nodes.py` lands on `rag-system/`, then `/ "prompts"`.
+`src/rag/nodes.py` lands on the repo root, then `/ "prompts"`.
 
 Each node accepts an optional `llm_fn` (default `rag.llm.call_llm`) so tests
 can inject a fake without hitting a real API or needing complex mocking —
@@ -32,20 +32,20 @@ LlmFn = Callable[..., str]
 
 # web_search.py lives in the sibling `web-search-mcp/` directory, not under
 # this package. Add it to sys.path the same way
-# web-search-mcp/combined_mcp_server.py adds rag-system/src to ITS path: climb
-# from this file to the shared parent, then down into the sibling dir — never
-# a hardcoded absolute path, so this works regardless of checkout location.
-# From src/rag/nodes.py: parents[0]=src/rag, [1]=src, [2]=rag-system,
-# [3]=<repo root containing both rag-system/ and web-search-mcp/>.
+# web-search-mcp/combined_mcp_server.py adds src/ to ITS path: climb from this
+# file to the shared parent (the repo root), then down into the sibling
+# dir — never a hardcoded absolute path, so this works regardless of checkout
+# location. From src/rag/nodes.py: parents[0]=src/rag, [1]=src,
+# [2]=<repo root containing both src/ and web-search-mcp/>.
 #
 # Deliberately NOT imported at module level: web_search.py -> orchestrator.py
 # -> providers/__init__.py unconditionally imports every provider module
 # (exa_py, google-genai, newsdataapi, google-auth, ...), none of which are
-# rag-system's own dependencies. Importing `rag.nodes` (or `rag.graph`, which
-# imports it) should not hard-require that whole stack just to test
+# this project's own dependencies. Importing `rag.nodes` (or `rag.graph`,
+# which imports it) should not hard-require that whole stack just to test
 # router_node/planner_node — so the import is deferred into retriever_node's
 # body, the only place that actually needs it.
-_WEB_SEARCH_MCP_DIR = Path(__file__).resolve().parents[3] / "web-search-mcp"
+_WEB_SEARCH_MCP_DIR = Path(__file__).resolve().parents[2] / "web-search-mcp"
 
 
 # ---------------------------------------------------------------------------
