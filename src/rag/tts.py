@@ -75,9 +75,15 @@ def fits_budget(text: str, max_seconds: float = DEFAULT_MAX_SECONDS) -> bool:
     return estimate_speech_seconds(text) <= max_seconds
 
 
-def _truncate_to_budget(text: str, max_seconds: float = DEFAULT_MAX_SECONDS,
-                         wpm: float = DEFAULT_WPM) -> str:
-    """Truncate `text` to the last full sentence that still fits the budget."""
+def truncate_to_budget(text: str, max_seconds: float = DEFAULT_MAX_SECONDS,
+                       wpm: float = DEFAULT_WPM) -> str:
+    """Truncate `text` to the last full sentence that still fits the budget.
+
+    Public because `rag.nodes` needs the same budget enforcement when building
+    the offline Answerer response — the ≤15s rule belongs to
+    `prompts/answerer_critic.md`, not to synthesis, so both the node that
+    writes the speech and `speak()` that voices it enforce it identically.
+    """
     sentences = re.split(r"(?<=[.!?])\s+", text.strip())
     kept: list = []
     for sentence in sentences:
@@ -94,6 +100,10 @@ def _truncate_to_budget(text: str, max_seconds: float = DEFAULT_MAX_SECONDS,
     words = first.split()
     max_words = max(1, int(max_seconds / 60.0 * wpm))
     return " ".join(words[:max_words])
+
+
+# Backwards-compatible private alias (was the original name).
+_truncate_to_budget = truncate_to_budget
 
 
 def _deterministic_id(text: str) -> str:
@@ -220,19 +230,76 @@ def _speak_elevenlabs(text: str, out_path: Path, voice: Optional[str]) -> Path:
     return out_path
 
 
-def _speak_pyttsx3(text: str, out_path: Path, voice: Optional[str]) -> Path:
-    """Synthesize fully offline via `pyttsx3` — no API key, this is the zero-setup default."""
+def _reset_pyttsx3_engine_cache(pyttsx3) -> None:
+    """Drop pyttsx3's cached driver so the next `init()` builds a fresh one.
+
+    `pyttsx3.init()` memoizes engines in the module-level WeakValueDictionary
+    `pyttsx3._activeEngines`, keyed by driver name. Across repeated calls in
+    one long-lived process — exactly what the Streamlit app and
+    `scripts/run_end_to_end.py` do — that cached entry can outlive the native
+    driver it proxies, and the next `runAndWait()` dies with
+    `ReferenceError: weakly-referenced object no longer exists` *after*
+    `save_to_file()` has already returned, leaving no file behind and no
+    exception at the call site.
+
+    Observed concretely: a 10-clip end-to-end run synthesized 7 files and
+    silently produced nothing for 3 (caught by run_end_to_end.py's
+    "audio artifact exists" check). Clearing the cache per call trades a few
+    milliseconds of engine setup for deterministic output.
+    """
+    cache = getattr(pyttsx3, "_activeEngines", None)
+    if cache is not None:
+        try:
+            cache.clear()
+        except Exception:  # noqa: BLE001 - best-effort; never break synthesis
+            pass
+
+
+def _speak_pyttsx3(text: str, out_path: Path, voice: Optional[str],
+                   _attempt: int = 1) -> Path:
+    """Synthesize fully offline via `pyttsx3` — no API key, this is the zero-setup default.
+
+    Verifies the file actually landed before returning: `save_to_file()` is
+    asynchronous and pyttsx3 reports driver failures on a callback thread, so
+    a silent no-op is a real failure mode (see
+    `_reset_pyttsx3_engine_cache()`). One retry with a fresh engine, then a
+    hard error — never a Path that does not exist.
+    """
     import pyttsx3  # local import: keeps module import light for callers that don't need it
 
+    _reset_pyttsx3_engine_cache(pyttsx3)
     engine = pyttsx3.init()
-    if voice:
-        for v in engine.getProperty("voices"):
-            if voice.lower() in (v.id or "").lower() or voice.lower() in (v.name or "").lower():
-                engine.setProperty("voice", v.id)
-                break
-    engine.save_to_file(text, str(out_path))
-    engine.runAndWait()
-    return out_path
+    try:
+        if voice:
+            for v in engine.getProperty("voices"):
+                if voice.lower() in (v.id or "").lower() or voice.lower() in (v.name or "").lower():
+                    engine.setProperty("voice", v.id)
+                    break
+        engine.save_to_file(text, str(out_path))
+        engine.runAndWait()
+    finally:
+        try:
+            engine.stop()
+        except Exception:  # noqa: BLE001 - stop() is best-effort cleanup
+            pass
+        _reset_pyttsx3_engine_cache(pyttsx3)
+
+    if out_path.exists() and out_path.stat().st_size > 0:
+        return out_path
+
+    if _attempt < 2:
+        print(
+            f"tts._speak_pyttsx3: no audio written to {out_path} on attempt "
+            f"{_attempt}; retrying with a fresh engine.",
+            file=sys.stderr,
+        )
+        return _speak_pyttsx3(text, out_path, voice, _attempt=_attempt + 1)
+
+    raise RuntimeError(
+        f"pyttsx3 produced no audio at {out_path} after {_attempt} attempts. "
+        "On Linux this usually means the espeak/espeak-ng backend is missing — "
+        "install it (`apt-get install espeak-ng`) or set TTS_PROVIDER=openai."
+    )
 
 
 if __name__ == "__main__":

@@ -40,9 +40,21 @@ python-dotenv>=1.0
 langgraph>=0.2
 anthropic>=0.40
 
+## ASR (Final deliverable)
+# Whisper speech-to-text, ported from notebooks/02_whisper_asr.ipynb into
+# src/rag/asr.py. CPU-only works (int8); faster-whisper pulls ctranslate2, not
+# torch, so this stays light. jiwer is only used by the notebook's WER cells.
+faster-whisper>=1.0
+jiwer>=3.0
+
 ## TTS (Final deliverable)
 # offline, no API key — default TTS_PROVIDER=pyttsx3, what 03_tts_summary.ipynb ships with
 pyttsx3>=2.90
 # TTS_PROVIDER=openai reuses the `openai` package already listed above
 # optional: only needed if TTS_PROVIDER=elevenlabs (uncomment; also requires ELEVENLABS_API_KEY)
 # elevenlabs>=1.0
+
+# System dependency (not pip-installable): the default TTS_PROVIDER=pyttsx3
+# needs an espeak backend on Linux —  `sudo apt-get install espeak-ng`.
+# Without it, tts.speak() raises a clear RuntimeError instead of silently
+# writing no audio (see src/rag/tts.py::_speak_pyttsx3).

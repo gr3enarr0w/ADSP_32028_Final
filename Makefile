@@ -4,7 +4,7 @@ export PYTHONPATH := $(CURDIR)/src
 
 .DEFAULT_GOAL := help
 
-.PHONY: help setup sample ingest index build eval mcp ui demo-trace test clean
+.PHONY: help setup sample ingest index build eval mcp ui app e2e e2e-voice demo-trace test clean
 
 help: ## show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -33,6 +33,15 @@ mcp: ## run the rag.search MCP server (stdio)
 
 ui: ## launch the agent step-log demo (Streamlit)
 	streamlit run ui/demo_step_log.py
+
+app: ## launch the full voice-to-voice assistant (Streamlit)
+	streamlit run ui/app.py
+
+e2e: ## end-to-end harness over eval/gold_queries.jsonl (text in, no ASR)
+	python3 scripts/run_end_to_end.py
+
+e2e-voice: ## end-to-end harness over the 10 prerecorded clips in audio/ (real ASR + TTS)
+	python3 scripts/run_end_to_end.py --source audio
 
 demo-trace: ## write ui/sample_trace.json (no Streamlit needed)
 	python3 ui/demo_step_log.py --dump ui/sample_trace.json
