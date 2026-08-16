@@ -24,6 +24,7 @@ from typing import Callable, Optional
 from .llm import call_llm
 from .rag_search import rag_search
 from .reconcile import reconcile
+from .safety import filter_web_results, hazard_flags
 from .tts import fits_budget, truncate_to_budget
 
 PROMPTS_DIR = Path(__file__).resolve().parents[2] / "prompts"
@@ -117,7 +118,9 @@ def _router_mock_response(transcript: str) -> dict:
             "wants_live": any(w in lowered for w in ("now", "today", "current", "in stock")),
         },
         "keywords": keywords,
-        "safety_flags": ["mixing_chemicals"] if "bleach" in lowered and "ammonia" in lowered else [],
+        # Deterministic, rule-based (rag.safety) rather than an ad-hoc
+        # substring pair — the same floor the real Router is held to.
+        "safety_flags": hazard_flags(transcript),
     }
 
 
@@ -249,6 +252,20 @@ async def retriever_node(state: dict) -> dict:
                 f"continuing with rag.search results only.",
                 file=sys.stderr,
             )
+
+    # Domain allowlist, enforced in code rather than only in the system prompt
+    # (rag.safety). Blocked results are reported, not silently dropped, so the
+    # step log can show that a source was excluded on policy grounds.
+    allowed, blocked = filter_web_results(web_result.get("results") or [])
+    if blocked:
+        print(
+            f"nodes.retriever_node: dropped {len(blocked)} live result(s) "
+            f"off the domain allowlist: "
+            + "; ".join(f"{b.get('url')} ({b['blocked_reason']})" for b in blocked),
+            file=sys.stderr,
+        )
+    web_result = {**web_result, "results": allowed, "count": len(allowed),
+                  "blocked": blocked}
 
     reconciled = reconcile(rag_result["results"], web_result["results"])
 

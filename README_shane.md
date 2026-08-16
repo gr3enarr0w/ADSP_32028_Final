@@ -85,7 +85,7 @@ The demo query returns exactly the syllabus's intended top pick:
 ## Tests
 
 ```bash
-make test        # 53 offline tests (hash embedder, mock LLM, no network)
+make test        # 71 offline tests (hash embedder, mock LLM, no network)
 make e2e         # 10/10 end-to-end structural checks over the gold queries
 make e2e-voice   # the same, but through real Whisper ASR + real TTS
 ```
