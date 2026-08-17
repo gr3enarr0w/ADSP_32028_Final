@@ -24,6 +24,8 @@ from typing import Callable, Optional
 from .llm import call_llm
 from .rag_search import rag_search
 from .reconcile import reconcile
+from .safety import filter_web_results, hazard_flags
+from .tts import fits_budget, truncate_to_budget
 
 PROMPTS_DIR = Path(__file__).resolve().parents[2] / "prompts"
 FEWSHOTS_DIR = PROMPTS_DIR / "fewshots"
@@ -116,7 +118,9 @@ def _router_mock_response(transcript: str) -> dict:
             "wants_live": any(w in lowered for w in ("now", "today", "current", "in stock")),
         },
         "keywords": keywords,
-        "safety_flags": ["mixing_chemicals"] if "bleach" in lowered and "ammonia" in lowered else [],
+        # Deterministic, rule-based (rag.safety) rather than an ad-hoc
+        # substring pair — the same floor the real Router is held to.
+        "safety_flags": hazard_flags(transcript),
     }
 
 
@@ -249,6 +253,20 @@ async def retriever_node(state: dict) -> dict:
                 file=sys.stderr,
             )
 
+    # Domain allowlist, enforced in code rather than only in the system prompt
+    # (rag.safety). Blocked results are reported, not silently dropped, so the
+    # step log can show that a source was excluded on policy grounds.
+    allowed, blocked = filter_web_results(web_result.get("results") or [])
+    if blocked:
+        print(
+            f"nodes.retriever_node: dropped {len(blocked)} live result(s) "
+            f"off the domain allowlist: "
+            + "; ".join(f"{b.get('url')} ({b['blocked_reason']})" for b in blocked),
+            file=sys.stderr,
+        )
+    web_result = {**web_result, "results": allowed, "count": len(allowed),
+                  "blocked": blocked}
+
     reconciled = reconcile(rag_result["results"], web_result["results"])
 
     state["rag_results"] = rag_result
@@ -277,24 +295,52 @@ def _answerer_mock_response(reconciled: dict) -> dict:
             "comparison_table": [],
         }
     top = items[0]
+    # Every retrieved item becomes a table row and a citation — not just the
+    # top pick. The UI's comparison table (docs/UI_WIREFRAME.md region [4]) is
+    # explicitly "row count is the Planner's k (top-N)", and a one-row
+    # "comparison" is not a comparison; the offline mock has to exercise the
+    # same shape the live Answerer produces or the offline demo under-sells
+    # the feature. Grounding still holds: every row's doc_id is cited.
     citations = [{
-        "doc_id": top.get("doc_id"), "title": top.get("title"),
-        "url": top.get("url"), "source": "private",
-    }]
+        "doc_id": item.get("doc_id"), "title": item.get("title"),
+        "url": item.get("url"), "source": "private",
+    } for item in items]
     comparison_table = [{
-        "title": top.get("title"), "price": top.get("price"), "rating": top.get("rating"),
-        "price_per_oz": top.get("price_per_oz"), "ingredients": top.get("ingredients"),
-        "doc_id": top.get("doc_id"),
-    }]
+        "title": item.get("title"), "price": item.get("price"), "rating": item.get("rating"),
+        "price_per_oz": item.get("price_per_oz"), "ingredients": item.get("ingredients"),
+        "doc_id": item.get("doc_id"),
+    } for item in items]
     price = top.get("price")
     rating = top.get("rating")
     price_str = f"${price:.2f}" if isinstance(price, (int, float)) else "an unlisted price"
-    speech = (
+
+    # answerer_critic.md caps the spoken summary at ~15s. Catalog titles run
+    # long ("... Stainless Steel Cleaner & Polish, 16 oz travel size"), so the
+    # full template blew the budget on real retrieval output — caught by
+    # scripts/run_end_to_end.py on 4/10 gold queries. Build the sentence in
+    # decreasing order of importance and drop trailing clauses until it fits,
+    # rather than emitting an over-budget answer the Critic would have to
+    # reject. (The live Answerer is held to the same limit by its prompt; this
+    # is the offline mock honoring the same contract.)
+    head = (
         f"My top pick is {top.get('title', 'this product')} at {price_str}"
         + (f", {rating} stars" if rating else "")
-        + f". I compared it with {max(len(items) - 1, 0)} alternatives — details and sources "
-        "are on your screen. Want the most affordable or the highest rated?"
+        + "."
     )
+    tail_clauses = [
+        f" I compared it with {max(len(items) - 1, 0)} alternatives.",
+        " Details and sources are on your screen.",
+        " Want the most affordable or the highest rated?",
+    ]
+    speech = head
+    for clause in tail_clauses:
+        if fits_budget(speech + clause):
+            speech += clause
+    if not fits_budget(speech):
+        # Even the head alone is too long (pathologically long title) — let
+        # the shared truncation helper enforce the budget.
+        speech = truncate_to_budget(speech)
+
     return {"speech": speech, "citations": citations, "comparison_table": comparison_table}
 
 

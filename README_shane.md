@@ -11,6 +11,9 @@ subtree that plugs into the shared repo and Clark's MCP server.
 | 4 | RAG eval plan + harness | `eval/rag_eval_plan.md`, `eval/gold_queries.jsonl`, `eval/run_eval.py` | CP2 |
 | 5 | Agent step-log UI panel | `ui/agent_step_log.py`, `ui/demo_step_log.py` | — |
 | 6 | `prompts/` folder + build script | `prompts/`, `scripts/build_index.sh`, `Makefile` | Final |
+| 7 | ASR module (ported from the notebook) | `src/rag/asr.py` | Final |
+| 8 | Full Streamlit app + turn pipeline | `ui/app.py`, `ui/pipeline.py` | Final |
+| 9 | End-to-end harness + demo runbook | `scripts/run_end_to_end.py`, `docs/DEMO_RUNBOOK.md` | Final |
 
 ## Quickstart
 
@@ -20,10 +23,15 @@ cp .env.example .env                 # defaults: local embeddings + Claude LLM
 bash scripts/build_index.sh          # sample data -> parquet -> vector index
 PYTHONPATH=src python eval/run_eval.py --k 5      # retrieval metrics
 python mcp/rag_mcp_server.py                      # serve rag.search (stdio)
-PYTHONPATH=src streamlit run ui/demo_step_log.py  # agent step-log demo
+PYTHONPATH=src streamlit run ui/app.py            # the full voice-to-voice app
+PYTHONPATH=src python scripts/run_end_to_end.py   # end-to-end structural checks
 ```
 
-`make help` lists all targets (`build`, `eval`, `mcp`, `ui`, `test`, …).
+`make help` lists all targets (`build`, `eval`, `mcp`, `app`, `e2e`,
+`e2e-voice`, `test`, …). The demo walkthrough is `docs/DEMO_RUNBOOK.md`.
+
+> Embedded Qdrant is single-process: stop the Streamlit app before running
+> `make eval` / `make e2e`, or point `QDRANT_URL` at a server.
 
 ## Regenerating the CP1 notebook
 
@@ -77,5 +85,11 @@ The demo query returns exactly the syllabus's intended top pick:
 ## Tests
 
 ```bash
-make test        # 9 offline smoke tests (hash embedder, no network)
+make test        # 71 offline tests (hash embedder, mock LLM, no network)
+make e2e         # 10/10 end-to-end structural checks over the gold queries
+make e2e-voice   # the same, but through real Whisper ASR + real TTS
 ```
+
+`scripts/run_end_to_end.py` asserts what the assignment grades: a spoken answer
+exists, fits the ≤15s budget, the Critic returned a verdict, nothing was spoken
+before it accepted, and every comparison-table row traces to a cited `doc_id`.

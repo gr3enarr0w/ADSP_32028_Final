@@ -1,11 +1,12 @@
 # UI Wireframe — Voice-to-Voice Product Assistant
 
-**Status: DRAFT.** Text-based wireframe for the checkpoint requirement ("UI
-wireframe"). Not a Figma mock — ASCII box layout + region-by-region notes
-tying each panel to real code/schemas where they exist, and flagging what's
-still unbuilt. Only region 3 (agent step log) has working code today
-(`ui/agent_step_log.py`, demoed in `ui/demo_step_log.py`); everything else
-below is a planned layout for Alison's Streamlit shell to build against.
+**Status: BUILT.** Every region below is implemented in `ui/app.py`
+(`make app`, or `PYTHONPATH=src streamlit run ui/app.py`). This document
+started as the checkpoint's text wireframe — ASCII box layout + region-by-region
+notes — and is kept as the design rationale for the shipped screen. The
+per-region "Draft — no real code yet" notes are preserved verbatim below as the
+record of what was planned versus what exists; see **Implementation status**
+at the bottom for what each region became.
 
 ## Screen 1 — Main assistant screen (single page, sidebar + main, à la `demo_step_log.py`)
 
@@ -180,7 +181,7 @@ expandable debug panel. Reconciliation notes from `README_mcp_web.md`
 citations") are a stretch goal for this region, not implemented in the
 draft.
 
-## Known gaps / next steps
+## Known gaps / next steps *(as of the draft — superseded, see below)*
 
 Only **region 3 (agent step log)** has real, working, demoed code today
 (`ui/agent_step_log.py` + `ui/demo_step_log.py`). Everything else in this
@@ -223,3 +224,42 @@ wireframe is planned layout, not implementation:
   wiring (calling `build_graph().invoke(...)` from a Streamlit button handler
   and feeding its `Step`s into `TraceBuilder`) is the remaining integration
   work.
+
+
+---
+
+## Implementation status (superseding "Known gaps / next steps")
+
+Everything in that list is now built. What closed each gap:
+
+| Region | Status | Where |
+|---|---|---|
+| [1] Mic capture | **Built** | `ui/app.py` — `st.audio_input` recorder, `st.file_uploader`, a picker over the ten prerecorded `audio/queryNN.wav` clips, and a typed-text path. All four feed the same `run_turn()`. |
+| [2] Live transcript | **Built** | `ui/app.py` region 2, from `rag.asr.transcribe()`'s `output["text"]`. Per-word confidence from `segments[*]["words"]` is captured in the step log's ASR step but still not surfaced as highlighting — deliberately out of scope. |
+| [3] Agent step log | **Built (now real)** | Unchanged `ui.agent_step_log.render_agent_step_log()`, but driven by the *real* compiled graph via `ui/pipeline.py` instead of `demo_step_log.py`'s regex placeholders. |
+| [4] Comparison table | **Built** | `st.dataframe(pd.DataFrame(answer["comparison_table"]))`, plus the draft's stretch goal: live price and any flagged discrepancy joined in on `doc_id`. |
+| [5] Play TTS | **Built** | `rag.tts.speak()` is called only once the Critic returns `action: "accept"`; the path is cached on `Trace.audio_path` (previously an unused field) and rendered with `st.audio()`. |
+| [6] Citations & lineage | **Built** | Promoted to its own top-level region, merging the Answerer's private `doc_id` citations with live `url`s taken from reconciliation — the model is never asked to produce a URL it could invent. |
+| ASR module | **Built** | `src/rag/asr.py`, the port out of `notebooks/02_whisper_asr.ipynb` this document asked for. Same return contract, plus an `engine` key. |
+| End-to-end wiring | **Built** | `ui/pipeline.py::run_turn()` — ASR → `build_graph().astream()` → `TraceBuilder` → `tts.speak()`. `graph.py` is still the only place the graph is wired. |
+
+### Design decisions taken during implementation
+
+* **Radio, not tabs, for the input mode.** Streamlit executes every tab body on
+  every rerun and offers no way to ask which tab is active, so a tabbed input
+  would have let the sample-clip selectbox set an audio path while the user
+  typed a question elsewhere — the typed text was silently ignored. Caught in
+  browser testing; replaced with one explicit mode selector.
+* **The same code path is tested and demoed.** `ui/app.py` holds only
+  presentation; every behavioural decision lives in `ui/pipeline.py`, which
+  `scripts/run_end_to_end.py` also drives. A green end-to-end run is therefore
+  evidence about the demo itself.
+* **The turn never dies on a TTS failure.** Synthesis errors are recorded as a
+  red step and the written answer still renders.
+
+### Operational note for the demo
+
+Embedded Qdrant (`QDRANT_URL` blank) is **single-process**: the Streamlit app
+holds a lock on `data/index/qdrant`, so `make e2e` / `make eval` will fail with
+"Storage folder ... is already accessed by another instance" while the app is
+running. Stop the app first, or point `QDRANT_URL` at a server.

@@ -93,6 +93,17 @@ class Config:
     reranker_model: str = field(default_factory=lambda: _env(
         "RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2"))
 
+    # ---- speech-to-text (voice input; Final deliverable) ------------------
+    # faster-whisper model size (see src/rag/asr.py). "small.en" is what
+    # notebooks/02_whisper_asr.ipynb prototyped with; "tiny.en"/"base.en" are
+    # faster for a live demo, "medium.en" more accurate.
+    asr_model: str = field(default_factory=lambda: _env("ASR_MODEL", "small.en"))
+    # "auto" -> cuda when a GPU is visible, else cpu. Force with "cpu"/"cuda".
+    asr_device: str = field(default_factory=lambda: _env("ASR_DEVICE", "auto"))
+    # "auto" -> float16 on cuda, int8 on cpu.
+    asr_compute_type: str = field(default_factory=lambda: _env("ASR_COMPUTE_TYPE", "auto"))
+    asr_beam_size: int = field(default_factory=lambda: _env_int("ASR_BEAM_SIZE", 5))
+
     # ---- text-to-speech (Answerer's spoken summary; Final deliverable) ----
     # provider: "pyttsx3" (offline, no key, default so notebooks run with zero
     # setup), "openai" (needs OPENAI_API_KEY), or "elevenlabs" (needs
