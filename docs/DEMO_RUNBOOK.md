@@ -16,7 +16,7 @@ pip install -r requirements-rag.txt
 sudo apt-get install espeak-ng          # Linux only; macOS TTS works out of the box
 cp .env.example .env
 bash scripts/build_index.sh             # sample data -> parquet -> vector index
-make test                               # 71 tests, all offline
+make test                               # 75 tests, all offline
 make e2e                                # 10/10 structural pass, ~80 ms/turn
 ```
 
@@ -114,7 +114,7 @@ clips (real Whisper + real TTS, production embeddings):
 | Spoken answers within the ≤15 s budget | **10 / 10** |
 | ASR word error rate (`small.en`) | **18.3 %** surface — see limitations |
 
-Tests: **71 passing**, fully offline (hash embedder, mock LLM, no network).
+Tests: **75 passing**, fully offline (hash embedder, mock LLM, no network).
 
 ---
 

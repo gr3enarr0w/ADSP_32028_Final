@@ -178,6 +178,84 @@ def test_answerer_critic_node_revise_path_increments_revise_count():
     assert out["revise_count"] == 1
 
 
+def test_grounding_floor_rejects_citation_not_in_retrieval():
+    """The code-enforced grounding floor: a fabricated doc_id forces a revise
+    verdict even when the (mock or live) Critic accepted."""
+    state = {"reconciled": RECONCILED_ONE_ITEM}
+    ungrounded = {
+        **ANSWERER_RESPONSE,
+        "citations": [{"doc_id": "ghost999", "title": "Invented Product",
+                       "url": "https://example.com/ghost", "source": "private"}],
+    }
+    responses = [ungrounded, CRITIC_ACCEPT]
+
+    def llm_fn(system, user, model=None, max_tokens=1024, mock_response=None):
+        return json.dumps(responses.pop(0))
+
+    out = answerer_critic_node(state, llm_fn=llm_fn)
+    assert out["critic_output"]["action"] == "revise"
+    assert out["critic_output"]["grounded"] is False
+    assert out["revise_count"] == 1
+    assert any("ghost999" in r for r in out["critic_output"]["reasons"])
+
+
+def test_grounding_floor_checks_comparison_table_rows_too():
+    state = {"reconciled": RECONCILED_ONE_ITEM}
+    bad_table = {
+        **ANSWERER_RESPONSE,
+        "comparison_table": ANSWERER_RESPONSE["comparison_table"]
+        + [{"title": "Phantom Cleaner", "price": 1.99, "rating": 5.0,
+            "price_per_oz": 0.1, "ingredients": "?", "doc_id": "phantom42"}],
+    }
+    responses = [bad_table, CRITIC_ACCEPT]
+
+    def llm_fn(system, user, model=None, max_tokens=1024, mock_response=None):
+        return json.dumps(responses.pop(0))
+
+    out = answerer_critic_node(state, llm_fn=llm_fn)
+    assert out["critic_output"]["action"] == "revise"
+    assert any("phantom42" in r for r in out["critic_output"]["reasons"])
+
+
+def test_hazard_floor_prepends_caution_when_ingredients_combine_hazardously():
+    """hazard_flags() is now enforced on the live answer path: two
+    individually-safe retrieved products that jointly name bleach + ammonia
+    must yield a spoken caution, placed first so budget truncation can't
+    drop it."""
+    from rag.safety import HAZARD_CAUTION
+
+    base = RECONCILED_ONE_ITEM["items"][0]
+    hazardous = {
+        "items": [
+            {**base, "ingredients": "Water, Sodium hypochlorite (bleach)"},
+            {**base, "doc_id": "def456", "sku": "SKU-2",
+             "title": "Glass Shine Ammonia Cleaner",
+             "ingredients": "Water, Ammonia, Fragrance"},
+        ],
+        "unmatched_web": [],
+    }
+    answer = {
+        **ANSWERER_RESPONSE,
+        "citations": ANSWERER_RESPONSE["citations"]
+        + [{"doc_id": "def456", "title": "Glass Shine Ammonia Cleaner",
+            "url": "https://example.com/y", "source": "private"}],
+    }
+    state = {"reconciled": hazardous,
+             "transcript": "can I use these two together on the counter?"}
+    responses = [answer, CRITIC_ACCEPT]
+
+    def llm_fn(system, user, model=None, max_tokens=1024, mock_response=None):
+        return json.dumps(responses.pop(0))
+
+    out = answerer_critic_node(state, llm_fn=llm_fn)
+    assert out["answerer_output"]["speech"].startswith(HAZARD_CAUTION)
+    assert out["answerer_output"]["safety_flags"] == ["bleach_ammonia"]
+    assert out["critic_output"]["unsafe"] is True
+    # mitigated with a caution, not blocked: the verdict still accepts
+    assert out["critic_output"]["action"] == "accept"
+    assert out["revise_count"] == 0
+
+
 def test_answerer_critic_node_raises_on_malformed_critic_output():
     state = {"reconciled": RECONCILED_ONE_ITEM}
     responses = [json.dumps(ANSWERER_RESPONSE), "not json"]

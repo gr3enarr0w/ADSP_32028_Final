@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "provider": "local:sentence-transformers/all-MiniLM-L6-v2",
+    "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "k": 5,
+    "n_queries": 10,
+    "Recall@5": 0.91,
+    "Precision@5": 0.32,
+    "MRR": 1.0,
+    "nDCG@5": 0.9336,
+    "filter_honor_rate": 1.0,
+    "provenance_validity": 1.0
+  },
+  "per_query": [
+    {
+      "id": "q01",
+      "query": "eco-friendly stainless steel cleaner under $15",
+      "recall@k": 0.6,
+      "precision@k": 0.6,
+      "rr": 1.0,
+      "ndcg@k": 0.723,
+      "filter_honor": true,
+      "provenance_ok": true,
+      "top": [
+        "SKU-GREE-000",
+        "SKU-NATU-018",
+        "SKU-EVER-012"
+      ]
+    },
+    {
+      "id": "q02",
+      "query": "streak-free glass and window cleaner",
+      "recall@k": 1.0,
+      "precision@k": 0.6,
+      "rr": 1.0,
+      "ndcg@k": 1.0,
+      "filter_honor": true,
+      "provenance_ok": true,
+      "top": [
+        "SKU-SPAR-004",
+        "SKU-CLEA-015",
+        "SKU-GREE-021"
+      ]
+    },
+    {
+      "id": "q03",
+      "query": "plant-based dish soap gentle on hands",
+      "recall@k": 1.0,
+      "precision@k": 0.2,
+      "rr": 1.0,
+      "ndcg@k": 1.0,
+      "filter_honor": true,
+      "provenance_ok": true,
+      "top": [
+        "SKU-GENT-007",
+        "SKU-FRES-009",
+        "SKU-WOOD-011"
+      ]
+    },
+    {
+      "id": "q04",
+      "query": "heavy duty degreaser for baked-on oven grease",
+      "recall@k": 1.0,
+      "precision@k": 0.4,
+      "rr": 1.0,
+      "ndcg@k": 1.0,
+      "filter_honor": true,
+      "provenance_ok": true,
+      "top": [
+        "SKU-POWE-006",
+        "SKU-TOUG-017",
+        "SKU-CITR-005"
+      ]
+    },
+    {
+      "id": "q05",
+      "query": "natural wood floor and furniture cleaner that is pet safe",
+      "recall@k": 1.0,
+      "precision@k": 0.2,
+      "rr": 1.0,
+      "ndcg@k": 1.0,
+      "filter_honor": true,
+      "provenance_ok": true,
+      "top": [
+        "SKU-WOOD-011",
+        "SKU-SPAR-004",
+        "SKU-GREE-000"
+      ]
+    },
+    {
+      "id": "q06",
+      "query": "eco toilet bowl cleaner without bleach",
+      "recall@k": 1.0,
+      "precision@k": 0.2,
+      "rr": 1.0,
+      "ndcg@k": 1.0,
+      "filter_honor": true,
+      "provenance_ok": true,
+      "top": [
+        "SKU-AQUA-023",
+        "SKU-FRES-009",
+        "SKU-PURE-001"
+      ]
+    },
+    {
+      "id": "q07",
+      "query": "cheap all-purpose cleaner under five dollars",
+      "recall@k": 1.0,
+      "precision@k": 0.2,
+      "rr": 1.0,
+      "ndcg@k": 1.0,
+      "filter_honor": true,
+      "provenance_ok": true,
+      "top": [
+        "SKU-SPRA-022",
+        "SKU-BRIG-020",
+        "SKU-BUBB-008"
+      ]
+    },
+    {
+      "id": "q08",
+      "query": "reusable stainless steel cleaning wipes",
+      "recall@k": 1.0,
+      "precision@k": 0.4,
+      "rr": 1.0,
+      "ndcg@k": 1.0,
+      "filter_honor": true,
+      "provenance_ok": true,
+      "top": [
+        "SKU-EVER-012",
+        "SKU-GREE-003",
+        "SKU-GREE-000"
+      ]
+    },
+    {
+      "id": "q09",
+      "query": "laundry detergent pods free of dyes and brighteners",
+      "recall@k": 1.0,
+      "precision@k": 0.2,
+      "rr": 1.0,
+      "ndcg@k": 1.0,
+      "filter_honor": true,
+      "provenance_ok": true,
+      "top": [
+        "SKU-MEAD-014",
+        "SKU-GENT-007",
+        "SKU-BUBB-008"
+      ]
+    },
+    {
+      "id": "q10",
+      "query": "bathroom tile cleaner that removes soap scum",
+      "recall@k": 0.5,
+      "precision@k": 0.2,
+      "rr": 1.0,
+      "ndcg@k": 0.613,
+      "filter_honor": true,
+      "provenance_ok": true,
+      "top": [
+        "SKU-FRES-009",
+        "SKU-BRIG-020"
+      ]
+    }
+  ]
+}
