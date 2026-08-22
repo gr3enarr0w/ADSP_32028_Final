@@ -65,7 +65,7 @@ seven-minute plan, the numbers to quote, and on-stage fallbacks — is
 ```bash
 make build       # ingest raw CSV → parquet → build the vector index
 make app         # the full voice-to-voice Streamlit app
-make test        # 71 tests, fully offline (hash embedder, mock LLM, no network)
+make test        # 75 tests, fully offline (hash embedder, mock LLM, no network)
 make eval        # retrieval metrics over eval/gold_queries.jsonl
 make e2e         # end-to-end structural checks (text in, no ASR)
 make e2e-voice   # the same, through real Whisper ASR + real TTS
