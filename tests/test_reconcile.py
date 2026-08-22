@@ -100,6 +100,37 @@ def test_availability_conflict_is_flagged():
     assert out["items"][0]["discrepancy"]["type"] == "availability"
 
 
+def test_one_to_one_assignment_higher_confidence_wins_regardless_of_order():
+    """Regression for the bug _match_all's docstring documents: with two
+    near-identical products both clearing the fuzzy-title threshold, the
+    lower-confidence one must never 'steal' the web result, no matter the
+    input order. RAG_ITEM matches at the brand tier (the web title/snippet
+    name GreenGleam); the competitor can only reach the fuzzy-title tier."""
+    competitor = {
+        **RAG_ITEM,
+        "sku": "SKU-PURE-001",
+        "doc_id": "doc-competitor",
+        "brand": "PureHome",
+        "title": "Steel-Safe Eco Stainless Steel Cleaner & Polish, 12 oz",
+    }
+    web = [{
+        "title": "GreenGleam Steel-Safe Eco Stainless Steel Cleaner & Polish, 16 oz",
+        "url": "https://example.com/greengleam-deal",
+        "snippet": "GreenGleam's stainless steel cleaner on sale.",
+        "price": None,
+        "availability": None,
+    }]
+    for ordering in ([RAG_ITEM, competitor], [competitor, RAG_ITEM]):
+        out = reconcile(ordering, web)
+        by_id = {item["doc_id"]: item for item in out["items"]}
+        assert by_id[RAG_ITEM["doc_id"]]["live_match"] is not None
+        assert by_id["doc-competitor"]["live_match"] is None
+        # the single web result is claimed exactly once
+        matched = [i for i in out["items"] if i["live_match"] is not None]
+        assert len(matched) == 1
+        assert out["unmatched_web"] == []
+
+
 def test_empty_inputs_are_safe():
     assert reconcile([], []) == {"items": [], "unmatched_web": []}
     out = reconcile([], [{"title": "x", "url": "u", "snippet": "s",

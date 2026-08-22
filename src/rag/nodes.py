@@ -24,7 +24,7 @@ from typing import Callable, Optional
 from .llm import call_llm
 from .rag_search import rag_search
 from .reconcile import reconcile
-from .safety import filter_web_results, hazard_flags, prompt_injection_flags
+from .safety import HAZARD_CAUTION, filter_web_results, hazard_flags, prompt_injection_flags
 from .tts import fits_budget, truncate_to_budget
 
 PROMPTS_DIR = Path(__file__).resolve().parents[2] / "prompts"
@@ -520,6 +520,56 @@ def answerer_critic_node(state: dict, llm_fn: LlmFn = call_llm) -> dict:
     )
     raw_critic = llm_fn(system, critic_user, mock_response=_critic_mock_response())
     critic_output = _parse_llm_json(raw_critic, _CRITIC_REQUIRED_KEYS, "answerer_critic_node (Critic)")
+
+    # ---- code-enforced floors beneath the Critic's LLM judgement ----------
+    # Same philosophy as rag.safety's module docstring: a check that exists
+    # only inside a prompt disappears the moment the model has an off day —
+    # and the offline mock Critic always accepts, so without these floors an
+    # offline run reports grounded/safe unconditionally.
+
+    # Grounding floor: every doc_id the Answerer cites — in citations or as a
+    # comparison-table row — must exist in the retrieval the answer was built
+    # from. A fabricated id forces a revise verdict regardless of what the
+    # Critic said; after the graph's bounded revise loop ends, a still-failing
+    # verdict reaches the UI as grounded=false rather than being spoken.
+    retrieved_ids = {item.get("doc_id") for item in (reconciled or {}).get("items", [])}
+    cited_ids = (
+        {c.get("doc_id") for c in answerer_output.get("citations") or []}
+        | {row.get("doc_id") for row in answerer_output.get("comparison_table") or []}
+    )
+    unknown_ids = sorted(str(i) for i in cited_ids if i is not None and i not in retrieved_ids)
+    if unknown_ids:
+        critic_output = {
+            **critic_output,
+            "grounded": False,
+            "action": "revise",
+            "reasons": [*critic_output.get("reasons", []),
+                        f"cited doc_id(s) not present in retrieval: {unknown_ids}"],
+        }
+
+    # Hazard floor: deterministic hazardous-combination check over what the
+    # user asked, what is about to be spoken, and the retrieved ingredients
+    # (two individually-safe products can jointly name a hazardous pair).
+    # Previously hazard_flags() ran only in the offline mock Router. A firing
+    # flag *prepends* the standard caution — prepends, so budget truncation
+    # can never cut it — and is recorded on the verdict. This mitigates rather
+    # than blocks: HAZARD_CAUTION is itself the prescribed refusal + guidance.
+    flags = hazard_flags(
+        state.get("transcript"),
+        answerer_output.get("speech"),
+        *[item.get("ingredients") for item in (reconciled or {}).get("items", [])],
+    )
+    if flags and HAZARD_CAUTION not in (answerer_output.get("speech") or ""):
+        speech = HAZARD_CAUTION + " " + (answerer_output.get("speech") or "")
+        if not fits_budget(speech):
+            speech = truncate_to_budget(speech)
+        answerer_output = {**answerer_output, "speech": speech, "safety_flags": flags}
+        critic_output = {
+            **critic_output,
+            "unsafe": True,
+            "reasons": [*critic_output.get("reasons", []),
+                        f"hazardous combination flagged ({', '.join(flags)}); caution prepended"],
+        }
 
     if critic_output.get("action") == "revise":
         revise_count += 1

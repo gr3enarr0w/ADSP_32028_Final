@@ -31,7 +31,10 @@ eval: ## run the retrieval evaluation harness
 mcp: ## run the rag.search MCP server (stdio)
 	python3 mcp/rag_mcp_server.py
 
-ui: ## launch the agent step-log demo (Streamlit)
+ui: ## launch the full voice-to-voice assistant (same as `make app`)
+	streamlit run ui/app.py
+
+ui-panel: ## launch the standalone step-log panel demo (superseded by `make app`)
 	streamlit run ui/demo_step_log.py
 
 app: ## launch the full voice-to-voice assistant (Streamlit)
