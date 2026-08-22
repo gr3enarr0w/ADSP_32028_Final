@@ -24,7 +24,7 @@ from typing import Callable, Optional
 from .llm import call_llm
 from .rag_search import rag_search
 from .reconcile import reconcile
-from .safety import HAZARD_CAUTION, filter_web_results, hazard_flags
+from .safety import HAZARD_CAUTION, filter_web_results, hazard_flags, prompt_injection_flags
 from .tts import fits_budget, truncate_to_budget
 
 PROMPTS_DIR = Path(__file__).resolve().parents[2] / "prompts"
@@ -105,9 +105,35 @@ def _router_mock_response(transcript: str) -> dict:
     valid shape so the rest of the graph can run offline end-to-end."""
     lowered = transcript.lower()
     words = [w.strip(".,!?$") for w in transcript.split()]
-    keywords = [w for w in words if len(w) > 3][:5] or ["cleaner"]
+    stop_words = {"recommend", "recommendation", "please", "could", "would",
+                  "should", "what", "which", "that", "this", "with", "for",
+                  "the", "and", "you", "can", "are"}
+    keywords = [
+        w for w in words
+        if (len(w) >= 3 or w.isdigit()) and w.lower() not in stop_words
+    ][:7] or ["cleaner"]
+    # The bundled private catalog is intentionally limited to household
+    # cleaning products. Hash embeddings always return a nearest neighbour,
+    # even when the query is unrelated, so explicitly reject common
+    # out-of-catalog product requests instead of recommending whichever
+    # cleaner happened to rank first.
+    out_of_catalog_terms = {
+        "hydroflask", "hydro flask", "water bottle", "bottle", "tumbler",
+        "thermos", "mug", "backpack", "laptop", "phone", "headphones",
+        "shoes", "jacket", "camera", "toy", "toys", "game", "doll",
+    }
+    catalog_terms = {
+        "clean", "cleaner", "cleaning", "detergent", "dish soap", "laundry",
+        "bathroom", "tile", "grout", "floor", "glass", "window", "cooktop",
+        "oven", "grill", "polish", "wipe", "wipes", "spray", "bleach",
+        "ammonia", "vinegar", "disinfect", "degreaser", "toilet", "stain",
+        "surface", "wood", "mop",
+    }
+    explicitly_outside = any(term in lowered for term in out_of_catalog_terms)
+    clearly_in_catalog = any(term in lowered for term in catalog_terms)
+    is_out_of_catalog = explicitly_outside or not clearly_in_catalog
     return {
-        "task": "product_recommendation",
+        "task": "out_of_catalog" if is_out_of_catalog else "product_recommendation",
         "constraints": {
             "price_max": None,
             "price_min": None,
@@ -133,6 +159,20 @@ def router_node(state: dict, llm_fn: LlmFn = call_llm) -> dict:
     router_intent.md's "Output schema" section.
     """
     transcript = state["transcript"]
+    injection_flags = prompt_injection_flags(transcript)
+    if injection_flags:
+        router_output = _router_mock_response(transcript)
+        router_output["task"] = "prompt_injection"
+        router_output["safety_flags"] = injection_flags
+        state["router_output"] = router_output
+        return state
+    chemical_flags = hazard_flags(transcript)
+    if chemical_flags:
+        router_output = _router_mock_response(transcript)
+        router_output["task"] = "hazardous_combination"
+        router_output["safety_flags"] = chemical_flags
+        state["router_output"] = router_output
+        return state
     system = _system_assistant_prompt() + "\n\n" + _read(PROMPTS_DIR / "router_intent.md")
     examples = _load_json(FEWSHOTS_DIR / "router_examples.json")
     user = (
@@ -162,6 +202,26 @@ def _planner_mock_response(router_output: dict) -> dict:
     keywords = router_output.get("keywords", []) or []
     wants_live = bool(constraints.get("wants_live"))
     task = router_output.get("task")
+    if task in {"prompt_injection", "hazardous_combination"}:
+        return {
+            "sources": [],
+            "call_web_search": False,
+            "filters": {},
+            "query": "blocked prompt injection",
+            "comparison_criteria": [],
+            "k": 0,
+            "reconcile_on": [],
+        }
+    if task == "out_of_catalog":
+        return {
+            "sources": ["web.search"],
+            "call_web_search": True,
+            "filters": {},
+            "query": " ".join(keywords),
+            "comparison_criteria": ["title", "source"],
+            "k": 3,
+            "reconcile_on": ["title"],
+        }
     filters = {
         k: v for k, v in {
             "price_max": constraints.get("price_max"),
@@ -223,7 +283,10 @@ async def retriever_node(state: dict) -> dict:
     k = planner_output.get("k", 3)
     filters = planner_output.get("filters") or {}
 
-    rag_result = rag_search(query, k=k, filters=filters)
+    if "rag.search" not in (planner_output.get("sources") or []):
+        rag_result = {"query": query, "count": 0, "results": []}
+    else:
+        rag_result = rag_search(query, k=k, filters=filters)
     # retriever_tool_instructions.md "Do / Don't": at most one relaxed retry
     # with fewer filters if the first call returns nothing.
     if rag_result["count"] == 0 and filters:
@@ -268,6 +331,29 @@ async def retriever_node(state: dict) -> dict:
                   "blocked": blocked}
 
     reconciled = reconcile(rag_result["results"], web_result["results"])
+    if not rag_result["results"] and web_result["results"]:
+        # Reconciliation is private-catalog-centric and normally leaves
+        # unmatched web hits in a side list. For a deliberate web-only plan,
+        # promote those hits into answerable items with live provenance.
+        reconciled = {
+            "items": [
+                {
+                    **item,
+                    "doc_id": None,
+                    "rating": None,
+                    "price_per_oz": None,
+                    "ingredients": None,
+                    "live_match": {
+                        "url": item.get("url"),
+                        "price": item.get("price"),
+                        "availability": item.get("availability"),
+                    },
+                    "discrepancy": None,
+                }
+                for item in web_result["results"]
+            ],
+            "unmatched_web": [],
+        }
 
     state["rag_results"] = rag_result
     state["web_results"] = web_result
@@ -283,13 +369,14 @@ _ANSWERER_REQUIRED_KEYS = {"speech", "citations", "comparison_table"}
 _CRITIC_REQUIRED_KEYS = {"grounded", "unsafe", "reasons", "action"}
 
 
-def _answerer_mock_response(reconciled: dict) -> dict:
+def _answerer_mock_response(reconciled: dict, transcript: str = "") -> dict:
     items = (reconciled or {}).get("items", [])
     if not items:
         return {
             "speech": (
-                "I couldn't find a match for that in our catalog. Want me to "
-                "pull up some plant-based multi-surface sprays instead?"
+                "I couldn't find a matching product. This demo catalog only "
+                "contains household cleaning supplies, so I can't give a "
+                "grounded recommendation for that request."
             ),
             "citations": [],
             "comparison_table": [],
@@ -303,7 +390,8 @@ def _answerer_mock_response(reconciled: dict) -> dict:
     # the feature. Grounding still holds: every row's doc_id is cited.
     citations = [{
         "doc_id": item.get("doc_id"), "title": item.get("title"),
-        "url": item.get("url"), "source": "private",
+        "url": item.get("url"),
+        "source": "private" if item.get("doc_id") else "live",
     } for item in items]
     comparison_table = [{
         "title": item.get("title"), "price": item.get("price"), "rating": item.get("rating"),
@@ -363,6 +451,43 @@ def answerer_critic_node(state: dict, llm_fn: LlmFn = call_llm) -> dict:
     reconciled = state["reconciled"]
     revise_count = state.get("revise_count", 0)
     prior_critic = state.get("critic_output")
+    safety_flags = (state.get("router_output") or {}).get("safety_flags") or []
+    injection_flags = [f for f in safety_flags if str(f).startswith("prompt_injection:")]
+    if injection_flags:
+        state["answerer_output"] = {
+            "speech": (
+                "I can’t follow instructions that try to override my safeguards "
+                "or reveal hidden prompts. Please ask a product question directly."
+            ),
+            "citations": [],
+            "comparison_table": [],
+        }
+        state["critic_output"] = {
+            "grounded": True,
+            "unsafe": True,
+            "reasons": ["Prompt-injection guardrail triggered: " + ", ".join(injection_flags)],
+            "action": "reject",
+        }
+        state["revise_count"] = revise_count
+        return state
+    if safety_flags:
+        state["answerer_output"] = {
+            "speech": (
+                "Do not mix those chemicals. They can release toxic gas or "
+                "create a dangerous corrosive mixture. Use one product at a "
+                "time, rinse the surface, and ventilate the room."
+            ),
+            "citations": [],
+            "comparison_table": [],
+        }
+        state["critic_output"] = {
+            "grounded": True,
+            "unsafe": True,
+            "reasons": ["Unsafe chemical combination blocked: " + ", ".join(safety_flags)],
+            "action": "reject",
+        }
+        state["revise_count"] = revise_count
+        return state
 
     system = _system_assistant_prompt() + "\n\n" + _read(PROMPTS_DIR / "answerer_critic.md")
     examples = _load_json(FEWSHOTS_DIR / "answerer_examples.json")
@@ -379,7 +504,11 @@ def answerer_critic_node(state: dict, llm_fn: LlmFn = call_llm) -> dict:
             "\n\nThe Critic rejected your previous answer for these reasons: "
             f"{json.dumps(prior_critic.get('reasons', []))}. Revise accordingly."
         )
-    raw_answer = llm_fn(system, answerer_user, mock_response=_answerer_mock_response(reconciled))
+    raw_answer = llm_fn(
+        system,
+        answerer_user,
+        mock_response=_answerer_mock_response(reconciled, state.get("transcript", "")),
+    )
     answerer_output = _parse_llm_json(raw_answer, _ANSWERER_REQUIRED_KEYS, "answerer_critic_node (Answerer)")
 
     critic_user = (

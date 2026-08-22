@@ -28,6 +28,8 @@ drives the real compiled LangGraph instead, which is the swap
 """
 from __future__ import annotations
 
+import json
+import hashlib
 import sys
 import tempfile
 from pathlib import Path
@@ -47,6 +49,35 @@ from pipeline import run_turn  # noqa: E402
 from rag.asr import REFERENCE_TRANSCRIPTS, sample_clips  # noqa: E402
 from rag.config import get_config  # noqa: E402
 
+
+def render_browser_tts(text: str) -> None:
+    """Render a reliable, user-gesture-driven browser speech control.
+
+    Browsers block unsolicited audio, and macOS pyttsx3 may produce an empty
+    file in sandboxed environments. Web Speech runs in the user's browser and
+    the button click satisfies its autoplay policy.
+    """
+    payload = json.dumps(text)
+    st.components.v1.html(
+        f"""
+        <div style="display:flex;gap:.5rem;align-items:center">
+          <button id="play" style="padding:.45rem .8rem;cursor:pointer">▶ Play spoken response</button>
+          <button id="stop" style="padding:.45rem .8rem;cursor:pointer">■ Stop</button>
+        </div>
+        <script>
+          const text = {payload};
+          document.getElementById('play').onclick = () => {{
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 1.0;
+            window.speechSynthesis.speak(utterance);
+          }};
+          document.getElementById('stop').onclick = () => window.speechSynthesis.cancel();
+        </script>
+        """,
+        height=55,
+    )
+
 st.set_page_config(page_title="Voice-to-Voice Product Assistant",
                    page_icon="🎙️", layout="wide")
 
@@ -61,6 +92,7 @@ if "trace" not in st.session_state:
     st.session_state.trace = None
     st.session_state.final_state = None
     st.session_state.history = []
+    st.session_state.input_fingerprint = None
 
 
 # ---------------------------------------------------------------------------
@@ -83,6 +115,11 @@ with st.sidebar:
              "the prerecorded audio/queryNN.wav clips. Off by default so the "
              "demo never silently fakes a transcript.",
     )
+
+    if st.button("Clear current result", use_container_width=True):
+        st.session_state.trace = None
+        st.session_state.final_state = None
+        st.session_state.input_fingerprint = None
 
     if st.session_state.history:
         st.subheader("Past turns")
@@ -157,13 +194,39 @@ if audio_bytes:
     audio_path = Path(tmp.name)
 
 ready = bool(audio_path or transcript_text)
+
+# Streamlit deliberately preserves session state across widget reruns. Clear
+# the previous result as soon as the actual input changes so an old answer is
+# never shown beneath a new recording/query while the user is deciding to run
+# it. Resource-level caches (Whisper model and vector index) remain intact.
+if audio_bytes is not None:
+    input_fingerprint = f"audio:{hashlib.sha256(audio_bytes).hexdigest()}"
+elif transcript_text:
+    input_fingerprint = f"text:{transcript_text}"
+elif audio_path:
+    input_fingerprint = f"path:{audio_path.resolve()}"
+else:
+    input_fingerprint = None
+
+if (input_fingerprint is not None
+        and st.session_state.input_fingerprint not in (None, input_fingerprint)):
+    st.session_state.trace = None
+    st.session_state.final_state = None
+st.session_state.input_fingerprint = input_fingerprint
+
 if st.button("▶︎ Run the assistant", type="primary", disabled=not ready):
     with st.spinner("Listening, planning, retrieving, answering…"):
         try:
+            # Never reuse a prior turn's outputs, including while this turn is
+            # in flight or if it fails.
+            st.session_state.trace = None
+            st.session_state.final_state = None
             trace, final_state = run_turn(
                 transcript=transcript_text,
                 audio_path=audio_path,
-                synthesize=speak_answer,
+                # Playback is synthesized client-side by render_browser_tts;
+                # the sandboxed macOS NSSpeechSynthesizer writes empty files.
+                synthesize=False,
                 allow_asr_fallback=allow_asr_fallback,
             )
             st.session_state.trace = trace
@@ -180,6 +243,19 @@ final_state = st.session_state.final_state or {}
 if trace is None:
     st.info("Record, upload, pick a sample clip, or type a question — then run.")
     st.stop()
+
+safety_flags = (final_state.get("router_output") or {}).get("safety_flags") or []
+injection_flags = [f for f in safety_flags if str(f).startswith("prompt_injection:")]
+if injection_flags:
+    st.error(
+        "🛡️ Prompt-injection guardrail triggered. The request was blocked before "
+        "retrieval, web search, or answer generation."
+    )
+elif safety_flags:
+    st.error(
+        "☣️ Unsafe chemical-combination guardrail triggered. Do not mix the "
+        "named products. The request was blocked before retrieval or web search."
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -209,7 +285,12 @@ else:
     )
     st.write(trace.answer_text or "—")
 
-if trace.audio_path and Path(trace.audio_path).exists():
+if (trace.answer_text and speak_answer
+        and (critic.get("action") == "accept" or critic.get("unsafe"))):
+    render_browser_tts(trace.answer_text)
+
+if (trace.audio_path and Path(trace.audio_path).exists()
+        and Path(trace.audio_path).stat().st_size > 4096):
     st.audio(str(trace.audio_path))
     st.caption(f"`{trace.audio_path}` · ≤15s spoken summary "
                "(citations and the table are screen-only, never read aloud)")
