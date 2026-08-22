@@ -9,7 +9,10 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-USAGE_FILE = Path.home() / ".claude" / "research-tool-usage.json"
+USAGE_FILE = Path(os.environ.get(
+    "WEB_SEARCH_USAGE_FILE",
+    str(Path(__file__).resolve().parent / ".research-tool-usage.json"),
+))
 
 PROVIDER_LIMITS = {
     "exa":    {"limit": 1400, "type": "one-time"},

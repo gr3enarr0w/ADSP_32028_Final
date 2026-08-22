@@ -2,6 +2,7 @@
 
 import asyncio
 import logging
+import os
 import re
 from urllib.parse import urlparse
 
@@ -44,6 +45,21 @@ NEWS_KEYWORDS = {"news", "latest", "today", "yesterday", "breaking", "announced"
 COMPANY_KEYWORDS = {"company", "startup", "founded", "ceo", "funding", "valuation", "revenue", "employees", "stock"}
 PEOPLE_KEYWORDS = {"who is", "founder", "author", "researcher", "biography", "profile", "person"}
 DEEP_KEYWORDS = {"deep dive", "thoroughly", "analyze", "investigate", "comprehensive", "in-depth"}
+
+PROVIDER_KEY_ENV = {
+    "exa": "EXA_API_KEY",
+    "tavily": "TAVILY_API_KEY",
+    "brave": "BRAVE_SEARCH_API_KEY",
+    "linkup": "LINKUP_API_KEY",
+    "newsdata": "NEWSDATA_API_KEY",
+    "gemini": "GOOGLE_SERVICE_ACCOUNT_JSON",
+}
+
+
+def _provider_configured(name: str) -> bool:
+    """Return whether the provider has the credential it requires."""
+    key_name = PROVIDER_KEY_ENV.get(name)
+    return key_name is None or bool(os.environ.get(key_name))
 
 
 def _keyword_score(query: str, keywords: set[str]) -> int:
@@ -123,11 +139,13 @@ def _select_provider(mode: str, exclude: list[str] | None = None) -> tuple[str, 
     for name in candidates:
         if name in exclude:
             continue
+        if not _provider_configured(name):
+            continue
         if usage_tracker.is_near_limit(name, usage_data):
             continue
         return name, "primary" if name == primary_name else "fallback"
 
-    remaining = [n for n in candidates if n not in exclude]
+    remaining = [n for n in candidates if n not in exclude and _provider_configured(n)]
     if remaining:
         return remaining[0], "last-resort"
     return "tavily", "last-resort"

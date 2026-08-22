@@ -44,6 +44,9 @@ DEFAULT_ALLOWLIST = (
     "webstaurantstore.com", "grove.co", "thrivemarket.com", "iherb.com",
     "weiman.com", "seventhgeneration.com", "mrsmeyers.com", "methodhome.com",
     "ecover.com", "biokleenhome.com", "betterlifeclean.com", "cloroxpro.com",
+    "hydroflask.com",
+    "outdoorgearlab.com", "nytimes.com", "cleverhiker.com",
+    "melissaanddoug.com", "247peds.com",
     "epa.gov", "nih.gov", "cdc.gov", "consumerreports.org",
 )
 
@@ -59,6 +62,14 @@ _HAZARD_RULES: tuple[tuple[str, tuple[tuple[str, ...], ...]], ...] = (
     ("bleach_rubbing_alcohol", (("bleach", "hypochlorite"),
                                 ("rubbing alcohol", "isopropyl"))),
     ("peroxide_vinegar", (("hydrogen peroxide",), ("vinegar", "acetic acid"))),
+)
+
+_PROMPT_INJECTION_RULES: tuple[tuple[str, str], ...] = (
+    ("ignore_instructions", r"\b(ignore|disregard|forget|override)\b.{0,40}\b(previous|prior|system|developer|instructions?|rules?)\b"),
+    ("reveal_prompt", r"\b(reveal|show|print|repeat|expose|leak)\b.{0,40}\b(system|developer)\s+(prompt|message|instructions?)\b"),
+    ("jailbreak", r"\b(jailbreak|developer mode|dan mode|no restrictions|bypass (the )?(guardrails|safety|policy))\b"),
+    ("secret_exfiltration", r"\b(reveal|show|print|expose|leak)\b.{0,40}\b(api[ _-]?keys?|tokens?|passwords?|secrets?|environment variables?)\b"),
+    ("role_override", r"\b(pretend|act)\s+(that\s+)?you\s+are\b.{0,40}\b(unrestricted|unfiltered|developer|system)\b"),
 )
 
 
@@ -148,6 +159,15 @@ def hazard_flags(*texts: Optional[str]) -> list[str]:
                for group in groups):
             flags.append(flag)
     return flags
+
+
+def prompt_injection_flags(text: Optional[str]) -> list[str]:
+    """Detect common attempts to override policy or extract hidden context."""
+    blob = (text or "").lower().strip()
+    if not blob:
+        return []
+    return [f"prompt_injection:{name}" for name, pattern in _PROMPT_INJECTION_RULES
+            if re.search(pattern, blob, flags=re.DOTALL)]
 
 
 HAZARD_CAUTION = (

@@ -284,7 +284,10 @@ def _speak_pyttsx3(text: str, out_path: Path, voice: Optional[str],
             pass
         _reset_pyttsx3_engine_cache(pyttsx3)
 
-    if out_path.exists() and out_path.stat().st_size > 0:
+    # On macOS, NSSpeechSynthesizer can leave behind a valid-looking 4096-byte
+    # AIFF header with no audio frames. Treat that as a failed synthesis, not
+    # a playable artifact.
+    if out_path.exists() and out_path.stat().st_size > 4096:
         return out_path
 
     if _attempt < 2:
